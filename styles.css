@@ -1,0 +1,568 @@
+/* Base Styles and Variables */
+:root {       /* near-black hero background */
+  --bg-accent: #298FEE;       /* primary accent blue (buttons, highlights) */
+  --bg-light-card: #FFFFFF;   /* white card background */
+  --text-light: #f0f0f0;      /* light text for dark backgrounds */
+  --text-dark: #111111;       /* dark text for light backgrounds */
+  --font-main: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Reset and base typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-main);
+  background: #0a0a40; /* dark blue background */
+  color: var(--text-light);
+  line-height: 1.6;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 1em;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hero Section */
+
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dark overlay for readability */
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  z-index: 1;
+}
+
+
+.hero {
+  background: var(--bg-dark);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero-description {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+.company-info {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+.company-info .label {
+  font-weight: 600;
+  color: #aaaaaa;
+  margin-right: 0.25em;
+}
+.company-info .value {
+  margin-right: 1.5em;
+}
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.store-badge img {
+  height: 40px;
+  /* slight drop shadow for visibility on dark */
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+}
+
+/* Buttons (primary and outline styles) */
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.6em 1.2em;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-primary {
+  background: var(--bg-accent);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 0 8px rgba(41,143,238,0.5);
+}
+.btn-primary:hover {
+  background: #0f7dd9; /* a slightly darker blue on hover */
+  box-shadow: 0 0 12px rgba(41,143,238,0.7);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--bg-accent);
+  border: 2px solid var(--bg-accent);
+}
+.btn-outline:hover {
+  background: var(--bg-accent);
+  color: #fff;
+}
+.btn-sm {
+  font-size: 0.9rem;
+  padding: 0.4em 1em;
+}
+
+/* Sections within Main */
+main section {
+  padding: 3rem 2rem;
+}
+.shares-section {
+  background: var(--bg-teal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Rotating Tagline Pill */
+.tagline-pill {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #0a0a0a;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  /* ensure the pill text container is wide enough for longest text */
+  min-width: 200px;
+  text-align: center;
+}
+.tagline-pill .tagline {
+  display: none;
+}
+.tagline-pill .current {
+  display: inline;
+  animation: fadeSwap 8s infinite;
+}
+/* Keyframes to fade between two tagline messages */
+@keyframes fadeSwap {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* Show second tagline during the appropriate interval */
+@keyframes fadeSwapAlt {
+  0%, 45% { opacity: 0; }
+  50%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* (We'll use JavaScript or an additional CSS trick to swap classes for second tagline if needed) */
+
+/* Grid of 4 columns (Shares & Cash content) */
+.grid-4cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Card styles */
+.card {
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px rgba(255,255,255,0.05);
+}
+.dark-card {
+  background: rgba(255,255,255,0.05); /* slightly lighter overlay on dark background */
+}
+.light-card {
+  background: var(--bg-light-card);
+  color: var(--text-dark);
+}
+/* Card headings with dotted underline decoration */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.card-title .dotted-underline {
+  border-bottom: 2px dotted var(--bg-accent);
+  display: inline-block;
+  padding-bottom: 0.1em;
+}
+/* Body text inside dark cards */
+.dark-card p, .dark-card li {
+  color: #e0e0e0;
+}
+/* Bullet list styles inside cards */
+.bullet-list li {
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+/* Slight indent for list items with emoji (since no native list-style) */
+.bullet-list li::before {
+  content: "";
+  width: 0.5em;
+  display: inline-block;
+}
+.bullet-list li i {
+  /* for any icons in list (like Font Awesome in feature list) */
+  color: var(--bg-accent);
+  margin-right: 0.5em;
+}
+
+/* Image card placeholders */
+.image-card {
+  background: rgba(255,255,255,0.1);
+  border: 2px dashed rgba(255,255,255,0.3);
+  border-radius: 8px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ccc;
+  font-style: italic;
+}
+/* If actual images are provided, one could use <img> tags instead of these placeholder divs */
+
+/* Game Feature Section Layout */
+.game-section {
+  background: var(--bg-teal);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.game-text {
+  /* left side container for game texts and collage */
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: block;
+  color: #ccf0ff;
+}
+.section-tagline {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+/* Game collage layout (3 cols x 2 rows grid) */
+.game-collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+  height: 300px; /* total collage height (approximate) */
+}
+.game-img {
+  border-radius: 4px;
+  background: #555; /* default color if not overridden */
+}
+/* Specific placeholder colors for variety */
+.game1 { background: #ffb347; }   /* orange */
+.game2 { background: #ae81ff; }   /* purple */
+.game3 { background: #79daff; }   /* light blue */
+.game4 { background: #ff9999; }   /* pinkish red */
+.game5 { background: #94ff94; }   /* light green */
+.game2.tall {
+  grid-row: span 2;
+}
+/* Games Modules Card (white card on right) */
+.games-modules-card {
+  position: relative;
+}
+.games-modules-card h3 {
+  color: #000;
+  margin-bottom: 1rem;
+}
+.games-modules-card .card-title .dotted-underline {
+  border-color: #000; /* black dotted underline in white card heading */
+}
+.feature-list {
+  margin-bottom: 1rem;
+}
+.feature-list li {
+  margin-bottom: 0.5em;
+  font-size: 0.95rem;
+}
+.feature-list li i {
+  color: #000;
+  margin-right: 0.5em;
+}
+.games-image {
+  background: rgba(0,0,0,0.1);
+  border-radius: 6px;
+  min-height: 120px;
+  margin-bottom: 1rem;
+  /* Ideally, place an actual image of VR players here */
+}
+.note {
+  font-size: 0.9rem;
+  color: #333;
+}
+.note a.btn {
+  font-size: 0.85rem;
+  padding: 0.3em 0.8em;
+}
+
+/* Additional Features Section (3 feature cards) */
+.features-section {
+  background: var(--bg-teal);
+}
+.features-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.features-cards .card {
+  text-align: left;
+}
+.features-cards h3.card-title {
+  font-size: 1.1rem;
+}
+.features-cards .card p {
+  margin-bottom: 1rem;
+}
+.pill-list {
+  margin-bottom: 1rem;
+}
+.pill {
+  display: block;
+  background: #0a0a0a;
+  color: #fff;
+  border: 1px solid var(--bg-accent);
+  border-radius: 999px;
+  padding: 0.3em 0.8em;
+  font-size: 0.9rem;
+  margin: 0.3em 0;
+  width: fit-content;
+}
+.pill:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+/* Secondary CTAs (Register/Download App buttons) */
+.secondary-ctas {
+  text-align: center;
+  margin-top: 1rem;
+}
+.secondary-ctas .btn {
+  margin: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* Download Mobile App CTA Section */
+.download-section {
+  background: rgba(255, 255, 255, 0.05);
+  /* light overlay on teal background to highlight */
+  text-align: center;
+}
+.download-container {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  display: inline-block;
+  max-width: 600px;
+}
+.download-title {
+  font-size: 1.5rem;
+  color: var(--bg-accent);
+  margin-bottom: 1.5rem;
+}
+.download-title .dotted-underline {
+  /* purely decorative span to show dots under the heading text */
+  border-bottom-color: var(--bg-accent);
+}
+.store-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.store-badges img {
+  height: 50px;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+/* Footer Styles */
+.footer {
+  background: #0a0a40;
+  color: #e0e0e0;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* even spacing between icons */
+  margin-bottom: 1rem;
+}
+
+.social-btn svg {
+  width: 30px;  /* reduced size */
+  height: 30px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.social-btn:hover svg {
+  transform: scale(1.1); /* optional zoom effect on hover */
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+}
+
+/* Responsive Design Tweaks */
+/* Medium screens (tablet) */
+@media (max-width: 992px) {
+  .hero-description {
+    font-size: 0.95rem;
+  }
+}
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 2rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-ctas {
+    flex-direction: column;
+  }
+  .tagline-pill {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    min-width: 140px;
+  }
+  .game-section {
+    grid-template-columns: 1fr;
+  }
+  .game-section .section-title {
+    text-align: center;
+  }
+  .game-collage {
+    height: auto;
+    grid-auto-rows: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .features-cards {
+    grid-template-columns: 1fr;
+  }
+  .secondary-ctas .btn {
+    display: block;
+    margin: 0.5rem auto;
+  }
+  .download-container {
+    width: 90%;
+    padding: 1.5rem 1rem;
+  }
+  .store-badges {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Mobile Bottom Navigation Bar */
+@media (max-width: 768px) {
+  ul.nav-menu {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    border-radius: 0.6rem;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: var(--bg-accent);
+    color: #fff;
+    box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
+  }
+}
+@media (min-width: 768px) {
+  ul.nav-menu {
+    display: flex !important;
+    position: static;
+    background: transparent;
+    padding: 0;
+    border: none;
+    transform: none;
+  }
+}
