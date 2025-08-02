@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://miamorweb.site/index.html</loc>
+    <lastmod>2025-08-02</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://miamorweb.site/blog.html</loc>
+    <lastmod>2025-08-02</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://miamorweb.site/faq.html</loc>
+    <lastmod>2025-08-02</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Downloads -->
+  <url>
+    <loc>https://miamorweb.site/downloads.html</loc>
+    <lastmod>2025-08-02</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Register Pages -->
+  <url>
+    <loc>https://miamorweb.site/register.html</loc>
+    <lastmod>2025-08-02</lastmod>
+  </url>
+
+  <url>
+    <loc>https://miamorweb.site/register1.html</loc>
+    <lastmod>2025-08-02</lastmod>
+  </url>
+
+  <url>
+    <loc>https://miamorweb.site/register2.html</loc>
+    <lastmod>2025-08-02</lastmod>
+  </url>
+
+  <!-- Video Page -->
+  <url>
+    <loc>https://miamorweb.site/video/miamor.mp4</loc>
+    <video:video>
+      <video:thumbnail_loc>https://miamorweb.site/miamorlogo.png</video:thumbnail_loc>
+      <video:title>Miamor Platform Intro</video:title>
+      <video:description>Watch this short video to learn how Miamor helps users earn from love, games, and content.</video:description>
+      <video:content_loc>https://miamorweb.site/video/miamor.mp4</video:content_loc>
+      <video:player_loc>https://miamorweb.site/video/miamor.mp4</video:player_loc>
+      <video:publication_date>2025-08-02</video:publication_date>
+    </video:video>
+  </url>
+
+</urlset>

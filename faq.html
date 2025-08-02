@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loading - Miamor</title>
+  <title>FAQs – Miamor</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      color: #e6f2ff;
       background: #0a0a40;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
     }
+
     nav {
       position: fixed;
       bottom: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 123, 255, 0.1);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 123, 255, 0.2);
       border-radius: 1rem;
       padding: 0.5rem 1rem;
       display: flex;
@@ -36,46 +32,216 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
     nav a {
-      color: #ffffff;
-      text-decoration: none;
-      padding: 0.5rem 0.6rem;
-      font-size: 0.9rem;
-      border-radius: 0.6rem;
-      background: transparent;
-      transition: all 0.3s ease;
-    }
+  color: #e6f2ff;
+  text-decoration: none;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  background: transparent;
+  transition: all 0.3s ease;
+}
     nav a:hover {
       background-color: #298FEE;
       color: #fff;
       box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
     }
-    .loading-text {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+
+    h1 {
+      text-align: center;
+      color: #99ccff; /* light blue heading */
     }
-    .spinner {
-      width: 60px;
-      height: 60px;
-      border: 6px solid #ffffff33;
-      border-top-color: #298FEE;
+
+    .accordion {
+      margin-bottom: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      background: #ffffff;
+      border-bottom: 1px solid #99ccff;
+    }
+
+    .accordion-button {
+      background: #1a3f7a;
+      color: #cce6ff; /* lighter text */
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .accordion-button:hover {
+  background: #295c9f;
+}
+
+    .accordion-button::before {
+      content: "❓";
+      font-size: 18px;
+    }
+
+    .accordion-content {
+  padding: 15px;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+  background: #112b57; /* deeper blue background */
+  color: #e6f2ff; /* light text */
+}
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 15px;
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 14px;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 2rem;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.2s ease-in-out;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      background-color: #003f7d;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 600px) {
+      .accordion-button {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="spinner"></div>
-  <div class="loading-text">Loading... Please wait</div>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/downloads.html">Download</a>
-    <a href="/faq.html">FAQ</a>
+   <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="downloads.html">Download</a>
+    <a href="faq.html">FAQ</a>
   </nav>
+
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-button">How do I register on Miamor?</button>
+      <div class="accordion-content">
+        <p>To register, visit the official website or download the Miamor app, click on “Register,” fill in your details, and confirm your account. You can start earning immediately after registration.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button">Is Miamor a real or scam platform?</button>
+      <div class="accordion-content">
+        <p>Miamor is a legit platform used by thousands to earn rewards for engaging in chats, games, and social activities. Always use the official site for safety.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button">How does the Miamor app work?</button>
+      <div class="accordion-content">
+        <p>The Miamor app lets you earn through conversations, matching, playing games, and completing challenges. Each activity translates into earnings and growth points.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button">What rewards can I earn?</button>
+      <div class="accordion-content">
+        <p>You can earn daily bonuses, cash rewards, love hamper gifts, and even travel trips like the Miamor Love Trip for top users.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-button">How to withdraw earnings?</button>
+      <div class="accordion-content">
+        <p>Go to your dashboard, click on “Withdraw,” select your payment method (bank, wallet, or crypto), and complete the transaction. Withdrawals are processed quickly.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#top" id="backToTop" title="Back to Top">↑</a>
+
+  <script>
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+  <!-- JSON-LD Schema Markup for FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I register on Miamor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To register, visit the official website or download the Miamor app, click on 'Register,' fill in your details, and confirm your account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Miamor a real or scam platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Miamor is a legit platform used by thousands to earn rewards for engaging in chats, games, and social activities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Miamor app work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Miamor app lets you earn through conversations, matching, playing games, and completing challenges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What rewards can I earn?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can earn daily bonuses, cash rewards, love hamper gifts, and even travel trips like the Miamor Love Trip for top users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to withdraw earnings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Go to your dashboard, click on 'Withdraw,' select your payment method, and complete the transaction."
+        }
+      }
+    ]
+  }
+  </script>
+
 </body>
 </html>

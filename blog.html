@@ -3,29 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loading - Miamor</title>
+  <title>Miamor Blog</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+      color: #e6f2ff;
       background: #0a0a40;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
     }
+
     nav {
       position: fixed;
       bottom: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 123, 255, 0.1);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 123, 255, 0.2);
       border-radius: 1rem;
       padding: 0.5rem 1rem;
       display: flex;
@@ -35,47 +30,154 @@
       z-index: 1000;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
+
     nav a {
-      color: #ffffff;
+      color: #e6f2ff;
       text-decoration: none;
       padding: 0.5rem 0.6rem;
       font-size: 0.9rem;
       border-radius: 0.6rem;
-      background: transparent;
-      transition: all 0.3s ease;
     }
+
     nav a:hover {
       background-color: #298FEE;
       color: #fff;
-      box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
     }
-    .loading-text {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+
+    h1 {
+      text-align: center;
+      color: #99ccff;
     }
-    .spinner {
-      width: 60px;
-      height: 60px;
-      border: 6px solid #ffffff33;
-      border-top-color: #298FEE;
+
+    .blog-post {
+      background: #112b57;
+      border-radius: 10px;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-post img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .blog-post h2 {
+      color: #cce6ff;
+      margin-bottom: 10px;
+    }
+
+    .blog-post p {
+      color: #e6f2ff;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 15px;
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 14px;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 2rem;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.2s ease-in-out;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      background-color: #003f7d;
+    }
+
+    @media (max-width: 600px) {
+      .blog-post h2 {
+        font-size: 20px;
+      }
+
+      .blog-post p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="spinner"></div>
-  <div class="loading-text">Loading... Please wait</div>
 
   <nav>
     <a href="/">Home</a>
+    <a href="/faq.html">FAQ</a>
     <a href="/blog.html">Blog</a>
     <a href="/downloads.html">Download</a>
-    <a href="/faq.html">FAQ</a>
   </nav>
+
+  <h1>Miamor Registrations, How Miamor Works and how to register.</h1>
+
+  <div id="blogContainer">
+    <!-- Blog posts will be injected here -->
+  </div>
+
+  <a href="#top" id="backToTop" title="Back to Top">↑</a>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbwc95nVfbQkuRxPtZ24qCvwnGprw75FKMmCogKMOtgNv2WkvqLAKai5xfzpQE36If9X/exec")
+      .then(res => res.json())
+      .then(posts => {
+        const container = document.getElementById("blogContainer");
+        container.innerHTML = "";
+        let schemaArray = [];
+
+        posts.forEach(post => {
+          container.innerHTML += `
+            <div class="blog-post">
+              <img src="${post.image}" alt="Miamor Blog Image" />
+              <h2>${post.title}</h2>
+              <p><em>${post.description}</em></p>
+              <p>${post.content}</p>
+            </div>
+          `;
+
+          schemaArray.push({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.description,
+            "image": post.image,
+            "articleBody": post.content,
+            "author": {
+              "@type": "Organization",
+              "name": "Miamor"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Miamor",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://miamorweb.site/img/miamor-logo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": window.location.href
+            },
+            "datePublished": new Date().toISOString()
+          });
+        });
+
+        const schemaScript = document.createElement("script");
+        schemaScript.type = "application/ld+json";
+        schemaScript.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": schemaArray
+        });
+        document.head.appendChild(schemaScript);
+      })
+      .catch(err => {
+        document.getElementById("blogContainer").innerHTML = "<p style='color:#ffcccc;'>Error loading blog posts.</p>";
+        console.error(err);
+      });
+  </script>
+
 </body>
 </html>

@@ -290,27 +290,42 @@ main section {
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
-/* Game collage layout (3 cols x 2 rows grid) */
+/* Game collage layout (3 cols x 2 rows grid, auto height) */ 
 .game-collage {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, auto); /* adjust to image width */
+  grid-template-rows: auto; /* auto height based on content */
   gap: 0.5rem;
-  height: 300px; /* total collage height (approximate) */
+  width: fit-content; /* shrink-wrap to content width */
 }
+
+/* Image container styling */
 .game-img {
   border-radius: 4px;
-  background: #555; /* default color if not overridden */
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+
 /* Specific placeholder colors for variety */
-.game1 { background: #ffb347; }   /* orange */
-.game2 { background: #ae81ff; }   /* purple */
-.game3 { background: #79daff; }   /* light blue */
-.game4 { background: #ff9999; }   /* pinkish red */
-.game5 { background: #94ff94; }   /* light green */
+.game1 { background: #ffb347; }
+.game2 { background: #ae81ff; }
+.game3 { background: #79daff; }
+.game4 { background: #ff9999; }
+.game5 { background: #94ff94; }
+
 .game2.tall {
   grid-row: span 2;
 }
+
+.game-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Games Modules Card (white card on right) */
 .games-modules-card {
   position: relative;
