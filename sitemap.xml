@@ -46,16 +46,16 @@
     <lastmod>2025-08-02</lastmod>
   </url>
 
-  <!-- Video Page -->
+  <!-- Video Sitemap Entry -->
   <url>
-    <loc>https://miamorweb.site/video/miamor.mp4</loc>
+    <loc>https://miamorweb.site/index.html</loc> <!-- or link to the blog.html if video is shown there -->
     <video:video>
       <video:thumbnail_loc>https://miamorweb.site/miamorlogo.png</video:thumbnail_loc>
       <video:title>Miamor Platform Intro</video:title>
-      <video:description>Watch this short video to learn how Miamor helps users earn from love, games, and content.</video:description>
+      <video:description>Learn how Miamor helps users earn through social connections, games, and digital engagement.</video:description>
       <video:content_loc>https://miamorweb.site/video/miamor.mp4</video:content_loc>
-      <video:player_loc>https://miamorweb.site/video/miamor.mp4</video:player_loc>
       <video:publication_date>2025-08-02</video:publication_date>
+      <video:duration>90</video:duration>
     </video:video>
   </url>
 
