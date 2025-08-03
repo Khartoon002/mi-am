@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loading - Miamor</title>
+  <link rel="icon" href="/img/miamor-logo.png" type="image/x-icon">
+  <title>How to Download Miamor and Earn ON Miamor Platform</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      padding: 0;
       background: #0a0a40;
-      color: #ffffff;
+      font-family: Arial, sans-serif;
+      color: #e6f2ff;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,7 +19,7 @@
       height: 100vh;
       text-align: center;
     }
-    nav {
+nav {
       position: fixed;
       bottom: 1rem;
       left: 50%;
@@ -49,29 +51,116 @@
       color: #fff;
       box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
     }
-    .loading-text {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+    h1 {
+      margin-bottom: 20px;
+      color: #99ccff;
     }
-    .spinner {
-      width: 60px;
+
+    .download-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .store-icon {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .store-icon a {
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .store-icon img {
       height: 60px;
-      border: 6px solid #ffffff33;
-      border-top-color: #298FEE;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 2rem;
+      border-radius: 12px;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    .store-icon a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .store-icon img {
+        height: 50px;
+      }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Miamor",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "SocialNetworkingApplication",
+  "description": "Download the Miamor App to earn rewards while connecting, chatting, and enjoying social entertainment. Available on Google Play and App Store.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Miamor Platform",
+    "url": "https://miamorweb.site"
+  },
+  "downloadUrl": [
+    "https://linktr.ee/makemoneyonline312",
+    "https://linktr.ee/makemoneyonline312"
+  ],
+  "screenshot": [
+    "https://miamorweb.site/screenshots/screen1.jpg",
+    "https://miamorweb.site/screenshots/screen2.jpg"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "ratingCount": "1280"
+  }
+}
+</script>
+
 </head>
 <body>
-  <div class="spinner"></div>
-  <div class="loading-text">Loading... Please wait</div>
 
-  <nav>
+  <h1>Click below to download the Miamor App</h1>
+
+  <div class="download-box">
+    <div class="store-icon">
+      <!-- Google Play -->
+      <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get Miamor App on Google Play">
+      </a>
+
+      <!-- Apple Store -->
+      <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download Miamor App on the App Store">
+      </a>
+    </div>
+  </div>
+<nav>
     <a href="/">Home</a>
     <a href="/blog.html">Blog</a>
     <a href="/downloads.html">Download</a>
