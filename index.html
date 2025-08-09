@@ -1,84 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
   <!-- Charset & viewport -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Robots & canonical (from site #2) -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <!-- Indexing, canonical, base -->
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/" />
   <meta name="format-detection" content="telephone=no" />
   <base target="_top">
 
-  <!-- Keywords (kept from site #1) -->
-  <meta name="keywords" content="miamor,miamor app,miamor registration,miamor platform,miamor agent,miamor nigeria,miamor upload,miamor media,miamor streaming,miamor music,miamor download,emerald miamor,miamor login,miamor earning,miamor backend,miamor website"/>
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/video/miamor.mp4" as="video" type="video/mp4" />
+  <link rel="preload" href="/img/miamor-logo.png" as="image" imagesizes="64x64" imagesrcset="/img/miamor-logo.png 64w" />
 
-  <!-- Title & meta description (use clearer copy inspired by site #2) -->
-  <title>MiAmor Website - Earn, Connect and Find Love Online</title>
-  <meta name="title" content="MiAmor Website - Earn, Connect and Find Love Online" />
-  <meta name="description" content="Explore MiAmor — a platform where you can earn real income, connect with love, play, share and trade. Start today with fast registration and simple onboarding." />
+  <!-- Keywords (kept, refined for intent clusters) -->
+  <meta name="keywords" content="miamor, miamor app, miamor registration, miamor platform, miamor website, miamor nigeria, miamor login, miamor download, miamor earning, miamor streaming, miamor media, miamor agent" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://miamorweb.site/" />
-  <meta property="og:site_name" content="MiAmor" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="MiAmor Website - Earn, Connect and Find Love Online" />
-  <meta property="og:description" content="Explore MiAmor — a platform where you can earn real income, connect with love, play, share and trade. Start today with fast registration and simple onboarding." />
-  <!-- Use your best hero image; swap to your own hosted file if available -->
-  <meta property="og:image" content="https://miamorwebsite.com.ng/wp-content/uploads/2025/07/IMG_20250731_004256_085.jpg" />
-  <meta property="og:image:width" content="1040" />
-  <meta property="og:image:height" content="1280" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <!-- Title & meta description -->
+  <title>MiAmor Website — MiAmor App, Registration, Download & Earning Platform (Nigeria)</title>
+  <meta name="title" content="MiAmor Website — MiAmor App, Registration, Download & Earning Platform (Nigeria)" />
+  <meta name="description" content="Official MiAmor website. Learn how MiAmor works, complete MiAmor registration, download the MiAmor app, and explore earning features, games, marketplace, and love tools for Nigeria & beyond." />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor Website - Earn, Connect and Find Love Online" />
-  <meta name="twitter:description" content="Explore MiAmor — a platform where you can earn real income, connect with love, play, share and trade. Start today with fast registration and simple onboarding." />
-  <meta name="twitter:url" content="https://miamorweb.site/" />
-  <meta name="twitter:image" content="https://miamorwebsite.com.ng/wp-content/uploads/2025/07/IMG_20250731_004256_085.jpg" />
-
-  <!-- Favicons (added sizes like site #2) -->
+  <!-- Favicons -->
   <link rel="icon" href="/img/miamor-logo.png" sizes="32x32" />
   <link rel="icon" href="/img/miamor-logo.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/img/miamor-logo.png" />
-  <meta name="msapplication-TileImage" content="https://miamorweb.site/img/miamor-logo.png" />
+  <meta name="theme-color" content="#0b64d8" />
 
-  <!-- Fonts (keep Poppins/Montserrat, preload like site #2) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://miamorweb.site/" />
+  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:title" content="MiAmor Website — App, Registration, Download & Earning" />
+  <meta property="og:description" content="Register on MiAmor, download the app, and start earning with games, marketplace, and social shares." />
+  <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MiAmor Website — App, Registration, Download & Earning" />
+  <meta name="twitter:description" content="Official MiAmor website. Registration, app download, and how to earn." />
+  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-1x0dJ+8UO0z5kZLr2KbE9ElhN4b3M4O/1dZID5m9f4+FZQJ8E+KkF5aF5Szv5G5e"
-        crossorigin="anonymous">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-NiZ0Qnq0xQe2x8TzCj0L1nS8zZqfI6r4bQq1Qm3V1b0R3ZpHq9zXo9B0bqk8cZ3G9yGQ2w0kE8w2W3s5QnK0XQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- ===== Structured Data (kept from site #1, lightly aligned) ===== -->
-  <!-- Organization / Website -->
+  <!-- ===== Structured Data ===== -->
+
+  <!-- Organization + Logo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MiAmor",
+    "url": "https://miamorweb.site/",
+    "logo": "https://miamorweb.site/img/miamor-logo.png",
+    "sameAs": [
+      "https://linktr.ee/makemoneyonline312"
+    ]
+  }
+  </script>
+
+  <!-- WebSite + Sitelinks Search Box -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "MiAmor",
-    "url": "https://miamorweb.site",
-    "description": "MiAmor is an all-in-one digital platform that offers streaming, earnings, gaming, learning, and a social marketplace.",
-    "inLanguage": "en-US",
-    "publisher": {
-      "@type": "Organization",
-      "name": "MiAmor",
-      "url": "https://miamorweb.site",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://miamorweb.site/img/miamor-logo.png"
-      }
-    },
+    "url": "https://miamorweb.site/",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://miamorweb.site/search?q={search_term_string}",
@@ -87,21 +89,21 @@
   }
   </script>
 
-  <!-- App -->
+  <!-- Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "MiAmor App",
-    "operatingSystem": "ANDROID, iOS",
-    "applicationCategory": "SocialNetworkingApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NGN" },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "1800" },
-    "installUrl": "https://linktr.ee/makemoneyonline312"
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://miamorweb.site/blog.html"},
+      {"@type":"ListItem","position":3,"name":"Downloads","item":"https://miamorweb.site/downloads.html"},
+      {"@type":"ListItem","position":4,"name":"FAQ","item":"https://miamorweb.site/faq.html"}
+    ]
   }
   </script>
 
-  <!-- FAQ -->
+  <!-- FAQ (real questions only; keep truthful to avoid penalties) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -112,7 +114,7 @@
         "name": "What is MiAmor?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MiAmor is a digital platform for earning money, finding love, gaining skills, selling items, and playing games — all in one place."
+          "text": "MiAmor is a digital platform that combines social discovery, learning, games, and a marketplace. Users can register, connect, and access features that may include rewards and commissions depending on activity."
         }
       },
       {
@@ -120,487 +122,346 @@
         "name": "How do I register on MiAmor?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Visit https://miamorweb.site/register.html, fill out your information, and start earning with the MiAmor platform."
+          "text": "Visit https://miamorweb.site/register.html and follow the on-page steps to create your account."
         }
       },
       {
         "@type": "Question",
-        "name": "How can I earn money on MiAmor?",
+        "name": "Where can I download the MiAmor app?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Earn through affiliate marketing, gaming, couple challenges, marketplace sales, social shares, and more."
+          "text": "Go to https://miamorweb.site/downloads.html for the latest official download links."
         }
       }
     ]
   }
   </script>
 
-  <!-- Promo Video -->
+  <!-- Video (promo) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "How to Register on MiAmor Platform",
-    "description": "Quick guide to register and start earning on MiAmor.",
-    "thumbnailUrl": "https://miamorweb.site/img/miamor-logo.png",
-    "uploadDate": "2025-08-05",
-    "contentUrl": "https://miamorweb.site/video/miamor.mp4"
+    "@context":"https://schema.org",
+    "@type":"VideoObject",
+    "name":"How to Register on MiAmor",
+    "description":"Quick guide to register and start using MiAmor.",
+    "thumbnailUrl":"https://miamorweb.site/img/miamor-logo.png",
+    "uploadDate":"2025-08-05",
+    "contentUrl":"https://miamorweb.site/video/miamor.mp4"
   }
   </script>
-</head>
 
   <style>
-    html {
-  scroll-behavior: smooth;
+    :root{
+      --brand:#0b64d8; --brand-dark:#084ca6; --text:#0f172a; --muted:#667085; --card:#0b64d8; --cardText:#fff;
+      --bg:#f8fafc;
     }
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    /* Top nav */
+    .nav-wrap{position:sticky; top:0; background:#fff; z-index:50; box-shadow:0 1px 8px rgba(0,0,0,.06)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+      max-width:1120px; margin:0 auto; padding:.75rem 1rem;
+    }
+    .nav .brand{display:flex; align-items:center; gap:.5rem; text-decoration:none}
+    .nav .brand img{width:36px; height:36px; border-radius:8px}
+    .nav .brand span{font-weight:700; color:var(--text)}
+    .nav-menu{display:flex; gap:1rem; list-style:none; margin:0; padding:0}
+    .nav-menu a{
+      text-decoration:none; color:#111; font-weight:600; padding:.5rem .75rem; border-radius:.5rem;
+    }
+    .nav-menu a:hover{background:rgba(11,100,216,.08); color:var(--brand)}
+    .nav .cta{background:var(--brand); color:#fff; padding:.55rem .9rem; border-radius:.6rem; text-decoration:none; font-weight:700}
+    .nav .cta:hover{background:var(--brand-dark)}
 
-    .nav-menu {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  background: #ffffff;
-  padding: 1rem 0;
-  margin: 0;
-  list-style: none;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.nav-menu li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  transition: color 0.3s ease;
-}
-.nav-menu li a:hover {
-  color: #298fee;
-}
+    /* Hero */
+    .hero{
+      position:relative; min-height:72vh; display:grid; place-items:center; text-align:center; overflow:hidden; color:#fff;
+    }
+    .hero video.hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2}
+    .hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.45)); z-index:-1}
+    .hero .content{max-width:860px; padding:3rem 1rem}
+    .hero h1{font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,4.5vw,3rem); margin:0 0 .6rem}
+    .hero p{font-size:clamp(.98rem,2.3vw,1.1rem); margin:.25rem auto 1.25rem; line-height:1.7}
+    .hero .kpis{opacity:.95; font-size:.95rem}
+    .btn{background:var(--brand); color:#fff; padding:.7rem 1.1rem; border-radius:999px; text-decoration:none; font-weight:700; display:inline-block}
+    .btn:hover{background:var(--brand-dark)}
+    .btn-outline{border:2px solid #fff; color:#fff; background:transparent}
+    .btn-outline:hover{border-color:#e5efff; color:#e5efff}
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
+    /* Shared sections */
+    .section{max-width:1120px; margin:0 auto; padding:3rem 1rem}
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+    .card{border-radius:16px; padding:1.25rem}
+    .card.dark{background:var(--card); color:var(--cardText); box-shadow:0 10px 24px rgba(11,100,216,.25)}
+    .card.light{background:#fff; color:var(--text); box-shadow:0 5px 16px rgba(2,6,23,.08)}
+    .card h2,.card h3{margin:.25rem 0 .75rem}
+    .bullet-list{margin:.5rem 0 0; padding-left:1.1rem}
+    .bullet-list li{margin:.45rem 0}
+    .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:1.25rem}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+    .image-card img{width:100%; height:auto; border-radius:14px; display:block}
+
+    /* Extra styles for user's updated body blocks */
+    .shares-section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
+    .tagline-pill{display:inline-flex;gap:.6rem;align-items:center;background:#eef4ff;color:#0b64d8;border-radius:999px;padding:.4rem .8rem;margin:.5rem 0 1rem;font-weight:600}
+    .grid-4cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+    @media (max-width:900px){.grid-4cols{grid-template-columns:1fr}}
+    .dark-card{background:var(--card);color:var(--cardText);box-shadow:0 10px 24px rgba(11,100,216,.25);border-radius:16px;padding:1.25rem}
+    .light-card{background:#fff;color:var(--text);box-shadow:0 5px 16px rgba(2,6,23,.08);border-radius:16px;padding:1.25rem}
+    .card-title{margin:.25rem 0 .75rem}
+
+    .game-section{max-width:1120px;margin:0 auto;padding:2rem 1rem;display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem}
+    @media (max-width:900px){.game-section{grid-template-columns:1fr}}
+    .game-text .section-title{margin:.25rem 0 .5rem}
+    .game-collage{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem}
+    @media (max-width:900px){.game-collage{grid-template-columns:repeat(3,1fr)}}
+    .game-img img{width:100%;height:auto;border-radius:10px;display:block}
+    .games-modules-card{align-self:start}
+    .feature-list{list-style:none;margin:.5rem 0 0;padding:0}
+    .feature-list li{display:flex;gap:.5rem;align-items:center;margin:.4rem 0}
+
+    .features-section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
+    .features-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .pill-list{display:flex;gap:.5rem;flex-wrap:wrap}
+    .pill{background:#eef4ff;color:#0b64d8;border-radius:999px;padding:.35rem .7rem;font-size:.9rem}
+    .secondary-ctas{display:flex;gap:.6rem;justify-content:center;margin-top:1rem}
+    .btn-outline{border:2px solid var(--brand);color:var(--brand);background:#fff}
+    .btn-outline:hover{background:#f1f6ff}
+
+    .download-section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
+    .download-title{margin:.25rem 0 1rem}
+    .download-container{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem}
+
+    /* Footer */
+    .footer{background:#0a1024; color:#cbd5e1}
+    .footer .wrap{max-width:1120px; margin:0 auto; padding:2.25rem 1rem}
+    .footer a{color:#cbd5e1}
+    .copyright{opacity:.8; font-size:.9rem; margin-top:1rem}
+
+    /* Back-to-top */
+    .to-top{
+      position:fixed; bottom:88px; right:24px; width:44px; height:44px; display:grid; place-items:center;
+      background:var(--brand); color:#fff; border-radius:50%; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,.25);
+      animation:floatUpDown 2.2s infinite; z-index:1000;
     }
-    .hero-bg-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
-    }
-    .hero-content {
-      position: relative;
-      max-width: 800px;
-      z-index: 1;
-    }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .hero-description {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .company-info {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-    }
-    .company-info .label {
-      font-weight: 600;
-      color: #cccccc;
-    }
-    .company-info .value {
-      margin-right: 1.5em;
-    }
-    .hero-ctas {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-    .btn {
-      background: #298fee;
-      color: #fff;
-      padding: 0.6em 1.2em;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #1673c9;
-    }
-    .store-badge img {
-      height: 40px;
-      filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
-    }
+    @keyframes floatUpDown{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
   </style>
 </head>
-<a href="#top" style="
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  background-color: #007BFF;
-  color: white;
-  font-size: 24px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  animation: floatUpDown 2s infinite;
-">
-  ↑
-</a>
-
-<style>
-@keyframes floatUpDown {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-</style>
-
-<!-- original nav-menu (was inside <body> but before the actual body tag) -->
-      <ul class="nav-menu hidden md:flex gap-x-4">
-  <li><a rel="follow" class="nav-link" href="/">Home</a></li>
-  <li><a rel="follow" class="nav-link" href="/blog.html">Blog</a></li>
-  <li><a rel="follow" class="nav-link" href="/downloads.html">Download</a></li>
-  <li><a rel="follow" class="nav-link" href="/faq.html">FAQ</a></li>
-</ul>
 
 <body>
+  <!-- NAV -->
+  <div class="nav-wrap" id="top">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/" aria-label="MiAmor Home">
+        <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async">
+        <span>MiAmor</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="/" rel="follow">Home</a></li>
+        <li><a href="/blog.html" rel="follow">Blog</a></li>
+        <li><a href="/downloads.html" rel="follow">Download</a></li>
+        <li><a href="/faq.html" rel="follow">FAQ</a></li>
+        <li><a class="cta" href="/register.html" rel="follow">Register</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- HERO -->
   <header class="hero">
-    <!-- Video Background -->
-    <video autoplay muted loop playsinline class="hero-bg-video">
-      <source src="video/miamor.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
+    <video class="hero-bg" autoplay muted loop playsinline poster="/img/og-cover.jpg">
+      <source src="/video/miamor.mp4" type="video/mp4" />
     </video>
-
-    <!-- Overlay -->
-    <div class="hero-overlay"></div>
-
-    <!-- Foreground Content -->
-    <div class="hero-content">
-      <h1 class="hero-title">MIAMOR TO CREATE LOVE!</h1>
-      <h2 class="hero-subtitle">Miamor App & Platform – Earn, Connect and Enjoy in Nigeria</h2>
-
-      <p class="hero-description">
-        Miamor is an all-in-one digital platform that allows users to earn money, gain skills, and own shares in the company simply by participating.
-      </p>
-      <p class="company-info">
-        <span class="label">Name:</span> <span class="value">Miamor</span>
-        <span class="label">Country:</span> <span class="value">Nigeria</span>
-        <span class="label">Currency:</span> <span class="value">NGN</span>
-      </p>
-      <div class="hero-ctas">
-        <a href="register.html" class="btn">Join Us</a>
-        <a href="https://linktr.ee/makemoneyonline312" class="store-badge">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
-        </a>
-        <a href="https://linktr.ee/makemoneyonline312" class="store-badge">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1024px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
-        </a>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>MiAmor App & Website — Register, Download, and Start Earning</h1>
+      <p>Explore the official MiAmor platform in Nigeria. Complete your <a href="/register.html" style="color:#e5efff; text-decoration:underline">MiAmor registration</a>, download the <a href="/downloads.html" style="color:#e5efff; text-decoration:underline">MiAmor app</a>, and learn how to earn with games, marketplace, and social shares.</p>
+      <p class="kpis"><strong>Fast onboarding • Mobile-first • Secure access</strong></p>
+      <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:.9rem">
+        <a class="btn" href="/register.html">Join MiAmor</a>
+        <a class="btn btn-outline" href="/downloads.html">Download App</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Shares & Earnings Section -->
+  <main id="main" class="section" role="main">
+    <!-- Intro row -->
+    <section class="grid-2" aria-labelledby="about-title">
+      <article class="card dark">
+        <h2 id="about-title">What is MiAmor?</h2>
+        <p>MiAmor is an all‑in‑one platform for connection, learning, games, and a trusted marketplace. Whether you’re here for relationships, skills, or rewards, MiAmor brings it together in one mobile experience.</p>
+        <ul class="bullet-list">
+          <li><a href="/register.html" style="color:#fff; text-decoration:underline">MiAmor registration</a> in minutes</li>
+          <li>Mobile‑first <a href="/downloads.html" style="color:#fff; text-decoration:underline">MiAmor app download</a></li>
+          <li>Games, sharing, marketplace, and more</li>
+        </ul>
+      </article>
+      <div class="card light image-card">
+        <img src="/img/miamor_c.jpg" alt="How MiAmor works" width="960" height="640" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <!-- ===== INSERTED UPDATED BODY BLOCKS ===== -->
     <section class="shares-section">
-      <!-- Rotating tagline pill -->
       <div class="tagline-pill">
         <span class="tagline current">Miamor: The Future Is Here!</span>
         <span class="tagline">Join The Movement</span>
       </div>
-      <!-- Grid of 4 columns: two text cards and two image cards -->
+
+      <!-- Social shares image card -->
       <div class="grid-4cols">
-        <!-- Card: Be Part of the Process (Shares info) -->
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/logo_t.png" alt="How to earn by posting on social media with MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </div>
+
+      <!-- Love Trip + Marketplace -->
+      <div class="grid-4cols">
         <article class="card dark-card">
-          <h2 class="card-title"><span class="dotted-underline">Be Part Of The Process</span></h2>
-          <p>Receive Bits &amp; Shares of Miamor<br>
-             As a user, you're more than just a member—you're a shareholder.
-          </p>
+          <h2 class="card-title"><span class="dotted-underline">Love Beyond the Screen — Experience the MiAmor Love Trip</span></h2>
+          <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
           <ul class="bullet-list">
-            <li>🎯 Miamor is a dynamic platform operating across multiple African and foreign countries, designed to help users find love, earn income through networking, and gain valuable skills.</li>
-            <li>✅ As we grow, your shares grow in value.</li>
-            <li>💰 Sell your shares anytime, at your convenience.</li>
-            <li>👉 Become a part of something bigger—Join us now!</li>
+            <li>🎁 At MiAmor, we don’t just help you find love, we help you create unforgettable memories.</li>
+            <li>💙 For lucky couples who find real true love through our platform, we offer an exclusive, all-expenses-paid 5-day romantic getaway to South Africa.</li>
+            <li>🛩 Find love. Win a journey. Make it unforgettable.</li>
+            <li>👩‍❤‍👨 Every love story deserves a magical chapter — and yours could begin with a passport stamp.</li>
           </ul>
         </article>
-        <!-- Illustration Image: "What is Miamor" (placeholder) -->
-<div class="card image-card">
-  <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-    <img src="img/miamor_c.jpg" alt="How to earn with Miamor">
-  </a>
-</div>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/miamor_k.jpg" alt="Travel with MiAmor Love Trip and earn on MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
 
-<!-- Card: Convert Feelings to Cash (Earnings info) -->
-<article class="card dark-card">
-  <h2 class="card-title"><span class="dotted-underline">Convert Your Feelings Into Cash With Miamor</span></h2>
-  <p>Miamor isn’t just another regular platform—it’s where real emotions meet real rewards.</p>
-  <ul class="bullet-list">
-    <li>✨ Here, every connection, every conversation, and every spark of love has the power to earn you real cash.</li>
-    <li>🎁 Get rewarded with up to $50.</li>
-    <li>✅ Consistency pays off!</li>
-    <li>👉 Follow the steps and join us now!</li>
-  </ul>
-</article>
+        <article class="card dark-card">
+          <h2 class="card-title"><span class="dotted-underline">🔵 Turn Social Shares into Daily Earnings on MiAmor!</span></h2>
+          <p>🔵 MIAMOR’S Sell It Sector — MiAmor’s Trusted Marketplace!</p>
+          <ul class="bullet-list">
+            <li>✅ MiAmor isn’t just about love — it’s also about opportunity</li>
+            <li>🏪 With our Sell It Sector, every user gets access to a secure, user-friendly platform to trade legal items with ease.</li>
+            <li>🏪 Whether you're selling gadgets, fashion, or personal items, our system connects you with ready buyers on the site.</li>
+            <li>🏪 No stress, no middlemen — just smooth, direct transactions.</li>
+          </ul>
+        </article>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/miamor_store.jpg" alt="How to sell on MiAmor and earn on MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </div>
 
-<!-- Illustration Image: "Convert feelings to cash" (placeholder) -->
-<div class="card image-card">
-  <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-    <img src="img/miamor_f.jpg" alt="How to convert feelings to cash on Miamor">
-  </a>
-</div>
+      <!-- Learning + Couples Challenge -->
+      <div class="grid-4cols">
+        <article class="card dark-card">
+          <h2 class="card-title"><span class="dotted-underline">Where Learning Stops, Growth Stops — But Not on MiAmor.</span></h2>
+          <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
+          <ul class="bullet-list">
+            <li>✅ We believe true connection goes beyond romance — it’s also about personal growth and empowerment.</li>
+            <li>✅ Access essential, high-demand skills for today’s digital world via our learning hub.</li>
+            <li>🛩 Find love. Win a journey. Make it unforgettable.</li>
+            <li>👩‍❤‍👨 Your story can include new skills and new opportunities.</li>
+          </ul>
+        </article>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/maimor_learning.jpg" alt="Learn skills with MiAmor and earn on MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
 
-<div class="grid-4cols">
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">What if every match brought you closer to love and money</span></h2>
-    <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
-    <ul class="bullet-list">
-      <li>🎯 On MiAmor, you can earn up to $2.5 every time you match or get matched thereby turning simple swipes into real income.</li>
-      <li>✅ As we grow, your shares grow in value.</li>
-      <li>💰 Imagine getting rewarded while discovering the love of your life</li>
-      <li>👉 Find love. Get paid. Repeat. With MiAmor, every match is more than magic — it’s money in your pocket!</li>
-    </ul>
-  </article>
+        <article class="card dark-card">
+          <h2 class="card-title"><span class="dotted-underline">💙 Introducing the MiAmor Couples Challenge – ₦300,000 Up for Grabs</span></h2>
+          <p>🔵 MIAMOR’S Sell It Sector — MiAmor’s Trusted Marketplace!</p>
+          <ul class="bullet-list">
+            <li>💙 It’s the season of love, and MiAmor is turning up the excitement!</li>
+            <li>💙 Top 3 winning couples share ₦300,000 in cash prizes.</li>
+            <li>💙 Showcase your bond, complete fun tasks, and let your love story shine.</li>
+            <li>💙 Fall in love, rise to the top, and walk away with cash.</li>
+          </ul>
+        </article>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/miamor_challenge.jpg" alt="Complete the MiAmor Couples Challenge and earn on MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </div>
 
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_a.jpg" alt="register for Miamor">
-    </a>
-  </div>
+      <!-- Marathon + Multinational -->
+      <div class="grid-4cols">
+        <article class="card dark-card">
+          <h2 class="card-title"><span class="dotted-underline">Marathon Contest Alert!</span></h2>
+          <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
+          <ul class="bullet-list">
+            <li>✨ A ₦1,500,000 prize pool shared among the Top 5 Winners in our 30-day affiliate challenge.</li>
+            <li>🔥 Compete, climb the leaderboard, and become the last one standing.</li>
+            <li>🔥 Don’t miss your chance to earn big.</li>
+          </ul>
+        </article>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/miamor_contest.jpg" alt="Qualify for the MiAmor Marathon Contest and earn on MiAmor" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
 
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">Discover Diverse Games and Win Big on MiAmor</span></h2>
-    <p>🔵Gaming meets real rewards on MiAmor in 3 easy steps</p>
-    <ul class="bullet-list">
-      <li>✨ Fund your game wallet</li>
-      <li>🎁 Choose from a variety of exciting and available games, and start playing instantly.</li>
-      <li>✅ Win and withdraw won cash to your bank account!</li>
-      <li>🔵 Whether you’re in it for fun or competition, every win translates into real earnings!</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_games.jpg" alt="How to earn with playing games on Miamor">
-    </a>
-  </div>
-</div>
-
-<div class="grid-4cols">
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">MiAmor Love Hamper – Where Love Comes with Surprises</span></h2>
-    <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
-    <ul class="bullet-list">
-      <li>🎁 Every week, lucky users stand a chance to win exclusive items from our Love Hampers, right from their dashboard.</li>
-      <li>✅ It's our way of saying thank you for being part of the MiAmor experience.</li>
-      <li>✅It’s not just about love, it’s about rewards.</li>
-      <li>✅Engage more. Win more. Fall in love and get gifted — only on MiAmor.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_hamper.jpg" alt="how to earn with Miamor Love Hamper">
-    </a>
-  </div>
-
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">🔵 Turn Social Shares into Daily Earnings on MiAmor!</span></h2>
-    <p>🔵Love creating content on TikTok and Facebook? With MiAmor, every share is a money-making opportunity!</p>
-    <ul class="bullet-list">
-      <li>✨ Fund your game wallet</li>
-      <li>🎁 Earn up to $2.5 daily just for sharing your videos to TikTok or Facebook directly from MiAmor.</li>
-      <li>🔵 It doesn’t stop there, you can also create fun, engaging duets with other users' videos and watch your earnings grow even more.</li>
-      <li>🔵 ✅ Create. Share. Earn!</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/logo_t.png" alt="How to earn with posting on social media on Miamor">
-    </a>
-  </div>
-</div>
-
-<div class="grid-4cols">
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">Love Beyond the Screen — Experience the MiAmor Love Trip</span></h2>
-    <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
-    <ul class="bullet-list">
-      <li>🎁 At MiAmor, we don’t just help you find love, we help you create unforgettable memories.</li>
-      <li>💙 For lucky couples who find real true love through our platform, we offer an exclusive, all-expenses-paid *5-day romantic getaway to South Africa.</li>
-      <li>🛩 Find love. Win a journey. Make it unforgettable.</li>
-      <li>👩‍❤‍👨Because every love story deserves a magical chapter — and yours could begin with a passport stamp.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_k.jpg" alt="how to travel with Miamor Love Trip and earn on Miamor">
-    </a>
-  </div>
-
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">🔵 Turn Social Shares into Daily Earnings on MiAmor!</span></h2>
-    <p>🔵MIAMOR’S Sell It Sector — MiAmor’s Trusted Marketplace!</p>
-    <ul class="bullet-list">
-      <li>✅ MiAmor isn’t just about love — it’s also about opportunity</li>
-      <li>🏪 With our Sell It Sector, every user gets access to a secure, user-friendly platform to trade legal items with ease. </li>
-      <li>🏪 Whether you're selling gadgets, fashion, or personal items, our system connects you with readily available buyers on the site.</li>
-      <li>🏪 No stress, no middlemen — just smooth, direct transactions.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_store.jpg" alt="how to sell on Miamor and earn on Miamor">
-    </a>
-  </div>
-</div>
-
-<div class="grid-4cols">
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">Where Learning Stops, Growth Stops — But Not on MiAmor.</span></h2>
-    <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
-    <ul class="bullet-list">
-      <li>✅ At MiAmor, we believe true connection goes beyond romance, it’s also about personal growth and empowerment</li>
-      <li>✅ That’s why we’ve built a powerful learning hub right into our platform, giving every user access to *essential, high-demand skills* for today’s digital world.</li>
-      <li>🛩 Find love. Win a journey. Make it unforgettable.</li>
-      <li>👩‍❤‍👨Because every love story deserves a magical chapter — and yours could begin with a passport stamp.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/maimor_learning.jpg" alt="how to learn skills with Miamor and earn on Miamor">
-    </a>
-  </div>
-
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">💙 Introducing the MiAmor Couples Challenge – Love, Fun, and ₦300,000 Up for Grabs</span></h2>
-    <p>🔵MIAMOR’S Sell It Sector — MiAmor’s Trusted Marketplace!</p>
-    <ul class="bullet-list">
-      <li>💙 It’s the season of love, and MiAmor is turning up the excitement! We've launched an exclusive. </li>
-      <li>💙 Couples Challenge for lovebirds on our platform, where the Top 3 winning couples will share ₦300,000 in cash prizes.</li>
-      <li>💙 Showcase your bond, complete fun tasks, and let your love story shine.</li>
-      <li>💙 Fall in love, rise to the top, and walk away with cash.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_challenge.jpg" alt="how to complete the Miamor Couples Challenge and earn on Miamor">
-    </a>
-  </div>
-</div>
-
-<div class="grid-4cols">
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">Marathon Contest Alert!</span></h2>
-    <p>Receive Bits &amp; Shares of Miamor<br>As a user, you're more than just a member—you're a shareholder.</p>
-    <ul class="bullet-list">
-      <li>✨A massive ₦1,500,000 prize pool is up for grabs, to be shared among the Top 5 Winners in our exciting 30-day affiliate challenge.</li>
-      <li>🔥 Are you ready to compete, climb the leaderboard, and become the last one standing?</li>
-      <li>🔥 Don’t miss your chance to earn big</li>
-      <li>👩‍❤‍👨Because every love story deserves a magical chapter — and yours could begin with a passport stamp.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_contest.jpg" alt="how to qualify for the Miamor Marathon Contest and earn on Miamor">
-    </a>
-  </div>
-
-  <article class="card dark-card">
-    <h2 class="card-title"><span class="dotted-underline">🚀 MiAmor is a true multinational platform, bringing people together across borders.</span></h2>
-    <p>🚀Whether you're in Ghana, Kenya, Uganda, Sierra Leone, Cameroon, or beyond, MiAmor offers you the unique opportunity to find love while earning from multiple countries.</p>
-    <ul class="bullet-list">
-      <li>✅ MiAmor isn’t just about love — it’s also about opportunity</li>
-      <li>🚀 Join thousands who are already building relationships and generating income across Africa and the world. With MiAmor, love and opportunity know no boundaries </li>
-      <li>🏪 Whether you're selling gadgets, fashion, or personal items, our system connects you with readily available buyers on the site.</li>
-      <li>🏪 No stress, no middlemen — just smooth, direct transactions.</li>
-    </ul>
-  </article>
-
-  <div class="card image-card">
-    <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-      <img src="img/miamor_multi.jpg" alt="how do i know Miamor is available in my country">
-    </a>
-  </div>
-</div>
-
-      
+        <article class="card dark-card">
+          <h2 class="card-title"><span class="dotted-underline">🚀 MiAmor is a true multinational platform, bringing people together across borders.</span></h2>
+          <p>🚀 Whether you're in Ghana, Kenya, Uganda, Sierra Leone, Cameroon, or beyond, MiAmor offers you the opportunity to find love while earning from multiple countries.</p>
+          <ul class="bullet-list">
+            <li>✅ MiAmor isn’t just about love — it’s also about opportunity.</li>
+            <li>🚀 Join thousands already building relationships and generating income across Africa and the world.</li>
+            <li>🏪 No stress, no middlemen — smooth, direct transactions.</li>
+          </ul>
+        </article>
+        <div class="card image-card">
+          <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
+            <img src="/img/miamor_multi.jpg" alt="Is MiAmor available in my country?" width="960" height="640" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Game Feature Section -->
     <section class="game-section">
-      <!-- Left side: Play & Earn Real Cash text and game collage -->
       <div class="game-text">
         <h2 class="section-title">Play &amp; Earn Real Cash</h2>
         <p class="section-tagline">Turn your favorite games into daily rewards!<br>
            <strong>💸 Earn up to $20 per day</strong> just by playing games like:</p>
-        <!-- Collage of game images (placeholder blocks) -->
         <div class="game-collage">
           <div class="game-img game1">
-            <img src="img/game/subway_surfers.jpg" alt="Subway Surfers on Miamor" />
+            <img src="/img/game/subway_surfers.jpg" alt="Subway Surfers on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
           </div>
           <div class="game-img game2 tall">
-            <img src="img/game/candy_crush.jpg" alt="Candy Crush on Miamor" />
+            <img src="/img/game/candy_crush.jpg" alt="Candy Crush on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
           </div>
           <div class="game-img game3">
-            <img src="img/game/temple_run.jpg" alt="Temple Run on Miamor" />
+            <img src="/img/game/temple_run.jpg" alt="Temple Run on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
           </div>
           <div class="game-img game4">
-            <img src="img/game/chess.jpg" alt="Chess on Miamor" />
+            <img src="/img/game/chess.jpg" alt="Chess on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
           </div>
           <div class="game-img game5">
-            <img src="img/game/pubg.jpg" alt="PUBG on Miamor" />
+            <img src="/img/game/pubg.jpg" alt="PUBG on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
 
-      
       <!-- Right side: Games Modules card -->
       <article class="card light-card games-modules-card">
         <h3 class="card-title">miAmor <span class="dotted-underline">Games Modules</span></h3>
         <ul class="feature-list">
-          <li><i class="fa-solid fa-wallet"></i> Fund your Games wallet</li>
-          <li><i class="fa-solid fa-gamepad"></i> Play real and available games and win</li>
-          <li><i class="fa-solid fa-landmark"></i> Withdraw your winnings into your bank account</li>
+          <li><i class="fa-solid fa-wallet" aria-hidden="true"></i> Fund your Games wallet</li>
+          <li><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Play real and available games and win</li>
+          <li><i class="fa-solid fa-landmark" aria-hidden="true"></i> Withdraw your winnings into your bank account</li>
         </ul>
-        <!-- Games VR image placeholder -->
-        <div class="games-image">
-          <!-- Placeholder for an image of gamers (e.g., VR players) -->
-        </div>
-        <p class="note"><em>Only on Miamor &ndash; <a href="#" class="btn btn-primary btn-sm">Join us today</a></em></p>
+        <p class="note"><em>Only on Miamor – <a href="/register.html" class="btn btn-primary btn-sm">Join us today</a></em></p>
       </article>
     </section>
 
-<br><br><br><br><br><br>
+    <br><br><br><br><br><br>
 
     <!-- Additional Features Section (Social Shares, Love Trip, Marketplace) -->
     <section class="features-section">
@@ -614,7 +475,7 @@
             <li>💰 Sell your shares anytime, at your convenience.</li>
             <li>👉 Become a part of something bigger—Join us now!</li>
           </ul>
-          <a href="https://linktr.ee/makemoneyonline312" class="btn btn-primary">Click Me!</a>
+          <a href="/register.html" class="btn btn-primary">Click Me!</a>
         </article>
         <!-- Feature Card 2: Love Trip Experience -->
         <article class="card dark-card">
@@ -626,7 +487,7 @@
             <span class="pill">Collaborate with global creators</span>
             <span class="pill">Grow with a platform built for visionaries</span>
           </div>
-          <a href="https://linktr.ee/makemoneyonline312" class="btn btn-primary">Click Me!</a>
+          <a href="/register.html" class="btn btn-primary">Click Me!</a>
         </article>
         <!-- Feature Card 3: Sell It Marketplace -->
         <article class="card dark-card">
@@ -637,13 +498,13 @@
             <li>💰 Earn up to $20 every day.</li>
             <li>💟 List. Connect. Sell.</li>
           </ul>
-          <a href="https://linktr.ee/makemoneyonline312" class="btn btn-primary">Click Me!</a>
+          <a href="/downloads.html" class="btn btn-primary">Click Me!</a>
         </article>
       </div>
       <!-- Secondary CTA buttons (Register / Download App) -->
       <div class="secondary-ctas">
-        <a href="register.html" class="btn btn-outline"><i class="fa-solid fa-user"></i> Register</a>
-        <a href="https://linktr.ee/makemoneyonline312" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download App</a>
+        <a href="/register.html" class="btn btn-outline"><i class="fa-solid fa-user" aria-hidden="true"></i> Register</a>
+        <a href="/downloads.html" class="btn btn-outline"><i class="fa-solid fa-download" aria-hidden="true"></i> Download App</a>
       </div>
     </section>
 
@@ -653,40 +514,40 @@
         <h2 class="section-title download-title">Download Mobile App <span class="dotted-underline"></span></h2>
         <div class="store-badges">
           <a href="https://linktr.ee/makemoneyonline312" class="store-badge">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play" width="240" height="73" loading="lazy" decoding="async">
           </a>
           <a href="https://linktr.ee/makemoneyonline312" class="store-badge">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" width="240" height="80" loading="lazy" decoding="async">
           </a>
         </div>
       </div>
     </section>
+
+    <!-- FAQ preview -->
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">MiAmor FAQ</h2>
+      <ul class="bullet-list">
+        <li><strong>Is MiAmor legit?</strong> MiAmor is an online platform with features for social discovery, content, and commerce. Always review terms and stay within your local laws.</li>
+        <li><strong>How do I start?</strong> Go to the <a href="/register.html">registration page</a> and follow the steps.</li>
+        <li><strong>How to download?</strong> Visit the <a href="/downloads.html">downloads page</a> for official links.</li>
+      </ul>
+    </section>
   </main>
 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p class="contact-title">Contact Us:</p>
-       <div class="social-icons">
-    <a href="https://linktr.ee/makemoneyonline312" class="social-btn whatsapp" aria-label="WhatsApp">
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-    <path d="M25,2C12.318,2,2,12.318,2,25c0,3.96,1.023,7.854,2.963,11.29L2.037,46.73c-0.096,0.343-0.003,0.711,0.245,0.966 C2.473,47.893,2.733,48,3,48c0.08,0,0.161-0.01,0.24-0.029l10.896-2.699C17.463,47.058,21.21,48,25,48c12.682,0,23-10.318,23-23 S37.682,2,25,2z M36.57,33.116c-0.492,1.362-2.852,2.605-3.986,2.772c-1.018,0.149-2.306,0.213-3.72-0.231 c-0.857-0.27-1.957-0.628-3.366-1.229c-5.923-2.526-9.791-8.415-10.087-8.804C15.116,25.235,13,22.463,13,19.594 s1.525-4.28,2.067-4.864c0.542-0.584,1.181-0.73,1.575-0.73s0.787,0.005,1.132,0.021c0.363,0.018,0.85-0.137,1.329,1.001 c0.492,1.168,1.673,4.037,1.819,4.33c0.148,0.292,0.246,0.633,0.05,1.022c-0.196,0.389-0.294,0.632-0.59,0.973 s-0.62,0.76-0.886,1.022c-0.296,0.291-0.603,0.606-0.259,1.19c0.344,0.584,1.529,2.493,3.285,4.039 c2.255,1.986,4.158,2.602,4.748,2.894c0.59,0.292,0.935,0.243,1.279-0.146c0.344-0.39,1.476-1.703,1.869-2.286 s0.787-0.487,1.329-0.292c0.542,0.194,3.445,1.604,4.035,1.896c0.59,0.292,0.984,0.438,1.132,0.681 C37.062,30.587,37.062,31.755,36.57,33.116z"></path>
-    </svg>
-    </a>
-    <a href="https://linktr.ee/makemoneyonline312" class="social-btn telegram" aria-label="Telegram">
-     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-<path d="M32,10c12.15,0,22,9.85,22,22s-9.85,22-22,22s-22-9.85-22-22S19.85,10,32,10z M39.589,40.968	c0.404-1.241,2.301-13.615,2.534-16.054c0.071-0.738-0.163-1.229-0.619-1.449c-0.553-0.265-1.371-0.133-2.322,0.21	c-1.303,0.47-17.958,7.541-18.92,7.951c-0.912,0.388-1.775,0.81-1.775,1.423c0,0.431,0.256,0.673,0.96,0.924	c0.732,0.261,2.577,0.82,3.668,1.121c1.05,0.29,2.243,0.038,2.913-0.378c0.709-0.441,8.901-5.921,9.488-6.402	c0.587-0.48,1.056,0.135,0.576,0.616c-0.48,0.48-6.102,5.937-6.844,6.693c-0.901,0.917-0.262,1.868,0.343,2.249	c0.689,0.435,5.649,3.761,6.396,4.295c0.747,0.534,1.504,0.776,2.198,0.776C38.879,42.942,39.244,42.028,39.589,40.968z"></path>
-</svg>
-    </a>
-    <a href="https://linktr.ee/makemoneyonline312" class="social-btn tiktok" aria-label="TikTok">
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-    <path d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"></path>
-</svg>
-    </a>
-  </div>
-      <p class="copyright">All rights reserved &copy; MiAmor 2025</p>
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <p class="contact-title" style="margin:0 0 .5rem; font-weight:700">Contact</p>
+      <div class="social-icons" style="display:flex; gap:.75rem; align-items:center; flex-wrap:wrap">
+        <a href="https://linktr.ee/makemoneyonline312" class="social-btn whatsapp" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://linktr.ee/makemoneyonline312" class="social-btn telegram" aria-label="Telegram">Telegram</a>
+        <a href="https://linktr.ee/makemoneyonline312" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+      </div>
+      <p class="copyright">© MiAmor 2025 • All rights reserved</p>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <a href="#top" class="to-top" aria-label="Back to top">↑</a>
 </body>
 </html>
-  
