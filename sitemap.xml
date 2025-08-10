@@ -5,61 +5,61 @@
   <!-- Home Page -->
   <url>
     <loc>https://miamorweb.site/index.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- Blog -->
   <url>
     <loc>https://miamorweb.site/blog.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
     <priority>0.90</priority>
   </url>
 
   <!-- FAQ -->
   <url>
     <loc>https://miamorweb.site/faq.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
     <priority>0.85</priority>
   </url>
 
   <!-- Downloads -->
   <url>
     <loc>https://miamorweb.site/downloads.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Register Pages -->
   <url>
     <loc>https://miamorweb.site/register.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
   </url>
 
   <url>
     <loc>https://miamorweb.site/register1.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
   </url>
 
   <url>
     <loc>https://miamorweb.site/register2.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
   </url>
 
   <url>
     <loc>https://miamorweb.site/packages.html</loc>
-    <lastmod>2025-08-02</lastmod>
+    <lastmod>2025-08-10</lastmod>
   </url>
 
   <!-- Video Sitemap Entry -->
   <url>
-    <loc>https://miamorweb.site/index.html</loc> <!-- or link to the blog.html if video is shown there -->
+    <loc>https://miamorweb.site/index.html</loc>
     <video:video>
       <video:thumbnail_loc>https://miamorweb.site/miamorlogo.png</video:thumbnail_loc>
       <video:title>Miamor Platform Intro</video:title>
       <video:description>Learn how Miamor helps users earn through social connections, games, and digital engagement.</video:description>
       <video:content_loc>https://miamorweb.site/video/miamor.mp4</video:content_loc>
-      <video:publication_date>2025-08-02</video:publication_date>
+      <video:publication_date>2025-08-10</video:publication_date>
       <video:duration>90</video:duration>
     </video:video>
   </url>

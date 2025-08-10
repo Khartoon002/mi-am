@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
-  <!-- App / PWA meta -->
+  <!-- App / PWA -->
   <meta name="theme-color" content="#0b64d8" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <link rel="apple-touch-icon" href="/img/miamor-logo.png" />
+  <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
+  <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
   <link rel="manifest" href="/manifest.webmanifest" />
-
-  <!-- SEO -->
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Canonical & Indexing -->
   <link rel="canonical" href="https://miamorweb.site/faq.html" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+  <!-- Titles & Descriptions -->
   <title>MiAmor FAQ — Registration, Pricing in ₦, Withdrawals & Safety (Nigeria)</title>
   <meta name="title" content="MiAmor FAQ — Registration, Pricing in ₦, Withdrawals & Safety (Nigeria)" />
-  <meta name="description" content="Answers for Nigeria: how to register on MiAmor, current packages in naira, earnings modules, withdrawals to NG banks, safety, support, and the mobile app." />
-  <meta name="keywords" content="miamor faq, miamor nigeria, miamor registration, miamor price, miamor withdraw to bank, miamor app android ios, is miamor legit" />
+  <meta name="description" content="Answers for Nigeria: how to register on MiAmor, current packages in naira, modules, withdrawals to NG banks, safety, support, and the mobile app." />
 
-  <!-- OG/Twitter -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/faq.html" />
   <meta property="og:site_name" content="MiAmor" />
@@ -37,11 +39,11 @@
   <meta name="twitter:description" content="MiAmor answers for Nigeria: registration, costs, withdrawals, and support." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Fonts & Icons -->
+  <!-- Fonts & Icon -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="/img/miamor-logo.png" sizes="32x32" />
+  <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -64,7 +66,6 @@
     ]
   }
   </script>
-  <!-- Richer FAQ for Nigeria (adds common search questions) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -76,7 +77,7 @@
       {"@type":"Question","name":"How do I withdraw to a Nigerian bank?","acceptedAnswer":{"@type":"Answer","text":"When eligible, request withdrawal from your dashboard. Supported payout methods are shown in‑app and may include local bank transfer where available."}},
       {"@type":"Question","name":"Does MiAmor have an Android or iOS app?","acceptedAnswer":{"@type":"Answer","text":"Official download links will be posted on miamorweb.site when available. Avoid unofficial app stores or links."}},
       {"@type":"Question","name":"Do I need a MiAmor agent to sign up?","acceptedAnswer":{"@type":"Answer","text":"No. Self‑register on miamorweb.site/register.html. If you prefer assistance, use the Contact links (WhatsApp/Telegram) in the footer."}},
-      {"@type":"Question","name":"What activities can earn on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Eligible activities may include matching, games, social sharing, challenges, and more. Check your dashboard for currently available modules and terms."}},
+      {"@type":"Question","name":"What activities are available on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Activities may include matching, games, social sharing, challenges, and more. Check your dashboard for currently available modules and terms."}},
       {"@type":"Question","name":"What is the minimum age to use MiAmor?","acceptedAnswer":{"@type":"Answer","text":"You must be at least 18 years old."}},
       {"@type":"Question","name":"How can I contact MiAmor support in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Use the official WhatsApp/Telegram links in the footer or our help form (when available). We don’t provide support via unofficial groups."}},
       {"@type":"Question","name":"Is KYC required on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"If KYC is required for certain features or withdrawals, the app will prompt you with the steps and accepted documents."}},
@@ -99,32 +100,10 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* App bar (mobile-friendly) */
-    .nav-wrap{
-      position:fixed;top:0;left:0;right:0;z-index:50;
-      background:rgba(10,10,64,.9);backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      padding-top:constant(safe-area-inset-top); /* iOS 11 legacy */
-      padding-top:env(safe-area-inset-top);
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;gap:.5rem;
-      max-width:1120px;margin:0 auto;padding:.6rem .9rem;
-    }
-    .brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:#fff}
-    .brand img{width:28px;height:28px;border-radius:7px}
-    .brand span{font-weight:700}
-
-    .nav-menu{display:flex;gap:.25rem;list-style:none;margin:0;padding:0}
-    .nav-menu a{
-      color:#e6f2ff;text-decoration:none;padding:.55rem .7rem;border-radius:.7rem;
-      font-weight:600;line-height:1;min-height:44px;display:flex;align-items:center;
-    }
-    .nav-menu a:hover{background:rgba(41,143,238,.25);box-shadow:0 0 6px rgba(41,143,238,.5)}
-
+   
     h1{text-align:center;color:#99ccff;margin:1rem .75rem .5rem;font-size:clamp(1.2rem,4.5vw,1.6rem)}
 
-    /* Accordion (44px+ tap targets) */
+    /* Accordion */
     .accordion{max-width:960px;margin:0 auto 1rem;border-radius:12px;overflow:hidden;padding:0 .75rem}
     .accordion-item{background:#ffffff12;border:1px solid #1b427e;border-radius:12px;margin:.5rem 0;overflow:hidden}
     .accordion-button{
@@ -139,7 +118,7 @@
     .accordion-item.active .accordion-content{display:block}
     .accordion a{color:#9bd3ff;text-decoration:underline}
 
-    /* Back to top (respect safe areas) */
+    /* Back to top */
     #backToTop{
       position:fixed;bottom:calc(16px + var(--safe-bottom,0px));right:calc(12px + var(--safe-right,0px));
       background-color:#0056b3;color:#fff;width:44px;height:44px;display:grid;place-items:center;
@@ -153,7 +132,6 @@
     .footer .wrap{max-width:1120px;margin:0 auto;padding:1.5rem .9rem;padding-bottom:calc(1.5rem + var(--safe-bottom,0px))}
     .copyright{opacity:.8;font-size:.9rem;margin-top:.75rem}
 
-    /* Reduce motion for users who prefer it */
     @media (prefers-reduced-motion: reduce){
       *{scroll-behavior:auto;transition:none}
     }
@@ -164,15 +142,14 @@
   <div class="nav-wrap" id="top">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="/" aria-label="MiAmor Home">
-        <img src="/img/miamor-logo.png" alt="MiAmor logo" width="28" height="28" loading="eager" decoding="async">
+        <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async">
         <span>MiAmor</span>
       </a>
-      <ul class="nav-menu" role="menubar">
-        <li role="none"><a role="menuitem" href="/" rel="follow">Home</a></li>
-        <li role="none"><a role="menuitem" href="/blog.html" rel="follow">Blog</a></li>
-        <li role="none"><a role="menuitem" href="/downloads.html" rel="follow">Download</a></li>
-        <li role="none"><a role="menuitem" href="/packages.html" rel="follow">Packages</a></li>
-        <li role="none"><a role="menuitem" href="/register.html" rel="follow">Register</a></li>
+      <ul class="nav-menu">
+        <li><a href="/" rel="follow">Home</a></li>
+        <li><a href="/blog.html" rel="follow">Blog</a></li>
+        <li><a href="/downloads.html" rel="follow">Download</a></li>
+        <li><a class="cta" href="/register.html" rel="follow">Register</a></li>
       </ul>
     </nav>
   </div>
@@ -192,7 +169,7 @@
 
     <div class="accordion-item">
       <button class="accordion-button" aria-expanded="false">Is MiAmor legit in Nigeria?</button>
-      <div class="accordion-content"><p>Yes it is, always use official links on this website and avoid third‑party pages claiming to be us. If unsure, contact support via our official profiles in the footer.</p></div>
+      <div class="accordion-content"><p>Use only the official links on this website and avoid third‑party pages claiming to be us. If unsure, contact support via our official profiles in the footer.</p></div>
     </div>
 
     <div class="accordion-item">
@@ -211,8 +188,8 @@
     </div>
 
     <div class="accordion-item">
-      <button class="accordion-button" aria-expanded="false">What activities can earn on MiAmor?</button>
-      <div class="accordion-content"><p>Eligible activities may include matching, games, social sharing, challenges, and more. Check your dashboard for currently available modules and terms.</p></div>
+      <button class="accordion-button" aria-expanded="false">What activities are available on MiAmor?</button>
+      <div class="accordion-content"><p>Activities may include matching, games, social sharing, challenges, and more. Check your dashboard for currently available modules and terms.</p></div>
     </div>
 
     <div class="accordion-item">
@@ -273,7 +250,7 @@
       });
     });
 
-    // Register service worker (PWA)
+    // Optional: service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch(()=>{});

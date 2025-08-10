@@ -1,50 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
-  <!-- Charset & viewport -->
+  <!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
-  <!-- Indexing & canonical -->
+  <!-- Indexing & Canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/packages.html" />
-  <meta name="format-detection" content="telephone=no" />
-  <base target="_top">
 
-  <!-- Title & meta description (single, no duplicates) -->
-  <title>MiAmor Packages — Ultra & Plus | Register and Start</title>
-  <meta name="title" content="MiAmor Packages — Ultra & Plus | Register and Start" />
-  <meta name="description" content="Compare MiAmor Ultra and Plus packages. See features, indicative rewards, and quick links to register. Choose the plan that fits your goals and get started." />
-  <meta name="keywords" content="miamor packages, miamor ultra, miamor plus, register miamor, miamor nigeria" />
+  <!-- Title & Description -->
+  <title>MiAmor Packages — Ultra & Plus | Pricing in ₦ and How to Join</title>
+  <meta name="title" content="MiAmor Packages — Ultra & Plus | Pricing in ₦ and How to Join" />
+  <meta name="description" content="Compare MiAmor Ultra and Plus packages for Nigeria. See current prices in naira, key features, and quick links to join or register." />
+
+  <!-- Brand / PWA -->
+  <meta name="theme-color" content="#0b64d8" />
+  <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
+  <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/packages.html" />
   <meta property="og:site_name" content="MiAmor" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor Packages — Ultra & Plus | Register and Start" />
-  <meta property="og:description" content="Compare Ultra vs Plus and pick your MiAmor plan. Quick registration links included." />
+  <meta property="og:title" content="MiAmor Packages — Ultra & Plus" />
+  <meta property="og:description" content="Compare Ultra vs Plus. Prices in ₦, features, and how to join." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MiAmor Packages — Ultra & Plus" />
-  <meta name="twitter:description" content="Compare packages and register in minutes." />
+  <meta name="twitter:description" content="Pick a plan and start in minutes." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Favicons -->
-  <link rel="icon" href="/img/miamor-logo.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="/img/miamor-logo.png" />
-  <meta name="theme-color" content="#0b64d8" />
-
-  <!-- Fonts & Icons (match home) -->
+  <!-- Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Styles -->
+  <style>
+    :root{--brand:#0b64d8;--brand-dark:#084ca6;--text:#0f172a;--bg:#f8fafc}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
 
-  <!-- Site styles -->
-  <link rel="stylesheet" href="/styles.css" />
+    /* Header */
+    .header-slim{background:linear-gradient(180deg,rgba(11,100,216,.15),rgba(11,100,216,.05))}
+    .header-slim .wrap{max-width:1120px;margin:0 auto;padding:2rem 1rem;text-align:center}
+    .header-slim h1{font-family:'Montserrat',sans-serif;margin:.25rem 0 .5rem}
+    .header-slim p{margin:0 auto 1rem;max-width:760px}
 
-  <!-- Structured data: WebPage + Breadcrumbs + Products + FAQ -->
+    /* Main */
+    .section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
+    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+    .card{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem;display:flex;flex-direction:column}
+    .card h3{margin:.25rem 0 .5rem}
+    .image-wrap{border-radius:12px;overflow:hidden;margin-bottom:.75rem}
+    .image-wrap img{width:100%;height:auto;display:block}
+    .price{font-weight:700;margin:.25rem 0 0}
+    .features{margin:.5rem 0 0;padding-left:1.1rem}
+    .features li{margin:.25rem 0}
+    .btn{background:var(--brand);color:#fff;padding:.7rem 1rem;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block;margin-top:auto;text-align:center}
+    .btn:hover{background:var(--brand-dark)}
+
+    /* Info & FAQ */
+    .info{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem}
+    .info h2{margin:.25rem 0 1rem}
+
+    /* Footer */
+    .footer{background:#0a1024;color:#cbd5e1}
+    .footer .wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1rem}
+    .copyright{opacity:.8;font-size:.9rem;margin-top:1rem}
+  </style>
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -91,58 +124,12 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How do I register?","acceptedAnswer":{"@type":"Answer","text":"Click JOIN NOW for your chosen package. You’ll be guided step‑by‑step via WhatsApp or the app when available."}},
-      {"@type":"Question","name":"Can I upgrade later?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can upgrade from Plus to Ultra by paying the difference when upgrades are available."}},
-      {"@type":"Question","name":"How often do payouts happen?","acceptedAnswer":{"@type":"Answer","text":"Payout timing depends on the platform schedule and your eligibility. Check your dashboard for details once live."}}
+      {"@type":"Question","name":"How do I join MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Pick a package and tap JOIN. You’ll be guided via WhatsApp or in‑app (when available) to complete activation."}},
+      {"@type":"Question","name":"Can I upgrade later?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can request an upgrade from Plus to Ultra when upgrades are available by paying the difference."}},
+      {"@type":"Question","name":"Where do I see prices in ₦?","acceptedAnswer":{"@type":"Answer","text":"Prices are shown on this page. Always confirm current pricing here before you pay."}}
     ]
   }
   </script>
-
-  <style>
-    :root{--brand:#0b64d8;--brand-dark:#084ca6;--text:#0f172a;--bg:#f8fafc}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
-
-    /* NAV (shared) */
-    .nav-wrap{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:1120px;margin:0 auto;padding:.75rem 1rem}
-    .nav .brand{display:flex;align-items:center;gap:.5rem;text-decoration:none}
-    .nav .brand img{width:36px;height:36px;border-radius:8px}
-    .nav .brand span{font-weight:700;color:var(--text)}
-    .nav-menu{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
-    .nav-menu a{text-decoration:none;color:#111;font-weight:600;padding:.5rem .75rem;border-radius:.5rem}
-    .nav-menu a:hover{background:rgba(11,100,216,.08);color:var(--brand)}
-    .nav .cta{background:var(--brand);color:#fff;padding:.55rem .9rem;border-radius:.6rem;text-decoration:none;font-weight:700}
-    .nav .cta:hover{background:var(--brand-dark)}
-
-    /* Header */
-    .header-slim{background:linear-gradient(180deg,rgba(11,100,216,.15),rgba(11,100,216,.05))}
-    .header-slim .wrap{max-width:1120px;margin:0 auto;padding:2rem 1rem;text-align:center}
-    .header-slim h1{font-family:'Montserrat',sans-serif;margin:.25rem 0 .5rem}
-    .header-slim p{margin:0 auto 1rem;max-width:760px}
-
-    /* Packages grid */
-    .section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
-    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-    .card{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem;display:flex;flex-direction:column}
-    .card h3{margin:.25rem 0 .5rem}
-    .price{font-weight:700;margin:.25rem 0 0}
-    .features{margin:.5rem 0 0;padding-left:1.1rem}
-    .features li{margin:.25rem 0}
-    .image-wrap{border-radius:12px;overflow:hidden;margin-bottom:.75rem}
-    .image-wrap img{width:100%;height:auto;display:block}
-    .btn{background:var(--brand);color:#fff;padding:.7rem 1rem;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block;margin-top:auto;text-align:center}
-    .btn:hover{background:var(--brand-dark)}
-
-    /* FAQ */
-    .faq{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem}
-    .faq h2{margin:.25rem 0 1rem}
-
-    /* Footer */
-    .footer{background:#0a1024;color:#cbd5e1}
-    .footer .wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1rem}
-    .copyright{opacity:.8;font-size:.9rem;margin-top:1rem}
-  </style>
 </head>
 <body>
   <!-- NAV -->
@@ -155,7 +142,6 @@
       <ul class="nav-menu">
         <li><a href="/" rel="follow">Home</a></li>
         <li><a href="/blog.html" rel="follow">Blog</a></li>
-        <li><a href="/downloads.html" rel="follow">Download</a></li>
         <li><a href="/faq.html" rel="follow">FAQ</a></li>
         <li><a class="cta" href="/register.html" rel="follow">Register</a></li>
       </ul>
@@ -166,7 +152,7 @@
   <header class="header-slim">
     <div class="wrap">
       <h1>MiAmor Packages</h1>
-      <p>Choose a plan and start your journey with MiAmor. Compare features and use the quick link to get started.</p>
+      <p>Choose a plan and start your journey. Compare features, see prices in ₦, and join securely using the official links.</p>
     </div>
   </header>
 
@@ -186,11 +172,17 @@
           <span itemprop="priceCurrency" content="NGN">₦</span><span itemprop="price" content="14000">14,000</span> registration
         </p>
         <ul class="features">
+          <li>🔷 MiAmor Ultra Package – ₦14,000</li>
+          <li>Onboarding Gift – ₦12,500 (You get this instantly after registration)</li>
+          <li>Access to all premium features</li>
+          <li>Unlimited games, matching tools, and marketplace features</li>
           <li>Expanded access across MiAmor modules</li>
           <li>Games, matching add‑ons, marketplace tools</li>
           <li>Content sharing perks (e.g., TikTok/Facebook integrations)</li>
         </ul>
-        <a class="btn" href="https://wa.link/mn7jcc" rel="nofollow noopener" target="_blank">Join Ultra</a>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn" href="https://wa.link/mn7jcc" rel="nofollow noopener" target="_blank" aria-label="Join MiAmor Ultra via official link">Join Ultra</a>
+        </div>
       </article>
 
       <!-- Plus -->
@@ -204,22 +196,27 @@
           <span itemprop="priceCurrency" content="NGN">₦</span><span itemprop="price" content="10000">10,000</span> registration
         </p>
         <ul class="features">
+          <li>🔹 MiAmor Plus Package – ₦10,000</li>
           <li>Essential features to get started</li>
+          <li>Access to basic games and matching tools</li>
+          <li>Marketplace access with limited features</li>
+          <li>Onboarding Gift – ₦8,000 (You get this instantly after registration)</li>
+          <li>Basic content sharing (e.g., TikTok/Facebook)</li>
           <li>Games access and matching tools</li>
           <li>Path to upgrade when available</li>
         </ul>
-        <a class="btn" href="https://wa.link/1h7y88" rel="nofollow noopener" target="_blank">Join Plus</a>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn" href="https://wa.link/1h7y88" rel="nofollow noopener" target="_blank" aria-label="Join MiAmor Plus via official link">Join Plus</a>
+        </div>
       </article>
-
     </section>
 
-    <!-- FAQ -->
-    <section class="faq section" aria-labelledby="faq-title">
-      <h2 id="faq-title">Frequently Asked Questions</h2>
-      <p><strong>How do I register?</strong> Click the JOIN button for your chosen plan. You’ll be guided via WhatsApp or in‑app when available.</p>
-      <p><strong>What do I need?</strong> A smartphone, internet connection, and your one‑time access fee.</p>
-      <p><strong>Can I upgrade later?</strong> Yes, you can request an upgrade from Plus to Ultra when upgrades are available.</p>
-      <p><strong>How often are payouts?</strong> Payout timing depends on the platform schedule and your eligibility. Check your dashboard for details once your account is active.</p>
+    <!-- Info / FAQ -->
+    <section class="info section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Before you join</h2>
+      <p><strong>Payment safety:</strong> Use only the official links on this website. If anyone asks you to pay elsewhere, double‑check here first.</p>
+      <p><strong>Upgrades:</strong> You can request an upgrade from Plus to Ultra when upgrades are available.</p>
+      <p><strong>Next steps:</strong> After joining, visit the <a href="/downloads.html">Downloads</a> page for the mobile app when available, or continue on the web.</p>
     </section>
   </main>
 

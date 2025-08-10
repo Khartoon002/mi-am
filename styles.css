@@ -18,6 +18,157 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  /* ===== Desktop/Tablet Top Navigation (new) ===== */
+.nav-wrap{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10,10,64,.9);           /* matches your dark theme */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: .65rem .95rem;
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--text-light);
+  text-decoration: none;
+}
+.brand img{
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+.brand span{
+  font-weight: 700;
+}
+
+/* menu row for desktop */
+ul.nav-menu{
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* links work whether you use <a class="nav-link"> or plain <a> in .nav-menu */
+ul.nav-menu a,
+.nav-link{
+  color: var(--text-light);
+  text-decoration: none;
+  padding: .55rem .7rem;
+  border-radius: .7rem;
+  font-weight: 600;
+  line-height: 1;
+  min-height: 44px;               /* nice touch target */
+  display: flex;
+  align-items: center;
+  transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+ul.nav-menu a:hover,
+ul.nav-menu a:focus-visible,
+.nav-link:hover,
+.nav-link:focus-visible{
+  background-color: rgba(41,143,238,.25);
+  box-shadow: 0 0 6px rgba(41,143,238,.5);
+  outline: none;
+}
+
+/* active/current page */
+ul.nav-menu a[aria-current="page"],
+ul.nav-menu a.active{
+  background: var(--bg-accent);
+  color: #fff;
+}
+
+/* CTA button (e.g., Register) */
+ul.nav-menu .cta{
+  background: var(--bg-accent);
+  color: #fff;
+  padding: .55rem .9rem;
+  border-radius: .8rem;
+  font-weight: 700;
+  box-shadow: 0 0 8px rgba(41,143,238,0.4);
+}
+ul.nav-menu .cta:hover,
+ul.nav-menu .cta:focus-visible{
+  background: #0f7dd9; /* slightly darker on hover */
+  box-shadow: 0 0 12px rgba(41,143,238,0.6);
+}
+
+/* High-contrast focus ring for keyboard users */
+ul.nav-menu a:focus-visible{
+  outline: 2px solid #9bd3ff;
+  outline-offset: 2px;
+  border-radius: .6rem;
+}
+
+/* ===== Existing: Mobile Bottom Navigation (kept) ===== */
+@media (max-width: 768px) {
+  ul.nav-menu {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    border-radius: 0.6rem;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: var(--bg-accent);
+    color: #fff;
+    box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
+  }
+}
+
+/* Tablet/desktop override: use the top nav row instead of bottom pill */
+@media (min-width: 768px) {
+  ul.nav-menu{
+    display: flex !important;
+    position: static;
+    background: transparent;
+    padding: 0;
+    border: none;
+    transform: none;
+    box-shadow: none;
+    width: auto;
+  }
+}
+
 }
 body {
   font-family: var(--font-main);

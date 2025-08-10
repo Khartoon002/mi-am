@@ -1,171 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Core -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://miamorweb.site/downloads" />
-  <title>How to Download Miamor and Earn ON Miamor Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- Indexing & Canonical -->
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://miamorweb.site/downloads.html" />
+
+  <!-- Title & Description -->
+  <title>Download the MiAmor App — Android & iOS (Official)</title>
+  <meta name="title" content="Download the MiAmor App — Android & iOS (Official)" />
+  <meta name="description" content="Official MiAmor downloads page. Get the Android or iOS app when available, and see tips for safe installation and updates." />
+
+  <!-- Brand / PWA -->
+  <meta name="theme-color" content="#0b64d8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://miamorweb.site/downloads.html" />
+  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:title" content="Download the MiAmor App — Android & iOS (Official)" />
+  <meta property="og:description" content="Get MiAmor for Android or iOS from official links when available." />
+  <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Download the MiAmor App — Android & iOS (Official)" />
+  <meta name="twitter:description" content="Official MiAmor downloads page with safety tips." />
+  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0a0a40;
-      font-family: Arial, sans-serif;
-      color: #e6f2ff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+    :root{--bg:#0a0a40;--text:#e6f2ff;--accent:#298FEE}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; padding:0; background:var(--bg); color:var(--text);
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      display:flex; flex-direction:column; min-height:100vh;
     }
-nav {
-      position: fixed;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 1rem;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: space-around;
-      width: 90%;
-      max-width: 600px;
-      z-index: 1000;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      padding: 0.5rem 0.6rem;
-      font-size: 0.9rem;
-      border-radius: 0.6rem;
-      background: transparent;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #298FEE;
-      color: #fff;
-      box-shadow: 0 0 6px rgba(41, 143, 238, 0.6);
-    }
-    h1 {
-      margin-bottom: 20px;
-      color: #99ccff;
-    }
+    header{max-width:1120px;margin:0 auto;padding:2rem 1rem;text-align:center}
+    h1{margin:0 0 .5rem;color:#99ccff;font-size:clamp(1.3rem,4.5vw,1.8rem)}
+    p.lead{opacity:.95;max-width:760px;margin:.25rem auto 1rem}
 
-    .download-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 1s ease-out;
+    .download-box{
+      max-width:640px;margin:0 auto 2rem;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:24px;
+      backdrop-filter:blur(12px)
     }
+    .store-icon{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .store-icon a{display:inline-block;transition:transform .2s, box-shadow .2s}
+    .store-icon img{height:60px;border-radius:12px}
+    .store-icon a:hover{transform:scale(1.05);box-shadow:0 0 15px rgba(255,255,255,.25)}
 
-    .store-icon {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+    .links{display:flex;gap:.6rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+    .btn{background:#4f7ee8;color:#fff;text-decoration:none;padding:.6rem .9rem;border-radius:999px;font-weight:700}
+    .btn:hover{background:#3f6dd4}
 
-    .store-icon a {
-      display: inline-block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    nav.bottom{
+      position:sticky;bottom:16px;left:0;right:0;display:flex;justify-content:center
     }
-
-    .store-icon img {
-      height: 60px;
-      border-radius: 12px;
+    nav.bottom .pill{
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+      backdrop-filter:blur(10px);border-radius:1rem;padding:.5rem .75rem;
+      display:flex;gap:.4rem
     }
-
-    .store-icon a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .store-icon img {
-        height: 50px;
-      }
-    }
+    nav.bottom a{color:#fff;text-decoration:none;padding:.35rem .55rem;border-radius:.6rem}
+    nav.bottom a:hover{background:rgba(41,143,238,.25);box-shadow:0 0 6px rgba(41,143,238,.5)}
+    footer{max-width:1120px;margin:2rem auto 0;padding:1rem;color:#cbd5e1;text-align:center;opacity:.9}
   </style>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Miamor",
-  "operatingSystem": "iOS, Android",
-  "applicationCategory": "SocialNetworkingApplication",
-  "description": "Download the Miamor App to earn rewards while connecting, chatting, and enjoying social entertainment. Available on Google Play and App Store.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Miamor Platform",
-    "url": "https://miamorweb.site"
-  },
-  "downloadUrl": [
-    "https://linktr.ee/makemoneyonline312",
-    "https://linktr.ee/makemoneyonline312"
-  ],
-  "screenshot": [
-    "https://miamorweb.site/screenshots/screen1.jpg",
-    "https://miamorweb.site/screenshots/screen2.jpg"
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "ratingCount": "1280"
-  }
-}
-</script>
 
+  <!-- Structured Data (clean: no fake ratings) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Download the MiAmor App",
+    "url":"https://miamorweb.site/downloads.html",
+    "description":"Official MiAmor downloads page for Android and iOS."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"SoftwareApplication",
+        "name":"MiAmor (Android)",
+        "applicationCategory":"SocialNetworkingApplication",
+        "operatingSystem":"Android",
+        "publisher":{"@type":"Organization","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "downloadUrl":"https://miamorweb.site/downloads.html#android"
+      },
+      {
+        "@type":"SoftwareApplication",
+        "name":"MiAmor (iOS)",
+        "applicationCategory":"SocialNetworkingApplication",
+        "operatingSystem":"iOS",
+        "publisher":{"@type":"Organization","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "downloadUrl":"https://miamorweb.site/downloads.html#ios"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <h1>Click below to download the Miamor App</h1>
-
-  <div class="download-box">
-    <div class="store-icon">
-      <!-- Google Play -->
-      <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get Miamor App on Google Play">
-      </a>
-
-      <!-- Apple Store -->
-      <a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download Miamor App on the App Store">
-      </a>
+  <header>
+    <h1>Download the MiAmor App</h1>
+    <p class="lead">Get the official Android or iOS app when available. Always install from trusted sources and double‑check links here.</p>
+    <div class="download-box" id="android">
+      <div class="store-icon">
+        <!-- Play Store (update to real link when live) -->
+        <a href="https://linktr.ee/makemoneyonline312" rel="nofollow noopener" target="_blank" aria-label="Get it on Google Play">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" width="280" height="84" loading="lazy" decoding="async">
+        </a>
+      </div>
     </div>
-  </div>
-<nav>
-    <a href="/">Home</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/downloads.html">Download</a>
-    <a href="/faq.html">FAQ</a>
+    <div class="download-box" id="ios">
+      <div class="store-icon">
+        <!-- App Store (update to real link when live) -->
+        <a href="https://linktr.ee/makemoneyonline312" rel="nofollow noopener" target="_blank" aria-label="Download on the App Store">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="280" height="93" loading="lazy" decoding="async">
+        </a>
+      </div>
+    </div>
+
+    <div class="links">
+      <a class="btn" href="/faq.html">FAQ</a>
+      <a class="btn" href="/register.html">Register</a>
+      <a class="btn" href="/packages.html">Packages</a>
+    </div>
+  </header>
+
+  <nav class="bottom" aria-label="Secondary">
+    <div class="pill">
+      <a href="/">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/downloads.html" aria-current="page">Download</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
   </nav>
+
+  <footer>
+    <p>© MiAmor 2025</p>
+  </footer>
 </body>
 </html>
