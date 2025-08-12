@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow only non-public or duplicates
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /tmp/
+
+Sitemap: https://miamorweb.site/sitemap.xml
