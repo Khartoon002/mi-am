@@ -167,113 +167,186 @@
         <a href="/downloads.html">Download</a> •
         <a href="/packages.html">Packages</a> •
         <a href="/faq.html">FAQ</a> •
-        <a href="/register.html">Register</a>
+        <a href="/contact.html">Contact</a>
       </nav>
       <p class="copyright">© MiAmor 2025 • All rights reserved</p>
     </div>
   </footer>
 
   <!-- Fetch posts + filter + schema -->
-  <script>
-    // ---- Config: Feed URL ----
-    const FEED_URL = "https://script.google.com/macros/s/AKfycbwc95nVfbQkuRxPtZ24qCvwnGprw75FKMmCogKMOtgNv2WkvqLAKai5xfzpQE36If9X/exec";
+<script>
+  // ---- Config: Feed URL ----
+  const FEED_URL = "https://script.google.com/macros/s/AKfycbwc95nVfbQkuRxPtZ24qCvwnGprw75FKMmCogKMOtgNv2WkvqLAKai5xfzpQE36If9X/exec";
 
-    // ---- DOM refs ----
-    const postsEl = document.getElementById('posts');
-    const q = document.getElementById('q');
-    const cat = document.getElementById('category');
+  // ---- DOM refs ----
+  const postsEl = document.getElementById('posts');
+  const q = document.getElementById('q');
+  const cat = document.getElementById('category');
 
-    // ---- Helpers ----
-    const escapeHTML = (str='') =>
-      String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  // ---- Helpers ----
+  const escapeHTML = (str='') =>
+    String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
-    const fmtDate = (d) => {
-      try { return new Date(d).toLocaleDateString(); }
-      catch { return new Date().toLocaleDateString(); }
-    };
+  const fmtDate = (d) => {
+    try { return new Date(d).toLocaleDateString(); }
+    catch { return new Date().toLocaleDateString(); }
+  };
 
-    function buildCard(post) {
-      const title = escapeHTML(post.title || 'MiAmor Blog');
-      const desc  = escapeHTML(post.description || '');
-      const img   = escapeHTML(post.image || '/img/og-cover.jpg');
-      const body  = post.content || '';
-      const category = (post.category || '').toLowerCase().trim();
+  const slugify = (s='') =>
+    String(s).toLowerCase()
+      .trim()
+      .replace(/['"’]/g,'')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-+|-+$/g,'');
 
-      return `
-        <article class="card" ${category ? `data-cat="${escapeHTML(category)}"` : ''}>
-          <img src="${img}" alt="${title}" loading="lazy" decoding="async">
-          <h2>${title}</h2>
-          <div class="meta">${fmtDate(post.publishedAt || Date.now())}${category ? ` • ${escapeHTML(category)}` : ''}</div>
-          ${desc ? `<p class="excerpt">${desc}</p>` : ''}
-          ${body ? `<p>${body}</p>` : ''}
-        </article>
-      `;
-    }
+  // Convert Sheets HYPERLINK() and plain URLs into safe <a> tags
+  function linkify(text='') {
+    // =HYPERLINK("url","text")
+    let out = String(text).replace(/=HYPERLINK\(\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\)/gi, (_, url, label) => {
+      const u = escapeHTML(url);
+      const l = escapeHTML(label);
+      return '<a href="'+u+'" target="_blank" rel="noopener nofollow">'+l+'</a>';
+    });
 
-    function injectSchema(posts) {
-      const graph = posts.map(p => {
-        const publishedISO = new Date(p.publishedAt || Date.now()).toISOString();
-        return {
-          "@type": "BlogPosting",
-          "headline": p.title,
-          "description": p.description,
-          "image": p.image,
-          "articleBody": p.content,
-          "author": {"@type":"Organization","name":"MiAmor"},
-          "publisher": {"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-logo.png"}},
-          "mainEntityOfPage":{"@type":"WebPage","@id": window.location.href},
-          "datePublished": publishedISO,
-          "dateModified": publishedISO
-        };
-      });
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify({"@context":"https://schema.org","@graph":graph});
-      document.head.appendChild(script);
-    }
+    // Raw URLs
+    out = out.replace(/((https?:\/\/)[^\s<>"')]+)(?![^<]*>)/gi, (m) => {
+      const u = escapeHTML(m);
+      return '<a href="'+u+'" target="_blank" rel="noopener nofollow">'+u+'</a>';
+    });
 
-    function render(posts) {
-      postsEl.innerHTML = posts.map(buildCard).join('');
+    return out;
+  }
+
+  // Parse plain text into paragraphs and lists while staying safe
+  function formatBody(raw='') {
+    if (!raw) return '';
+
+    // Normalize newlines
+    const txt = String(raw).replace(/\r\n?|\r/g, '\n');
+
+    // Split into blocks by blank lines
+    const blocks = txt.split(/\n{2,}/);
+
+    const parts = blocks.map(block => {
+      const lines = block.split(/\n/).map(l => l.trim()).filter(Boolean);
+
+      // List block if all lines start with -, •, or *
+      const isList = lines.length && lines.every(l => /^[\-•*]\s+/.test(l));
+      if (isList) {
+        const items = lines
+          .map(l => l.replace(/^[\-•*]\s+/, ''))
+          .map(item => '<li>'+linkify(escapeHTML(item))+'</li>')
+          .join('');
+        return '<ul>'+items+'</ul>';
+      }
+
+      // Normal paragraph (join single-line breaks back with spaces)
+      const para = lines.join(' ');
+      return '<p>'+linkify(escapeHTML(para))+'</p>';
+    });
+
+    return parts.join('');
+  }
+
+  // Create a short excerpt from raw content if description is missing
+  function makeExcerpt(raw='') {
+    if (!raw) return '';
+    const firstBlock = String(raw).replace(/\r\n?|\r/g,'\n').split(/\n{2,}/)[0] || raw;
+    const clean = firstBlock
+      .replace(/=HYPERLINK\([^)]*\)/gi, '') // drop formula text
+      .replace(/https?:\/\/\S+/g, '')       // drop bare urls
+      .trim();
+    return clean.length > 180 ? clean.slice(0, 177) + '...' : clean;
+  }
+
+ function buildCard(post) {
+  const title = escapeHTML(post.title || 'MiAmor Blog');
+  const desc  = escapeHTML(post.description || '');
+  const img   = escapeHTML(post.image || '/img/og-cover.jpg');
+  const bodyRaw  = post.content || '';
+  const category = (post.category || '').toLowerCase().trim();
+
+  // Formatted HTML body (safe + paragraphs/lists/links)
+  const bodyHTML = formatBody(bodyRaw);
+
+  // If no explicit description, auto-excerpt
+  const excerptText = desc || makeExcerpt(bodyRaw);
+
+  return `
+    <article class="card" ${category ? `data-cat="${escapeHTML(category)}"` : ''}>
+      <img src="${img}" alt="${title}" loading="lazy" decoding="async">
+      <h2>${title}</h2>
+      <div class="meta">${fmtDate(post.publishedAt || Date.now())}${category ? ` • ${escapeHTML(category)}` : ''}</div>
+      ${excerptText ? `<p class="excerpt">${excerptText}</p>` : ''}
+      ${bodyHTML ? `<div class="excerpt">${bodyHTML}</div>` : ''}
+    </article>
+  `;
+}
+
+  function injectSchema(posts) {
+    const graph = posts.map(p => {
+      const publishedISO = new Date(p.publishedAt || Date.now()).toISOString();
+      const slug = p.slug || slugify(p.title || 'post');
+      return {
+        "@type": "BlogPosting",
+        "headline": p.title,
+        "description": p.description || makeExcerpt(p.content || ''),
+        "image": p.image || "https://miamorweb.site/img/miamor-logo.png",
+        "articleBody": (p.content || '').replace(/=HYPERLINK\([^)]*\)/gi, ''), // plain text for schema
+        "author": {"@type":"Organization","name":"MiAmor"},
+        "publisher": {"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-logo.png"}},
+        "mainEntityOfPage":{"@type":"WebPage","@id": "https://miamorweb.site/blog-post.html?slug=" + slug},
+        "datePublished": publishedISO,
+        "dateModified": publishedISO
+      };
+    });
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({"@context":"https://schema.org","@graph":graph});
+    document.head.appendChild(script);
+  }
+
+  function render(posts) {
+    postsEl.innerHTML = posts.map(buildCard).join('');
+    postsEl.setAttribute('aria-busy','false');
+    // refresh filter after render
+    filter();
+  }
+
+  // ---- Fetch and render ----
+  fetch(FEED_URL)
+    .then(r => r.json())
+    .then(posts => {
+      if (!Array.isArray(posts)) throw new Error('Invalid feed format');
+      render(posts);
+      injectSchema(posts);
+    })
+    .catch(err => {
+      console.error(err);
       postsEl.setAttribute('aria-busy','false');
-      // refresh filter after render
-      filter();
-    }
+      postsEl.innerHTML = "<p style='color:#b91c1c;background:#fee2e2;padding:.75rem;border-radius:.5rem'>Error loading blog posts.</p>";
+    });
 
-    // ---- Fetch and render ----
-    fetch(FEED_URL)
-      .then(r => r.json())
-      .then(posts => {
-        if (!Array.isArray(posts)) throw new Error('Invalid feed format');
-        render(posts);
-        injectSchema(posts);
-      })
-      .catch(err => {
-        console.error(err);
-        postsEl.setAttribute('aria-busy','false');
-        postsEl.innerHTML = "<p style='color:#b91c1c;background:#fee2e2;padding:.75rem;border-radius:.5rem'>Error loading blog posts.</p>";
-      });
+  // ---- Filter (search + category) ----
+  function filter() {
+    const term = (q.value || '').toLowerCase();
+    const c = (cat.value || '').toLowerCase();
+    const cards = postsEl.querySelectorAll('.card');
+    cards.forEach(card => {
+      const matchesTerm = card.textContent.toLowerCase().includes(term);
+      const matchesCat = !c || (card.getAttribute('data-cat') === c);
+      card.style.display = (matchesTerm && matchesCat) ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', filter);
+  cat.addEventListener('change', filter);
 
-    // ---- Filter (search + category) ----
-    function filter() {
-      const term = (q.value || '').toLowerCase();
-      const c = (cat.value || '').toLowerCase();
-      const cards = postsEl.querySelectorAll('.card');
-      cards.forEach(card => {
-        const matchesTerm = card.innerText.toLowerCase().includes(term);
-        const matchesCat = !c || (card.getAttribute('data-cat') === c);
-        card.style.display = (matchesTerm && matchesCat) ? '' : 'none';
-      });
-    }
-    q.addEventListener('input', filter);
-    cat.addEventListener('change', filter);
-
-    // Optional: service worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(()=>{});
-      });
-    }
-  </script>
+  // Optional: service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    });
+  }
+</script>
 </body>
 </html>
-
