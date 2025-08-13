@@ -11,10 +11,19 @@
   <meta name="format-detection" content="telephone=no" />
   <base target="_top">
 
-  <!-- Favicons (keep minimal) -->
+  <!-- Favicons (ensure Google/UA discovery) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+  <!-- If you have an SVG logo, keep this; otherwise it’s safe to leave -->
+  <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#0b64d8">
+  <meta name="msapplication-TileColor" content="#0b64d8">
   <meta name="theme-color" content="#0b64d8" />
+  <meta name="application-name" content="MiAmor" />
+  <meta name="apple-mobile-web-app-title" content="MiAmor" />
 
   <!-- Performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,24 +31,25 @@
   <!-- Removed video preload to improve LCP -->
   <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
 
-  <!-- Title & meta description -->
-  <title>Miamor Website – Official Guide, App & Registration</title>
-  <meta name="title" content="Miamor Website – Official Guide, App & Registration" />
-  <meta name="description" content="Miamor Website: official guide for Nigeria. Register, explore the miamor app, download updates, and access marketplace, games, and learning tools safely." />
+  <!-- Title & meta description (intent-aligned, CTR-friendly) -->
+  <title>MiAmor Website — Official Guide to the MiAmor App, Registration & Download</title>
+  <meta name="title" content="MiAmor Website — Official Guide to the MiAmor App, Registration & Download" />
+  <meta name="description" content="Official MiAmor website guide for Nigeria: register, download the MiAmor app, and explore marketplace, games, and learning tools safely." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/" />
   <meta property="og:site_name" content="MiAmor" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="Miamor Website – Official Guide, App & Registration" />
-  <meta property="og:description" content="Miamor Website: register, use the miamor app, and explore marketplace, games, and learning tools." />
+  <meta property="og:title" content="MiAmor Website — Official Guide, App & Registration" />
+  <meta property="og:description" content="Register and use the MiAmor app. Explore marketplace, games, and learning tools on the official MiAmor website guide." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor website hero cover" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Miamor Website – Official Guide, App & Registration" />
-  <meta name="twitter:description" content="Official Miamor Website guide for Nigeria with app download, registration, and core features." />
+  <meta name="twitter:title" content="MiAmor Website — Official Guide, App & Registration" />
+  <meta name="twitter:description" content="Official MiAmor Website guide for Nigeria with app download, registration, and core features." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
   <!-- Fonts -->
@@ -48,8 +58,8 @@
   <!-- Main CSS (keep) -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- ===== Structured Data (updated) ===== -->
-  <!-- Organization + Logo -->
+  <!-- ===== Structured Data (hardened for logo + nav + page) ===== -->
+  <!-- Organization + Logo (adds ImageObject for richer parsing) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,13 +67,16 @@
     "name": "MiAmor",
     "url": "https://miamorweb.site/",
     "logo": "https://miamorweb.site/img/miamor-logo.png",
-    "sameAs": [
-      "https://miamorweb.site/index.html"
-    ]
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://miamorweb.site/img/miamor-logo.png",
+      "width": 512,
+      "height": 512
+    }
   }
   </script>
 
-  <!-- WebSite + SearchAction (uses /blog.html as site search) -->
+  <!-- WebSite + SearchAction -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,6 +87,27 @@
       "@type": "SearchAction",
       "target": "https://miamorweb.site/blog.html?q={search_term_string}",
       "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- WebPage (homepage context) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "url":"https://miamorweb.site/",
+    "name":"MiAmor Website — Official Guide, App & Registration",
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"https://miamorweb.site/img/og-cover.jpg",
+      "width":1200,
+      "height":630
+    },
+    "isPartOf":{
+      "@type":"WebSite",
+      "url":"https://miamorweb.site/",
+      "name":"MiAmor"
     }
   }
   </script>
@@ -92,7 +126,19 @@
   }
   </script>
 
-
+  <!-- SiteNavigationElement (helps Google map your menu) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"SiteNavigationElement","name":"Blog","url":"https://miamorweb.site/blog.html"},
+      {"@type":"SiteNavigationElement","name":"Download","url":"https://miamorweb.site/downloads.html"},
+      {"@type":"SiteNavigationElement","name":"FAQ","url":"https://miamorweb.site/faq.html"},
+      {"@type":"SiteNavigationElement","name":"Register","url":"https://miamorweb.site/register.html"}
+    ]
+  }
+  </script>
 
   <!-- VideoObject (kept; no preload) -->
   <script type="application/ld+json">
@@ -220,7 +266,7 @@
     <div class="content">
       <h1>MiAmor Website &amp; App — Register, Download, and Explore Features</h1>
       <p>Explore the official <strong>miamor website</strong> in Nigeria. Complete your <a href="/register.html" style="color:#e5efff; text-decoration:underline">registration</a>, get the <a href="/downloads.html" style="color:#e5efff; text-decoration:underline">miamor app</a>, and learn how to use games, marketplace, and learning tools responsibly.</p>
-      <p class="kpis"><strong>Fast onboarding • Mobile‑first • Secure access</strong></p>
+      <p class="kpis"><strong>Fast onboarding • Mobile-first • Secure access</strong></p>
       <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:.9rem">
         <a class="btn" href="/register.html">Join MiAmor</a>
         <a class="btn btn-outline" href="/downloads.html" style="border-color:#fff">Download App</a>
@@ -233,10 +279,10 @@
     <section class="grid-2" aria-labelledby="about-title">
       <article class="card dark">
         <h2 id="about-title">What is the Miamor Website?</h2>
-        <p>The <strong>miamor website</strong> is an all‑in‑one gateway to the miamor platform for connection, learning, games, and a trusted marketplace. Whether you’re here for relationships, skills, or rewards, MiAmor brings it together in one mobile experience.</p>
+        <p>The <strong>miamor website</strong> is an all-in-one gateway to the miamor platform for connection, learning, games, and a trusted marketplace. Whether you’re here for relationships, skills, or rewards, MiAmor brings it together in one mobile experience.</p>
         <ul class="bullet-list">
           <li><a href="/register.html" style="color:#fff; text-decoration:underline">Register in minutes</a></li>
-          <li>Mobile‑first <a href="/downloads.html" style="color:#fff; text-decoration:underline">app download</a></li>
+          <li>Mobile-first <a href="/downloads.html" style="color:#fff; text-decoration:underline">app download</a></li>
           <li>Guides, sharing, marketplace, and more</li>
         </ul>
       </article>
@@ -279,7 +325,7 @@
 
         <article class="card dark-card">
           <h2 class="card-title"><span class="dotted-underline">Sell It — MiAmor’s Trusted Marketplace</span></h2>
-          <p>List approved items, connect with buyers, and trade safely using in‑app tools.</p>
+          <p>List approved items, connect with buyers, and trade safely using in-app tools.</p>
           <ul class="bullet-list">
             <li>Simple listings and profile verification</li>
             <li>Direct, secure communication</li>
@@ -299,7 +345,7 @@
           <h2 class="card-title"><span class="dotted-underline">Keep Learning, Keep Growing</span></h2>
           <p>Access skill guides and community lessons designed for today’s digital world.</p>
           <ul class="bullet-list">
-            <li>Practical tutorials and how‑tos</li>
+            <li>Practical tutorials and how-tos</li>
             <li>Community Q&amp;A and tips</li>
             <li>Progress with trackable modules</li>
           </ul>
@@ -386,7 +432,7 @@
             <li>Participate in community programs</li>
             <li>Transparent rules and dashboards</li>
             <li>Exit options and account controls</li>
-            <li><a href="/packages.html" style="color:#fff;text-decoration:underline">Privacy‑first approach</a></li>
+            <li><a href="/packages.html" style="color:#fff;text-decoration:underline">Privacy-first approach</a></li>
           </ul>
           <a href="/register.html" class="btn btn-primary">Get Started</a>
         </article>
@@ -426,10 +472,10 @@
       <div class="download-container">
         <h2 class="section-title download-title">Download Mobile App</h2>
         <div class="store-badges">
-          <a href="/downloads.html" class="store-badge">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_badge_EN.svg.png" alt="Get it on Google Play" width="240" height="73" loading="lazy" decoding="async">
+          <a href="/downloads.html" class="store-badge" rel="noopener">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_Badge_EN.svg.png" alt="Get it on Google Play" width="240" height="73" loading="lazy" decoding="async">
           </a>
-          <a href="/downloads.html" class="store-badge">
+          <a href="/downloads.html" class="store-badge" rel="noopener">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" width="240" height="80" loading="lazy" decoding="async">
           </a>
         </div>
@@ -512,7 +558,7 @@
     "mainEntity":[
       {
         "@type":"Question",
-        "name":"How much is registration on the Miamor Website?",
+        "name":"How much is registration on the MiAmor Website?",
         "acceptedAnswer":{"@type":"Answer","text":"Pricing varies by package. Visit https://miamorweb.site/packages.html for current naira rates and inclusions."}
       },
       {
@@ -528,25 +574,21 @@
       {
         "@type":"Question",
         "name":"Is the miamor website safe to use?",
-        "acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best‑practice guides on https://miamorweb.site/blog.html."}
+        "acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best-practice guides on https://miamorweb.site/blog.html."}
       }
     ]
   }
   </script>
 
   <!-- Search Console Prerequisites:
-sql
-Copy
-Edit
-Search Console Prerequisites:
-1) Verify property as "Domain" level via DNS TXT (preferred) or URL-prefix.
-2) Set preferred canonical (HTTPS + www or non-www) and enforce a single 301 hop.
-3) Ensure robots.txt allows crawling of key paths; block only admin/no-index pages.
-4) Submit XML sitemap(s) listing only final 200 URLs (no redirects).
-5) Fix redirect chains/loops, trailing slash and case normalization (one hop).
-6) Ensure core pages return 200 + are indexable (no noindex, no auth walls).
-7) Resubmit sitemap and Request Indexing for key pages after changes.
-8) Monitor Coverage, Page Experience/Core Web Vitals, and Fix “Redirect error” if flagged.
+  1) Verify property as "Domain" level via DNS TXT (preferred) or URL-prefix.
+  2) Enforce single canonical host (HTTPS + non-www or www) with 301.
+  3) robots.txt should allow key paths; noindex only where needed.
+  4) Submit XML sitemap(s) with only 200-status URLs.
+  5) Fix redirect chains/loops; normalize trailing-slash/case.
+  6) Keep core pages indexable (no noindex, no auth walls).
+  7) Request Indexing for key pages after changes.
+  8) Monitor Coverage & Core Web Vitals.
   -->
 </body>
 </html>
