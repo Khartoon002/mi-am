@@ -9,11 +9,30 @@
     <priority>1.00</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog Listing -->
   <url>
     <loc>https://miamorweb.site/blog.html</loc>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-15</lastmod>
     <priority>0.90</priority>
+  </url>
+
+  <!-- Individual Blog Posts -->
+  <url>
+    <loc>https://miamorweb.site/blog/miamor-website-changing-online-earning.html</loc>
+    <lastmod>2025-08-15</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://miamorweb.site/blog/how-to-register-login-miamor-website.html</loc>
+    <lastmod>2025-08-15</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://miamorweb.site/blog/top-5-miamor-website-features.html</loc>
+    <lastmod>2025-08-15</lastmod>
+    <priority>0.80</priority>
   </url>
 
   <!-- FAQ -->

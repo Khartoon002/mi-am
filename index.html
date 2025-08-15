@@ -52,6 +52,85 @@
   <!-- Main CSS (keep) -->
   <link rel="stylesheet" href="/styles.css" />
 
+
+    <!-- ===== Added: international & discovery hints ===== -->
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en-ng" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="x-default" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- ===== Added: WebPage + primaryImage + topical keywords ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"MiAmor Website — Official Registration & App Download",
+    "url":"https://miamorweb.site/",
+    "inLanguage":"en-NG",
+    "description":"Visit the official MiAmor Website (miamorweb.site) to register, download the MiAmor app, explore packages, read FAQs, and contact support in Nigeria.",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"https://miamorweb.site/img/og-cover.jpg",
+      "width":1200,
+      "height":630,
+      "caption":"MiAmor website hero cover",
+      "representativeOfPage": true
+    },
+    "about":[
+      {"@type":"Thing","name":"miamor website"},
+      {"@type":"Thing","name":"miamor app"},
+      {"@type":"Thing","name":"miamor platform"},
+      {"@type":"Thing","name":"miamor registration"}
+    ],
+    "keywords":"miamor website, miamor app, miamor registration, miamor platform, miamor Nigeria"
+  }
+  </script>
+
+  <!-- ===== Added: SiteNavigationElement (helps sitelinks comprehension) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Blog","Download","FAQ","Register"],
+    "url":[
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/faq.html",
+      "https://miamorweb.site/register.html"
+    ]
+  }
+  </script>
+
+  <!-- ===== Added: HowTo (registration) for additional rich results eligibility ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"How to register on the MiAmor Website",
+    "description":"Step-by-step guide for new users in Nigeria to create an account on the MiAmor website.",
+    "totalTime":"PT3M",
+    "supply":["Email address","Mobile device","Internet connection"],
+    "tool":["Web browser"],
+    "step":[
+      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor Website and open the Register page."},
+      {"@type":"HowToStep","name":"Fill in your details","text":"Enter your basic information and set a secure password."},
+      {"@type":"HowToStep","name":"Submit and verify","text":"Submit the form and follow any verification prompts you receive."}
+    ],
+    "image":{
+      "@type":"ImageObject",
+      "url":"https://miamorweb.site/img/miamor-website.jpg",
+      "width":1280,
+      "height":720
+    }
+  }
+  </script>
+
+
   <!-- ===== Structured Data (updated names for clarity) ===== -->
   <!-- Organization + Logo -->
   <script type="application/ld+json">
@@ -153,6 +232,13 @@
     .share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:999px;border:1.5px solid #ffffffb3;background:transparent;color:#fff;text-decoration:none;font-weight:600}
     .share-btn.dark{border-color:#d0defa;color:#0b64d8;background:#eef4ff}
   </style>
+
+    <!-- ===== Added: modest font-display control to improve perceived speed ===== -->
+  <style>
+    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
+    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  </style>
+
 </head>
 
 <body>
@@ -211,6 +297,23 @@
         <img src="/img/miamor_c.jpg" alt="How the miamor platform works on web and app" width="960" height="640" loading="lazy" decoding="async">
       </div>
     </section>
+
+        <!-- ===== Added: extra topical section with exact-phrase H2s and internal links ===== -->
+    <section class="section" aria-labelledby="how-to-use-mi-amor">
+      <h2 id="how-to-use-mi-amor">How to Use the Miamor Website</h2>
+      <p>The <strong>miamor website</strong> is optimized for quick onboarding. Start from the
+        <a href="/register.html">registration page</a>, read the <a href="/faq.html">FAQ</a>, and use the
+        <a href="/downloads.html">downloads</a> page to get the MiAmor app. If you need details on packages, check the
+        <a href="/packages.html">packages</a> guide.</p>
+
+      <h2 id="login-and-registration">Miamor Website Login and Registration</h2>
+      <p>Already have an account? Head to the <a href="/register.html">Register / Login page</a> to access your profile.
+        New users can learn more about the <a href="/faq.html">Miamor website</a> features and policies before signing up.
+        For updates and tutorials, visit the <a href="/blog.html">blog</a>.</p>
+
+      <p><a href="/faq.html">Learn more about the miamor website</a> and find answers to common questions for users in Nigeria.</p>
+    </section>
+
 
     <!-- === New SEO content (~300+ words, merged sentences, natural use of “miamor website”) === -->
     <section class="section" aria-labelledby="about-mw">

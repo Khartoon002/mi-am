@@ -1,0 +1,266 @@
+/* ========== MiAmor Blog Post Styles (post.css) ==========
+   Drop this file at /blog/post.css and link it from each post.
+   It inherits your site's variables; includes safe fallbacks.
+========================================================== */
+
+/* Vars + fallbacks */
+:root{
+  --brand:#0b64d8;
+  --brand-dark:#084ca6;
+  --text:#0f172a;
+  --muted:#475569;
+  --card:#ffffff;
+  --bg:#f8fafc;
+  --ring: rgba(11,100,216,.25);
+}
+
+/* Base */
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--bg);
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+/* Wrapper to center content and limit line-length */
+.post{
+  max-width: 820px;
+  margin: 32px auto;
+  padding: 0 16px 64px;
+}
+
+/* Card-like feel for standalone posts on light bg */
+.post-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 5px 16px rgba(2,6,23,.08);
+  padding: 24px;
+}
+@media (min-width: 880px){
+  .post-card{ padding: 36px 40px; }
+}
+
+/* Heading styles */
+h1,h2,h3,h4,h5,h6{
+  font-family:'Montserrat',sans-serif;
+  letter-spacing:.1px;
+  line-height:1.25;
+  margin: 1.2em 0 .45em;
+}
+h1{ font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin-top:.2em }
+h2{ font-size: clamp(1.3rem, 2.6vw, 1.6rem) }
+h3{ font-size: clamp(1.15rem, 2.1vw, 1.25rem) }
+
+/* Meta row under H1 */
+.post-meta{
+  color:#64748b;
+  font-size:.95rem;
+  display:flex;
+  gap:.6rem;
+  flex-wrap:wrap;
+  align-items:center;
+  margin: .35rem 0 1.1rem;
+}
+.post-meta .dot::before{
+  content:"•"; margin:0 .35rem; color:#94a3b8;
+}
+
+/* Featured image */
+.post-hero{
+  margin: 0 0 1rem;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 10px 24px rgba(2,6,23,.08);
+}
+.post-hero img{ width:100%; height:auto; display:block }
+
+/* Typography / prose */
+.post .prose{
+  font-size:1.02rem;
+  line-height:1.75;
+  color:var(--text);
+}
+.post .prose p{ margin: 0 0 1.05em }
+.post .prose strong{ font-weight:700 }
+.post .prose em{ font-style:italic }
+.post .prose a{
+  color:var(--brand);
+  text-decoration: none;
+  border-bottom: 1.5px dashed rgba(11,100,216,.35);
+}
+.post .prose a:hover{
+  color:var(--brand-dark);
+  border-bottom-color: var(--brand-dark);
+}
+
+/* Lists */
+.post .prose ul,
+.post .prose ol{
+  padding-left:1.2rem;
+  margin: .3rem 0 1.1rem;
+}
+.post .prose li{ margin:.4rem 0 }
+.post .prose li::marker{ color:#7aa5f7 }
+
+/* Blockquote */
+.post blockquote{
+  margin: 1rem 0;
+  padding: .9rem 1rem;
+  border-left:4px solid var(--brand);
+  background:#f1f5ff;
+  color:#0b2a66;
+  border-radius:10px;
+}
+
+/* Code */
+.post code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: .95em;
+  background:#f1f5f9;
+  padding: .1rem .35rem;
+  border-radius:6px;
+}
+.post pre{
+  background:#0a1024;
+  color:#e5e7eb;
+  padding: 14px 16px;
+  border-radius:12px;
+  overflow:auto;
+  box-shadow:0 6px 16px rgba(2,6,23,.18);
+}
+.post pre code{ background:transparent; padding:0 }
+
+/* Tables */
+.post table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  margin: 1rem 0;
+  font-size:.98rem;
+}
+.post th, .post td{
+  padding:.65rem .75rem;
+  border-bottom:1px solid #e5e7eb;
+}
+.post thead th{
+  text-align:left;
+  background:#f8fbff;
+  color:#0b2a66;
+}
+
+/* Images / figures */
+.post figure{ margin:1.2rem 0; }
+.post figure img{
+  width:100%; height:auto; border-radius:12px; display:block;
+  box-shadow:0 6px 14px rgba(2,6,23,.08);
+}
+.post figcaption{
+  color:#64748b; font-size:.92rem; margin-top:.35rem; text-align:center;
+}
+
+/* Buttons (match site) */
+.btn{
+  background:var(--brand);
+  color:#fff;
+  padding:.65rem 1rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  transition:transform .06s ease, background .2s ease;
+  box-shadow:0 6px 18px rgba(11,100,216,.25);
+}
+.btn:hover{ background:var(--brand-dark) }
+.btn:active{ transform: translateY(1px) }
+.btn-outline{
+  background:#fff;
+  border:2px solid var(--brand);
+  color:var(--brand);
+  box-shadow:none;
+}
+.btn-outline:hover{
+  background:#eef4ff;
+  border-color:#7aa5f7;
+}
+
+/* Share bar for posts */
+.share-bar{
+  display:flex; gap:.6rem; flex-wrap:wrap; align-items:center;
+  margin: 1.2rem 0 0;
+}
+.share-btn{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.55rem .9rem; border-radius:999px;
+  border:1.5px solid #e5e7eb; background:#fff; color:#0b64d8;
+  font-weight:600; text-decoration:none;
+}
+.share-btn:hover{ border-color:#bdd3ff; background:#eef6ff }
+
+/* Inline notice (success/warn/info) */
+.notice{
+  padding:.8rem 1rem; border-radius:12px; margin:1rem 0;
+  border:1px solid #dbeafe; background:#eff6ff; color:#0b2a66;
+}
+.notice.warn{ border-color:#fde68a; background:#fffbeb; color:#92400e }
+.notice.danger{ border-color:#fecaca; background:#fef2f2; color:#7f1d1d }
+
+/* Back to blog link */
+.post .back{
+  display:inline-flex; align-items:center; gap:.5rem;
+  color:var(--brand); text-decoration:none; font-weight:700;
+  margin-bottom:1rem;
+}
+.post .back:hover{ color:var(--brand-dark) }
+
+/* Responsive video embed */
+.video-responsive{
+  position:relative; width:100%; padding-top:56.25%;
+  border-radius:14px; overflow:hidden; background:#000;
+  box-shadow:0 10px 24px rgba(2,6,23,.18);
+  margin: 1rem 0;
+}
+.video-responsive iframe,
+.video-responsive video{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+
+/* Footer (optional per-post footer) */
+.post-footer{
+  margin-top: 24px;
+  border-top:1px solid #e5e7eb;
+  padding-top: 16px;
+  color:#64748b;
+  font-size:.95rem;
+}
+
+/* Utilities */
+.hr{ height:1px; background:#e5e7eb; border:0; margin:1.2rem 0 }
+.center{ text-align:center }
+.right{ text-align:right }
+.mt-0{ margin-top:0 !important }
+.mt-2{ margin-top:.5rem }
+.mt-4{ margin-top:1rem }
+.mt-6{ margin-top:1.5rem }
+.mb-0{ margin-bottom:0 !important }
+.mb-2{ margin-bottom:.5rem }
+.mb-4{ margin-bottom:1rem }
+.mb-6{ margin-bottom:1.5rem }
+
+/* Focus ring for a11y */
+a:focus, button:focus, .btn:focus{
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* Print */
+@media print{
+  body{ background:#fff }
+  .post-card{ box-shadow:none; border:1px solid #e5e7eb }
+  .share-bar, .btn { display:none !important }
+}

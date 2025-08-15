@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en" id="kubio">
 <head>
   <!-- Core -->
@@ -167,186 +167,240 @@
         <a href="/downloads.html">Download</a> •
         <a href="/packages.html">Packages</a> •
         <a href="/faq.html">FAQ</a> •
-        <a href="/contact.html">Contact</a>
+        <a href="/register.html">Contact</a>
       </nav>
       <p class="copyright">© MiAmor 2025 • All rights reserved</p>
     </div>
   </footer>
 
-  <!-- Fetch posts + filter + schema -->
+  <!-- Fetch posts from a folder via sitemap + extract meta -->
 <script>
-  // ---- Config: Feed URL ----
-  const FEED_URL = "https://script.google.com/macros/s/AKfycbwc95nVfbQkuRxPtZ24qCvwnGprw75FKMmCogKMOtgNv2WkvqLAKai5xfzpQE36If9X/exec";
+/* ========= MiAmor Blog Loader (diagnostic) ========= */
 
-  // ---- DOM refs ----
-  const postsEl = document.getElementById('posts');
-  const q = document.getElementById('q');
-  const cat = document.getElementById('category');
+const POSTS_FOLDER = "/blog/";
+const SITEMAP_URL  = `${location.origin}/sitemap.xml`;
+const MAX_POSTS    = 100;
+const CONCURRENCY  = 6;
+const DEBUG        = true; // set false to silence overlay logs
 
-  // ---- Helpers ----
-  const escapeHTML = (str='') =>
-    String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const postsEl = document.getElementById('posts');
+const q = document.getElementById('q');
+const cat = document.getElementById('category');
 
-  const fmtDate = (d) => {
-    try { return new Date(d).toLocaleDateString(); }
-    catch { return new Date().toLocaleDateString(); }
-  };
+// ---------- Debug helpers ----------
+const log = (...a) => console.log("[Blog]", ...a);
+const warn = (...a) => console.warn("[Blog]", ...a);
+const err  = (...a) => console.error("[Blog]", ...a);
 
-  const slugify = (s='') =>
-    String(s).toLowerCase()
-      .trim()
-      .replace(/['"’]/g,'')
-      .replace(/[^a-z0-9]+/g,'-')
-      .replace(/^-+|-+$/g,'');
-
-  // Convert Sheets HYPERLINK() and plain URLs into safe <a> tags
-  function linkify(text='') {
-    // =HYPERLINK("url","text")
-    let out = String(text).replace(/=HYPERLINK\(\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\)/gi, (_, url, label) => {
-      const u = escapeHTML(url);
-      const l = escapeHTML(label);
-      return '<a href="'+u+'" target="_blank" rel="noopener nofollow">'+l+'</a>';
-    });
-
-    // Raw URLs
-    out = out.replace(/((https?:\/\/)[^\s<>"')]+)(?![^<]*>)/gi, (m) => {
-      const u = escapeHTML(m);
-      return '<a href="'+u+'" target="_blank" rel="noopener nofollow">'+u+'</a>';
-    });
-
-    return out;
+let dbgEl;
+function dbg(msg, type = 'info') {
+  const line = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  (type==='error'?err:type==='warn'?warn:log)(line);
+  if (!DEBUG) return;
+  if (!dbgEl) {
+    dbgEl = document.createElement('div');
+    dbgEl.style.cssText = 'position:fixed;bottom:10px;left:10px;max-width:420px;z-index:99999;background:#0f172acc;color:#e2e8f0;font:12px/1.4 system-ui,Segoe UI,Roboto,Arial;padding:10px 12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35);white-space:pre-wrap;overflow:auto;max-height:42vh';
+    const h = document.createElement('div');
+    h.textContent = 'MiAmor Blog Debug';
+    h.style.cssText = 'font-weight:700;margin-bottom:6px;color:#93c5fd';
+    const close = document.createElement('button');
+    close.textContent = '×';
+    close.onclick = () => dbgEl.remove();
+    close.style.cssText = 'position:absolute;right:8px;top:6px;background:#1e293b;color:#e2e8f0;border:0;border-radius:6px;width:24px;height:24px;cursor:pointer';
+    dbgEl.appendChild(h); dbgEl.appendChild(close);
+    const pre = document.createElement('div'); pre.id = 'dbg-lines'; dbgEl.appendChild(pre);
+    document.body.appendChild(dbgEl);
   }
+  const pre = dbgEl.querySelector('#dbg-lines');
+  const p = document.createElement('div');
+  p.textContent = line;
+  p.style.color = type==='error'? '#fecaca' : type==='warn'? '#fde68a' : '#e2e8f0';
+  pre.appendChild(p);
+}
 
-  // Parse plain text into paragraphs and lists while staying safe
-  function formatBody(raw='') {
-    if (!raw) return '';
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
 
-    // Normalize newlines
-    const txt = String(raw).replace(/\r\n?|\r/g, '\n');
+// ---------- Utilities ----------
+const escapeHTML = (str='') => String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const fmtDate = (d) => { try { return new Date(d).toLocaleDateString(); } catch { return new Date().toLocaleDateString(); } };
+function normalizeUrl(u) { try { return new URL(u, location.origin).href.replace('://www.', '://'); } catch { return u; } }
+function urlContainsBlog(u) { try { const url = new URL(normalizeUrl(u)); const folder = POSTS_FOLDER.replace(/\/$/,''); return url.pathname.includes(`${folder}/`); } catch { return false; } }
+function dateFromUrl(url='') { const m = url.match(/(\d{4})[-_/](\d{2})[-_/](\d{2})/); if (!m) return null; const [, y, mo, d] = m; return `${y}-${mo}-${d}T00:00:00Z`; }
 
-    // Split into blocks by blank lines
-    const blocks = txt.split(/\n{2,}/);
+async function fetchWithStep(url, stepName) {
+  dbg(`➡️  Fetching: ${stepName} -> ${url}`);
+  const res = await fetch(url, { credentials: 'same-origin' });
+  dbg(`⬅️  ${stepName} status: ${res.status}`);
+  assert(res.ok, `${stepName} failed with status ${res.status}`);
+  return res;
+}
 
-    const parts = blocks.map(block => {
-      const lines = block.split(/\n/).map(l => l.trim()).filter(Boolean);
+async function fetchDoc(url) {
+  const res = await fetchWithStep(url, 'Post HTML');
+  const html = await res.text();
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  // Basic sanity: must have <title> or meta title
+  const hasTitle = !!(doc.title || doc.querySelector('meta[name="title"]'));
+  assert(hasTitle, `Missing <title> in ${url}`);
+  return doc;
+}
 
-      // List block if all lines start with -, •, or *
-      const isList = lines.length && lines.every(l => /^[\-•*]\s+/.test(l));
-      if (isList) {
-        const items = lines
-          .map(l => l.replace(/^[\-•*]\s+/, ''))
-          .map(item => '<li>'+linkify(escapeHTML(item))+'</li>')
-          .join('');
-        return '<ul>'+items+'</ul>';
-      }
+function pickAttr(doc, selector, attrList=['content','href','src']) {
+  const el = doc.querySelector(selector);
+  if (!el) return '';
+  for (const a of attrList) { const v = el.getAttribute?.(a); if (v) return v; }
+  return el.textContent?.trim() || '';
+}
 
-      // Normal paragraph (join single-line breaks back with spaces)
-      const para = lines.join(' ');
-      return '<p>'+linkify(escapeHTML(para))+'</p>';
-    });
-
-    return parts.join('');
+function extractPost(doc, url) {
+  const title = pickAttr(doc, 'meta[name="title"]') || (doc.title || '').trim() || 'Untitled Post';
+  let description = pickAttr(doc, 'meta[name="description"]');
+  let image = pickAttr(doc, 'meta[property="og:image"]') || pickAttr(doc, 'meta[name="twitter:image"]');
+  if (!image) {
+    const featured = doc.querySelector('img[data-featured], img[alt*="featured" i], article img, main img, img');
+    image = featured ? (featured.getAttribute('src') || '') : '';
   }
+  if (image && !/^https?:\/\//i.test(image)) image = new URL(image, url).href;
 
-  // Create a short excerpt from raw content if description is missing
-  function makeExcerpt(raw='') {
-    if (!raw) return '';
-    const firstBlock = String(raw).replace(/\r\n?|\r/g,'\n').split(/\n{2,}/)[0] || raw;
-    const clean = firstBlock
-      .replace(/=HYPERLINK\([^)]*\)/gi, '') // drop formula text
-      .replace(/https?:\/\/\S+/g, '')       // drop bare urls
-      .trim();
-    return clean.length > 180 ? clean.slice(0, 177) + '...' : clean;
+  const dateMeta = pickAttr(doc, 'meta[property="article:published_time"]') || pickAttr(doc, 'meta[name="date"]') || pickAttr(doc, 'meta[name="pubdate"]') || (doc.querySelector('time[datetime]')?.getAttribute('datetime') || '') || dateFromUrl(url) || new Date().toISOString();
+  const category = (pickAttr(doc, 'meta[name="category"]') || pickAttr(doc, 'meta[property="article:section"]') || '').toLowerCase().trim();
+
+  if (!description) {
+    const p = doc.querySelector('main p, article p, .content p, p');
+    description = p ? p.textContent.trim() : '';
   }
+  if (description.length > 200) description = description.slice(0, 197) + '…';
 
- function buildCard(post) {
-  const title = escapeHTML(post.title || 'MiAmor Blog');
+  return { url, title, description, image: image || (location.origin + '/img/og-cover.jpg'), publishedAt: dateMeta, category };
+}
+
+function cardHTML(post) {
+  const title = escapeHTML(post.title);
   const desc  = escapeHTML(post.description || '');
   const img   = escapeHTML(post.image || '/img/og-cover.jpg');
-  const bodyRaw  = post.content || '';
-  const category = (post.category || '').toLowerCase().trim();
-
-  // Formatted HTML body (safe + paragraphs/lists/links)
-  const bodyHTML = formatBody(bodyRaw);
-
-  // If no explicit description, auto-excerpt
-  const excerptText = desc || makeExcerpt(bodyRaw);
-
+  const category = post.category ? escapeHTML(post.category) : '';
+  const dateStr  = fmtDate(post.publishedAt);
   return `
-    <article class="card" ${category ? `data-cat="${escapeHTML(category)}"` : ''}>
+    <article class="card" ${category ? `data-cat="${category}"` : ''}>
       <img src="${img}" alt="${title}" loading="lazy" decoding="async">
       <h2>${title}</h2>
-      <div class="meta">${fmtDate(post.publishedAt || Date.now())}${category ? ` • ${escapeHTML(category)}` : ''}</div>
-      ${excerptText ? `<p class="excerpt">${excerptText}</p>` : ''}
-      ${bodyHTML ? `<div class="excerpt">${bodyHTML}</div>` : ''}
+      <div class="meta">${dateStr}${category ? ` • ${category}` : ''}</div>
+      ${desc ? `<p class="excerpt">${desc}</p>` : ''}
+      <a class="btn" href="${post.url}">Read more</a>
     </article>
   `;
 }
 
-  function injectSchema(posts) {
-    const graph = posts.map(p => {
-      const publishedISO = new Date(p.publishedAt || Date.now()).toISOString();
-      const slug = p.slug || slugify(p.title || 'post');
-      return {
-        "@type": "BlogPosting",
-        "headline": p.title,
-        "description": p.description || makeExcerpt(p.content || ''),
-        "image": p.image || "https://miamorweb.site/img/miamor-logo.png",
-        "articleBody": (p.content || '').replace(/=HYPERLINK\([^)]*\)/gi, ''), // plain text for schema
-        "author": {"@type":"Organization","name":"MiAmor"},
-        "publisher": {"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-logo.png"}},
-        "mainEntityOfPage":{"@type":"WebPage","@id": "https://miamorweb.site/blog-post.html?slug=" + slug},
-        "datePublished": publishedISO,
-        "dateModified": publishedISO
-      };
-    });
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({"@context":"https://schema.org","@graph":graph});
-    document.head.appendChild(script);
-  }
+function injectSchema(posts) {
+  const graph = posts.map(p => ({
+    "@type": "BlogPosting",
+    "headline": p.title,
+    "description": p.description,
+    "image": p.image,
+    "author": {"@type":"Organization","name":"MiAmor"},
+    "publisher": {"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url": location.origin + "/img/miamor-logo.png"}},
+    "mainEntityOfPage":{"@type":"WebPage","@id": p.url},
+    "datePublished": new Date(p.publishedAt).toISOString(),
+    "dateModified": new Date(p.publishedAt).toISOString(),
+    "url": p.url
+  }));
+  const el = document.createElement('script');
+  el.type = 'application/ld+json';
+  el.textContent = JSON.stringify({"@context":"https://schema.org","@graph":graph});
+  document.head.appendChild(el);
+}
 
-  function render(posts) {
-    postsEl.innerHTML = posts.map(buildCard).join('');
+function render(posts) {
+  posts.sort((a,b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  postsEl.innerHTML = posts.map(cardHTML).join('');
+  postsEl.setAttribute('aria-busy','false');
+  injectSchema(posts);
+  filter();
+  dbg(`✅ Rendered ${posts.length} post(s).`);
+}
+
+function filter() {
+  const term = (q.value || '').toLowerCase();
+  const c = (cat.value || '').toLowerCase();
+  const cards = postsEl.querySelectorAll('.card');
+  cards.forEach(card => {
+    const matchesTerm = card.textContent.toLowerCase().includes(term);
+    const matchesCat = !c || (card.getAttribute('data-cat') === c);
+    card.style.display = (matchesTerm && matchesCat) ? '' : 'none';
+  });
+}
+q.addEventListener('input', filter);
+cat.addEventListener('change', filter);
+
+async function urlsFromSitemap() {
+  dbg('Step 1: Checking navigator.onLine = ' + navigator.onLine);
+  const res = await fetchWithStep(SITEMAP_URL, 'Sitemap');
+  const xml = await res.text();
+  const doc = new DOMParser().parseFromString(xml, 'application/xml');
+  const locs = [...doc.querySelectorAll('url > loc')].map(n => n.textContent.trim());
+  dbg('Step 2: URLs in sitemap: ' + locs.length);
+
+  const urls = locs
+    .filter(u => /\.html?(\?.*)?$/i.test(u))
+    .filter(u => urlContainsBlog(u))
+    .filter(u => !/\/blog\.html$/i.test(u))
+    .slice(0, MAX_POSTS)
+    .map(normalizeUrl);
+
+  dbg('Step 3: Blog URLs after filter: ' + urls.length + '\n' + urls.join('\n'));
+  return urls;
+}
+
+async function mapLimit(items, limit, worker) {
+  const out = [];
+  let i = 0;
+  async function run() {
+    while (i < items.length) {
+      const idx = i++;
+      try { out[idx] = await worker(items[idx], idx); }
+      catch (e) { dbg(`⚠️ Worker failed for ${items[idx]}: ${e.message}`, 'warn'); out[idx] = null; }
+    }
+  }
+  await Promise.all(Array.from({length: Math.min(limit, items.length)}, run));
+  return out.filter(Boolean);
+}
+
+(async function init(){
+  try {
+    dbg('=== INIT START ===');
+    const urls = await urlsFromSitemap();
+
+    if (!urls.length) {
+      dbg('No /blog/ URLs in sitemap → trying /blog/index.json', 'warn');
+      const mres = await fetchWithStep(POSTS_FOLDER.replace(/\/$/, '') + '/index.json', 'Manifest');
+      const list = await mres.json();
+      assert(Array.isArray(list) && list.length, 'Manifest is empty.');
+      dbg('Loaded manifest with ' + list.length + ' item(s).');
+      render(list);
+      return;
+    }
+
+    dbg('Step 4: Fetching each post HTML…');
+    const posts = await mapLimit(urls, CONCURRENCY, async (url) => {
+      const doc = await fetchDoc(url);
+      const p = extractPost(doc, url);
+      dbg(`✔ Extracted: ${p.title}`);
+      return p;
+    });
+
+    assert(posts.length, 'No posts extracted from discovered URLs.');
+    render(posts);
+    dbg('=== INIT DONE ===');
+  } catch (e) {
+    dbg('❌ FATAL: ' + e.message, 'error');
     postsEl.setAttribute('aria-busy','false');
-    // refresh filter after render
-    filter();
+    postsEl.innerHTML = "<p style='color:#b91c1c;background:#fee2e2;padding:.75rem;border-radius:.5rem'>Error loading blog posts.</p>";
   }
 
-  // ---- Fetch and render ----
-  fetch(FEED_URL)
-    .then(r => r.json())
-    .then(posts => {
-      if (!Array.isArray(posts)) throw new Error('Invalid feed format');
-      render(posts);
-      injectSchema(posts);
-    })
-    .catch(err => {
-      console.error(err);
-      postsEl.setAttribute('aria-busy','false');
-      postsEl.innerHTML = "<p style='color:#b91c1c;background:#fee2e2;padding:.75rem;border-radius:.5rem'>Error loading blog posts.</p>";
-    });
-
-  // ---- Filter (search + category) ----
-  function filter() {
-    const term = (q.value || '').toLowerCase();
-    const c = (cat.value || '').toLowerCase();
-    const cards = postsEl.querySelectorAll('.card');
-    cards.forEach(card => {
-      const matchesTerm = card.textContent.toLowerCase().includes(term);
-      const matchesCat = !c || (card.getAttribute('data-cat') === c);
-      card.style.display = (matchesTerm && matchesCat) ? '' : 'none';
-    });
-  }
-  q.addEventListener('input', filter);
-  cat.addEventListener('change', filter);
-
-  // Optional: service worker
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch(()=>{});
-    });
+    window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(()=>{}); });
   }
+})();
 </script>
-</body>
-</html>
