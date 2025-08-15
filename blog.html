@@ -175,54 +175,37 @@
 
   <!-- Fetch posts from a folder via sitemap + extract meta -->
 <script>
-/* ========= MiAmor Blog Loader (diagnostic) ========= */
+/* ========= MiAmor Blog Loader (clean, no debug UI) ========= */
 
 const POSTS_FOLDER = "/blog/";
 const SITEMAP_URL  = `${location.origin}/sitemap.xml`;
 const MAX_POSTS    = 100;
 const CONCURRENCY  = 6;
-const DEBUG        = true; // set false to silence overlay logs
+const DEBUG        = false; // no overlay, no console logs
 
 const postsEl = document.getElementById('posts');
 const q = document.getElementById('q');
 const cat = document.getElementById('category');
 
-// ---------- Debug helpers ----------
-const log = (...a) => console.log("[Blog]", ...a);
-const warn = (...a) => console.warn("[Blog]", ...a);
-const err  = (...a) => console.error("[Blog]", ...a);
+/* ---- Minimal logger (silent when DEBUG=false) ---- */
+const _noop = () => {};
+const log  = DEBUG ? (...a) => console.log("[Blog]", ...a) : _noop;
+const warn = DEBUG ? (...a) => console.warn("[Blog]", ...a) : _noop;
+const err  = DEBUG ? (...a) => console.error("[Blog]", ...a) : _noop;
+const dbg  = DEBUG ? (m,t='info') => (t==='error'?err:m==='warn'?warn:log)(m) : _noop;
 
-let dbgEl;
-function dbg(msg, type = 'info') {
-  const line = `[${new Date().toLocaleTimeString()}] ${msg}`;
-  (type==='error'?err:type==='warn'?warn:log)(line);
-  if (!DEBUG) return;
-  if (!dbgEl) {
-    dbgEl = document.createElement('div');
-    dbgEl.style.cssText = 'position:fixed;bottom:10px;left:10px;max-width:420px;z-index:99999;background:#0f172acc;color:#e2e8f0;font:12px/1.4 system-ui,Segoe UI,Roboto,Arial;padding:10px 12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35);white-space:pre-wrap;overflow:auto;max-height:42vh';
-    const h = document.createElement('div');
-    h.textContent = 'MiAmor Blog Debug';
-    h.style.cssText = 'font-weight:700;margin-bottom:6px;color:#93c5fd';
-    const close = document.createElement('button');
-    close.textContent = '×';
-    close.onclick = () => dbgEl.remove();
-    close.style.cssText = 'position:absolute;right:8px;top:6px;background:#1e293b;color:#e2e8f0;border:0;border-radius:6px;width:24px;height:24px;cursor:pointer';
-    dbgEl.appendChild(h); dbgEl.appendChild(close);
-    const pre = document.createElement('div'); pre.id = 'dbg-lines'; dbgEl.appendChild(pre);
-    document.body.appendChild(dbgEl);
-  }
-  const pre = dbgEl.querySelector('#dbg-lines');
-  const p = document.createElement('div');
-  p.textContent = line;
-  p.style.color = type==='error'? '#fecaca' : type==='warn'? '#fde68a' : '#e2e8f0';
-  pre.appendChild(p);
+/* ---- Status indicator (visible to users) ---- */
+const statusEl = document.createElement('div');
+statusEl.style.cssText = 'text-align:center;padding:1rem;font-weight:600';
+postsEl.parentNode.insertBefore(statusEl, postsEl);
+
+function showStatus(msg, ok = true) {
+  statusEl.textContent = msg;
+  statusEl.style.color = ok ? '#16a34a' : '#b91c1c';
 }
 
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
-
-// ---------- Utilities ----------
+/* ---- Utilities ---- */
+function assert(condition, message) { if (!condition) throw new Error(message); }
 const escapeHTML = (str='') => String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const fmtDate = (d) => { try { return new Date(d).toLocaleDateString(); } catch { return new Date().toLocaleDateString(); } };
 function normalizeUrl(u) { try { return new URL(u, location.origin).href.replace('://www.', '://'); } catch { return u; } }
@@ -230,9 +213,9 @@ function urlContainsBlog(u) { try { const url = new URL(normalizeUrl(u)); const 
 function dateFromUrl(url='') { const m = url.match(/(\d{4})[-_/](\d{2})[-_/](\d{2})/); if (!m) return null; const [, y, mo, d] = m; return `${y}-${mo}-${d}T00:00:00Z`; }
 
 async function fetchWithStep(url, stepName) {
-  dbg(`➡️  Fetching: ${stepName} -> ${url}`);
+  log(`➡️  Fetching: ${stepName} -> ${url}`);
   const res = await fetch(url, { credentials: 'same-origin' });
-  dbg(`⬅️  ${stepName} status: ${res.status}`);
+  log(`⬅️  ${stepName} status: ${res.status}`);
   assert(res.ok, `${stepName} failed with status ${res.status}`);
   return res;
 }
@@ -241,7 +224,6 @@ async function fetchDoc(url) {
   const res = await fetchWithStep(url, 'Post HTML');
   const html = await res.text();
   const doc = new DOMParser().parseFromString(html, 'text/html');
-  // Basic sanity: must have <title> or meta title
   const hasTitle = !!(doc.title || doc.querySelector('meta[name="title"]'));
   assert(hasTitle, `Missing <title> in ${url}`);
   return doc;
@@ -264,8 +246,14 @@ function extractPost(doc, url) {
   }
   if (image && !/^https?:\/\//i.test(image)) image = new URL(image, url).href;
 
-  const dateMeta = pickAttr(doc, 'meta[property="article:published_time"]') || pickAttr(doc, 'meta[name="date"]') || pickAttr(doc, 'meta[name="pubdate"]') || (doc.querySelector('time[datetime]')?.getAttribute('datetime') || '') || dateFromUrl(url) || new Date().toISOString();
-  const category = (pickAttr(doc, 'meta[name="category"]') || pickAttr(doc, 'meta[property="article:section"]') || '').toLowerCase().trim();
+  const dateMeta = pickAttr(doc, 'meta[property="article:published_time"]') ||
+                   pickAttr(doc, 'meta[name="date"]') ||
+                   pickAttr(doc, 'meta[name="pubdate"]') ||
+                   (doc.querySelector('time[datetime]')?.getAttribute('datetime') || '') ||
+                   dateFromUrl(url) || new Date().toISOString();
+
+  const category = (pickAttr(doc, 'meta[name="category"]') ||
+                    pickAttr(doc, 'meta[property="article:section"]') || '').toLowerCase().trim();
 
   if (!description) {
     const p = doc.querySelector('main p, article p, .content p, p');
@@ -318,7 +306,7 @@ function render(posts) {
   postsEl.setAttribute('aria-busy','false');
   injectSchema(posts);
   filter();
-  dbg(`✅ Rendered ${posts.length} post(s).`);
+  showStatus("✅ Blog loaded successfully", true);
 }
 
 function filter() {
@@ -335,12 +323,10 @@ q.addEventListener('input', filter);
 cat.addEventListener('change', filter);
 
 async function urlsFromSitemap() {
-  dbg('Step 1: Checking navigator.onLine = ' + navigator.onLine);
   const res = await fetchWithStep(SITEMAP_URL, 'Sitemap');
   const xml = await res.text();
   const doc = new DOMParser().parseFromString(xml, 'application/xml');
   const locs = [...doc.querySelectorAll('url > loc')].map(n => n.textContent.trim());
-  dbg('Step 2: URLs in sitemap: ' + locs.length);
 
   const urls = locs
     .filter(u => /\.html?(\?.*)?$/i.test(u))
@@ -349,7 +335,6 @@ async function urlsFromSitemap() {
     .slice(0, MAX_POSTS)
     .map(normalizeUrl);
 
-  dbg('Step 3: Blog URLs after filter: ' + urls.length + '\n' + urls.join('\n'));
   return urls;
 }
 
@@ -360,7 +345,7 @@ async function mapLimit(items, limit, worker) {
     while (i < items.length) {
       const idx = i++;
       try { out[idx] = await worker(items[idx], idx); }
-      catch (e) { dbg(`⚠️ Worker failed for ${items[idx]}: ${e.message}`, 'warn'); out[idx] = null; }
+      catch (e) { warn(`Worker failed for ${items[idx]}: ${e.message}`); out[idx] = null; }
     }
   }
   await Promise.all(Array.from({length: Math.min(limit, items.length)}, run));
@@ -369,34 +354,29 @@ async function mapLimit(items, limit, worker) {
 
 (async function init(){
   try {
-    dbg('=== INIT START ===');
     const urls = await urlsFromSitemap();
 
     if (!urls.length) {
-      dbg('No /blog/ URLs in sitemap → trying /blog/index.json', 'warn');
+      // Fallback to /blog/index.json manifest
       const mres = await fetchWithStep(POSTS_FOLDER.replace(/\/$/, '') + '/index.json', 'Manifest');
       const list = await mres.json();
       assert(Array.isArray(list) && list.length, 'Manifest is empty.');
-      dbg('Loaded manifest with ' + list.length + ' item(s).');
       render(list);
       return;
     }
 
-    dbg('Step 4: Fetching each post HTML…');
     const posts = await mapLimit(urls, CONCURRENCY, async (url) => {
       const doc = await fetchDoc(url);
-      const p = extractPost(doc, url);
-      dbg(`✔ Extracted: ${p.title}`);
-      return p;
+      return extractPost(doc, url);
     });
 
     assert(posts.length, 'No posts extracted from discovered URLs.');
     render(posts);
-    dbg('=== INIT DONE ===');
   } catch (e) {
-    dbg('❌ FATAL: ' + e.message, 'error');
+    err(e);
     postsEl.setAttribute('aria-busy','false');
     postsEl.innerHTML = "<p style='color:#b91c1c;background:#fee2e2;padding:.75rem;border-radius:.5rem'>Error loading blog posts.</p>";
+    showStatus("❌ Error loading blog posts", false);
   }
 
   if ('serviceWorker' in navigator) {
