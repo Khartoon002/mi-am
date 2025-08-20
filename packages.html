@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
-  <!-- Core -->
+!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
@@ -9,41 +9,141 @@
   <!-- Indexing & Canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/packages.html" />
+  <link rel="alternate" hreflang="en-ng" href="https://miamorweb.site/packages.html" />
+  <link rel="alternate" hreflang="en" href="https://miamorweb.site/packages.html" />
+  <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/packages.html" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <!-- Title & Description -->
-  <title>MiAmor Packages — Ultra & Plus | Pricing in ₦ and How to Join</title>
-  <meta name="title" content="MiAmor Packages — Ultra & Plus | Pricing in ₦ and How to Join" />
-  <meta name="description" content="Compare MiAmor Ultra and Plus packages for Nigeria. See current prices in naira, key features, and quick links to join or register." />
+  <!-- Title & Description (target “miamor website”) -->
+  <title>MiAmor Website — Packages (Nigeria): Ultra & Plus Pricing in ₦</title>
+  <meta name="title" content="MiAmor Website — Packages (Nigeria): Ultra & Plus Pricing in ₦" />
+  <meta name="description" content="Official MiAmor Website packages page for Nigeria. Compare Ultra vs Plus, see current prices in naira (₦), features, and join or register securely." />
+  <meta name="keywords" content="miamor website, miamor packages, miamor ultra, miamor plus, miamor pricing naira, miamor nigeria" />
 
   <!-- Brand / PWA -->
   <meta name="theme-color" content="#0b64d8" />
   <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
   <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/content-guard.js" defer></script>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/packages.html" />
-  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor Packages — Ultra & Plus" />
-  <meta property="og:description" content="Compare Ultra vs Plus. Prices in ₦, features, and how to join." />
+  <meta property="og:title" content="MiAmor Website — Packages: Ultra & Plus (₦ Pricing)" />
+  <meta property="og:description" content="Compare MiAmor Ultra and Plus on the official MiAmor Website. Prices in ₦, key features, and how to join." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor Website packages cover" />
+  <meta property="og:locale:alternate" content="en_US" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor Packages — Ultra & Plus" />
-  <meta name="twitter:description" content="Pick a plan and start in minutes." />
+  <meta name="twitter:title" content="MiAmor Website — Packages: Ultra & Plus (₦ Pricing)" />
+  <meta name="twitter:description" content="Official MiAmor Website page for packages — pricing in naira, features, and secure join links." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Fonts / Icons -->
+  <!-- Fonts (perf hints) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/content-guard.js"></script>
-  <!-- Styles -->
+
+  <!-- Structured Data -->
+  <!-- WebPage (explicit “MiAmor Website”) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"MiAmor Website — Packages (Nigeria)",
+    "url":"https://miamorweb.site/packages.html",
+    "description":"Official MiAmor Website packages page for Nigeria: compare Ultra & Plus, pricing in ₦, features, and how to join.",
+    "inLanguage":"en-NG",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"}
+  }
+  </script>
+
+  <!-- Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
+      {"@type":"ListItem","position":2,"name":"Packages","item":"https://miamorweb.site/packages.html"}
+    ]
+  }
+  </script>
+
+  <!-- ItemList of Products (Ultra, Plus) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {
+        "@type":"Product",
+        "name":"MiAmor Ultra Package",
+        "image":"https://miamorweb.site/img/ultra.jpg",
+        "description":"Premium features with expanded access across MiAmor modules.",
+        "brand":{"@type":"Brand","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"14000","priceCurrency":"NGN","url":"https://wa.link/mn7jcc","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"MiAmor Plus Package",
+        "image":"https://miamorweb.site/img/plus.jpg",
+        "description":"Entry package to get started with MiAmor at an affordable rate.",
+        "brand":{"@type":"Brand","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"10000","priceCurrency":"NGN","url":"https://wa.link/1h7y88","availability":"https://schema.org/InStock"}
+      }
+    ]
+  }
+  </script>
+
+  <!-- Site Navigation (for sitelinks understanding) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Home","Blog","FAQ","Register","Downloads","Packages"],
+    "url":[
+      "https://miamorweb.site/",
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/faq.html",
+      "https://miamorweb.site/register.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/packages.html"
+    ]
+  }
+  </script>
+
+  <!-- Organization (tie ecosystem + trust) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MiAmor",
+    "url":"https://miamorweb.site/",
+    "logo":"https://miamorweb.site/img/miamor-logo.png",
+    "sameAs":[
+      "https://miamorapp.com.ng/",
+      "https://linktr.ee/makemoneyonline312"
+    ]
+  }
+  </script>
+
+  <!-- Performance niceties -->
+  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
+  <style>
+    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
+    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  </style>
+  
   <style>
     :root{--brand:#0b64d8;--brand-dark:#084ca6;--text:#0f172a;--bg:#f8fafc}
     html{scroll-behavior:smooth}

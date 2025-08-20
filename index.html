@@ -1,103 +1,99 @@
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
-  <!-- Charset & viewport -->
+    <!-- Charset & viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- Indexing, canonical, base -->
+  <!-- Indexing & canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/" />
-  <meta name="format-detection" content="telephone=no" />
   <base target="_top">
 
-  <!-- Favicons / PWA basics -->
+  <!-- Title & description (clean, official, non-spammy) -->
+  <title>MiAmor Website — Official Portal for Registration, Download & FAQ</title>
+  <meta name="title" content="MiAmor Website — Official Portal for Registration, Download & FAQ" />
+  <meta name="description" content="Welcome to the official MiAmor Website for Nigeria. Register your account, download the MiAmor app, explore packages, and read the FAQ & guides." />
+
+  <!-- Optional, concise keywords -->
+  <meta name="keywords" content="miamor website, miamor app, miamor registration, miamor download, miamor packages, miamor faq, miamor platform" />
+
+  <!-- Favicons / theme -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="application-name" content="MiAmor" />
   <meta name="theme-color" content="#0b64d8" />
 
-  <!-- Performance hints -->
+  <!-- Discovery & international -->
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en-ng" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="x-default" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Preconnect / performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-  <link rel="preload" href="/img/og-cover.jpg" as="image" />
-
-  <!-- Title & meta (keyword-forward, natural) -->
-  <title>Miamor Website — Official Registration, App Download & FAQ</title>
-  <meta name="title" content="Miamor Website — Official Registration, App Download & FAQ" />
-  <meta name="description" content="Visit the official Miamor website (miamorweb.site) to register, download the Miamor app, view packages, read FAQs, and contact support in Nigeria." />
-  <!-- Keep keywords concise; avoid stuffing -->
-  <meta name="keywords" content="miamor website, miamor app, miamor registration, miamor platform, miamor Nigeria" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/" />
-  <meta property="og:site_name" content="Miamor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="Miamor Website — Official Registration, App Download & FAQ" />
-  <meta property="og:description" content="Explore the Miamor website: register, download the app, view packages, FAQs, and contact support." />
+  <meta property="og:title" content="MiAmor Website — Official Portal for Registration, Download & FAQ" />
+  <meta property="og:description" content="Register your account, download the MiAmor app, explore packages, and read the FAQ & guides." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Miamor website hero cover" />
-  <meta property="og:updated_time" content="2025-08-18T00:00:00Z" />
+  <meta property="og:image:alt" content="MiAmor website hero cover" />
+  <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Miamor Website — Official Registration, App Download & FAQ" />
-  <meta name="twitter:description" content="Official Miamor website: register, download the app, explore packages, FAQs, and support." />
+  <meta name="twitter:title" content="MiAmor Website — Official Portal for Registration, Download & FAQ" />
+  <meta name="twitter:description" content="Official MiAmor Website for registration, downloads, packages, and FAQs." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Main CSS / scripts -->
+  <!-- Main CSS & guard -->
   <link rel="stylesheet" href="/styles.css" />
   <script src="/content-guard.js" defer></script>
 
-  <!-- International & discovery hints (fix hreflang casing) -->
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="en-NG" />
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="en" />
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="x-default" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <meta name="geo.region" content="NG" />
-  <meta name="geo.placename" content="Nigeria" />
-  <meta property="og:locale:alternate" content="en_US" />
-
-  <!-- Feed discovery (helps CommentLuv & aggregators) -->
-  <link rel="alternate" type="application/rss+xml" title="Miamor RSS" href="https://miamorweb.site/feed.xml" />
-  <link rel="alternate" type="application/atom+xml" title="Miamor Atom" href="https://miamorweb.site/atom.xml" />
-
-  <!-- WebPage schema (focus on the query “miamor website”) -->
+  <!-- WebPage schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"Miamor Website — Official Registration, App Download & FAQ",
+    "name":"MiAmor Website — Official Portal for Registration, Download & FAQ",
     "url":"https://miamorweb.site/",
     "inLanguage":"en-NG",
-    "description":"Visit the official Miamor website (miamorweb.site) to register, download the Miamor app, explore packages, read FAQs, and contact support in Nigeria.",
-    "isPartOf":{"@type":"WebSite","name":"Miamor Website","url":"https://miamorweb.site/"},
+    "description":"Welcome to the official MiAmor Website for Nigeria. Register your account, download the MiAmor app, explore packages, and read the FAQ & guides.",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
     "primaryImageOfPage":{
       "@type":"ImageObject",
       "url":"https://miamorweb.site/img/og-cover.jpg",
       "width":1200,
-      "height":630
+      "height":630,
+      "caption":"MiAmor website hero cover",
+      "representativeOfPage": true
     },
     "about":[
       {"@type":"Thing","name":"miamor website"},
       {"@type":"Thing","name":"miamor app"},
-      {"@type":"Thing","name":"miamor registration"},
-      {"@type":"Thing","name":"miamor platform"}
+      {"@type":"Thing","name":"miamor platform"},
+      {"@type":"Thing","name":"miamor registration"}
     ],
     "keywords":"miamor website, miamor app, miamor registration, miamor platform, miamor Nigeria"
   }
   </script>
 
-  <!-- SiteNavigationElement (for sitelinks comprehension) -->
+  <!-- SiteNavigationElement (helps sitelinks) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -117,13 +113,13 @@
   {
     "@context":"https://schema.org",
     "@type":"HowTo",
-    "name":"How to register on the Miamor website",
-    "description":"Step-by-step guide for new users in Nigeria to create an account on the Miamor website.",
+    "name":"How to register on the MiAmor Website",
+    "description":"Step-by-step guide for new users in Nigeria to create an account on the MiAmor website.",
     "totalTime":"PT3M",
     "supply":["Email address","Mobile device","Internet connection"],
     "tool":["Web browser"],
     "step":[
-      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the Miamor website and open the Register page."},
+      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor Website and open the Register page."},
       {"@type":"HowToStep","name":"Fill in your details","text":"Enter your basic information and set a secure password."},
       {"@type":"HowToStep","name":"Submit and verify","text":"Submit the form and follow any verification prompts you receive."}
     ],
@@ -136,15 +132,18 @@
   }
   </script>
 
-  <!-- Organization -->
+  <!-- Organization (add official app site to sameAs) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Miamor",
+    "name": "MiAmor",
     "url": "https://miamorweb.site/",
     "logo": "https://miamorweb.site/img/miamor-logo.png",
-    "sameAs": ["https://miamorweb.site/index.html"]
+    "sameAs": [
+      "https://miamorapp.com.ng/",
+      "https://linktr.ee/makemoneyonline312"
+    ]
   }
   </script>
 
@@ -153,7 +152,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Miamor Website",
+    "name": "MiAmor Website",
     "url": "https://miamorweb.site/",
     "potentialAction": {
       "@type": "SearchAction",
@@ -182,15 +181,45 @@
   {
     "@context":"https://schema.org",
     "@type":"VideoObject",
-    "name":"How to Register on Miamor",
-    "description":"Quick guide to register and start using Miamor.",
+    "name":"How to Register on MiAmor",
+    "description":"Quick guide to register and start using MiAmor.",
     "thumbnailUrl":"https://miamorweb.site/img/miamor-logo.png",
     "uploadDate":"2025-08-05",
     "contentUrl":"https://miamorweb.site/video/miamor.mp4"
   }
   </script>
 
-  <!-- Modest font-display control -->
+  <!-- FAQPage (kept; matches on-page FAQ content) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How much is registration on the MiAmor Website?",
+        "acceptedAnswer":{"@type":"Answer","text":"Pricing varies by package. Visit https://miamorweb.site/packages.html for current naira rates and inclusions."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the MiAmor app available on Android and iOS?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. See https://miamorweb.site/downloads.html for the latest Android and iOS options."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do withdrawals work on the MiAmor platform?",
+        "acceptedAnswer":{"@type":"Answer","text":"Where available, supported modules provide bank transfers. Read eligibility and steps at https://miamorweb.site/faq.html."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the MiAmor website safe to use?",
+        "acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best‑practice guides on https://miamorweb.site/blog.html."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- Modest font-display hint to reduce FOIT -->
   <style>
     @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
     @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
@@ -600,5 +629,4 @@
     7) Request indexing after significant changes; monitor Coverage & CWV.
   -->
 </body>
-
 </html>

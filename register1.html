@@ -1,58 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
-  <!-- Core -->
+ <!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
-
-  <!-- Indexing & Canonical -->
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <link rel="canonical" href="https://miamorweb.site/register.html" />
-
-  <!-- Title & Description -->
-  <title>Register for MiAmor — Create Your Account (Nigeria)</title>
-  <meta name="title" content="Register for MiAmor — Create Your Account (Nigeria)" />
-  <meta name="description" content="Create your MiAmor account in minutes. Access matching, games, learning and the marketplace. Mobile‑first onboarding for users in Nigeria." />
 
   <!-- Favicons / PWA -->
   <meta name="theme-color" content="#0b64d8" />
   <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
   <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/content-guard.js" defer></script>
+
+  <!-- Indexing, Canonical, Hreflang -->
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://miamorweb.site/register.html" />
+  <link rel="alternate" hreflang="en-ng" href="https://miamorweb.site/register.html" />
+  <link rel="alternate" hreflang="en" href="https://miamorweb.site/register.html" />
+  <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/register.html" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Title & Description (target “miamor website”) -->
+  <title>MiAmor Website — Register (Nigeria): Create Your Account</title>
+  <meta name="title" content="MiAmor Website — Register (Nigeria): Create Your Account" />
+  <meta name="description" content="Official MiAmor Website registration page for Nigeria. Create your account in minutes, then download the app, explore packages, and read the FAQ." />
+  <meta name="keywords" content="miamor website, miamor registration, register miamor, miamor app, miamor nigeria" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/register.html" />
-  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="Register for MiAmor — Create Your Account" />
-  <meta property="og:description" content="Sign up for MiAmor and explore matching, games, learning, and the marketplace." />
+  <meta property="og:title" content="MiAmor Website — Register Your Account" />
+  <meta property="og:description" content="Create your MiAmor account on the official MiAmor Website. Mobile-first onboarding, then download the app and explore packages & FAQ." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor Website registration cover" />
+  <meta property="og:locale:alternate" content="en_US" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Register for MiAmor — Create Your Account" />
-  <meta name="twitter:description" content="Mobile‑first onboarding for users in Nigeria." />
+  <meta name="twitter:title" content="MiAmor Website — Register Your Account" />
+  <meta name="twitter:description" content="Official MiAmor Website registration for Nigeria. Quick signup, app download, packages, and FAQ." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Fonts & Icons -->
+  <!-- Fonts (perf hints) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
+
   <!-- Structured Data -->
+  <!-- Organization (connect ecosystem) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MiAmor",
+    "url":"https://miamorweb.site/",
+    "logo":"https://miamorweb.site/img/miamor-logo.png",
+    "sameAs":[
+      "https://miamorapp.com.ng/",
+      "https://linktr.ee/makemoneyonline312"
+    ]
+  }
+  </script>
+
+  <!-- WebSite (with on-site search) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"MiAmor Website",
+    "url":"https://miamorweb.site/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://miamorweb.site/blog.html?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- WebPage (explicitly names “MiAmor Website”) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"Register for MiAmor",
+    "name":"MiAmor Website — Register",
     "url":"https://miamorweb.site/register.html",
-    "description":"Create your MiAmor account in minutes to access matching, games, learning and the marketplace.",
-    "inLanguage":"en-NG"
+    "description":"Official MiAmor Website registration page for Nigeria. Create your account, then download the app and explore packages & FAQ.",
+    "inLanguage":"en-NG",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
+    "primaryImageOfPage":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630}
   }
   </script>
+
+  <!-- Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -63,19 +111,49 @@
     ]
   }
   </script>
+
+  <!-- Site Navigation (helps sitelinks) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Home","Blog","Downloads","Packages","FAQ","Register"],
+    "url":[
+      "https://miamorweb.site/",
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/packages.html",
+      "https://miamorweb.site/faq.html",
+      "https://miamorweb.site/register.html"
+    ]
+  }
+  </script>
+
+  <!-- HowTo (registration) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"HowTo",
-    "name":"How to Register on MiAmor",
+    "name":"How to Register on the MiAmor Website",
     "description":"Simple steps to create your MiAmor account.",
+    "totalTime":"PT3M",
+    "supply":[{"@type":"HowToSupply","name":"Email address"},{"@type":"HowToSupply","name":"Mobile device"}],
+    "tool":[{"@type":"HowToTool","name":"Web browser or MiAmor app"}],
     "step":[
-      {"@type":"HowToStep","name":"Open the registration page","text":"Visit https://miamorweb.site/register.html"},
+      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor Website registration page."},
       {"@type":"HowToStep","name":"Enter your details","text":"Provide your full name, email, and a strong password."},
       {"@type":"HowToStep","name":"Submit the form","text":"Review your information and submit."}
-    ]
+    ],
+    "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630}
   }
   </script>
+
+  <!-- Font-display hint -->
+  <style>
+    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
+    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  </style>
+  
   <script src="/content-guard.js"></script>
   <!-- Styles -->
   <style>

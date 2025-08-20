@@ -6,52 +6,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
-  <!-- Indexing & Canonical -->
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <link rel="canonical" href="https://miamorweb.site/register2.html" />
-
-  <!-- Title & Description -->
-  <title>MiAmor Registration (Express) — Quick Join Flow</title>
-  <meta name="title" content="MiAmor Registration (Express) — Quick Join Flow" />
-  <meta name="description" content="Use the express MiAmor signup flow. Pick a package, submit essential details, and finish activation quickly via official channels." />
-
   <!-- Favicons / PWA -->
   <meta name="theme-color" content="#0b64d8" />
   <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
   <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/content-guard.js" defer></script>
+
+  <!-- Indexing, Canonical, Hreflang -->
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://miamorweb.site/register2.html" />
+  <link rel="alternate" hreflang="en-ng" href="https://miamorweb.site/register2.html" />
+  <link rel="alternate" hreflang="en" href="https://miamorweb.site/register2.html" />
+  <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/register2.html" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Title & Description (target “miamor website”) -->
+  <title>MiAmor Website — Express Registration (Quick Join, Nigeria)</title>
+  <meta name="title" content="MiAmor Website — Express Registration (Quick Join, Nigeria)" />
+  <meta name="description" content="Official MiAmor Website express registration. Pick a package, submit essentials, and finish activation quickly via verified MiAmor channels in Nigeria." />
+  <meta name="keywords" content="miamor website, miamor registration, express signup, miamor nigeria, miamor packages" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/register2.html" />
-  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor Registration (Express) — Quick Join Flow" />
-  <meta property="og:description" content="Choose a package and complete the fast signup with official guidance." />
+  <meta property="og:title" content="MiAmor Website — Express Registration (Quick Join)" />
+  <meta property="og:description" content="Use the official MiAmor Website express signup to join fast. Choose a package, submit essentials, and complete activation securely." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor Website express registration cover" />
+  <meta property="og:locale:alternate" content="en_US" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor Registration (Express) — Quick Join Flow" />
-  <meta name="twitter:description" content="Express signup with official links and clear steps." />
+  <meta name="twitter:title" content="MiAmor Website — Express Registration (Quick Join)" />
+  <meta name="twitter:description" content="Official MiAmor Website express signup for Nigeria — fast, guided activation with verified links." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Fonts -->
+  <!-- Fonts (perf hints) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
+
   <!-- Structured Data -->
+  <!-- Organization (connect ecosystem) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MiAmor",
+    "url":"https://miamorweb.site/",
+    "logo":"https://miamorweb.site/img/miamor-logo.png",
+    "sameAs":[
+      "https://miamorapp.com.ng/",
+      "https://linktr.ee/makemoneyonline312"
+    ]
+  }
+  </script>
+
+  <!-- WebSite (with on-site search) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"MiAmor Website",
+    "url":"https://miamorweb.site/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://miamorweb.site/blog.html?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- WebPage (explicitly names “MiAmor Website”) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"MiAmor Registration (Express)",
+    "name":"MiAmor Website — Express Registration",
     "url":"https://miamorweb.site/register2.html",
-    "description":"Express MiAmor signup flow with official links.",
-    "inLanguage":"en-NG"
+    "description":"Official MiAmor Website express registration for Nigeria. Quick join with secure, verified activation steps.",
+    "inLanguage":"en-NG",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
+    "primaryImageOfPage":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630}
   }
   </script>
+
+  <!-- Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -63,20 +112,49 @@
     ]
   }
   </script>
+
+  <!-- Site Navigation (helps sitelinks) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Home","Blog","Downloads","Packages","FAQ","Register","Express Registration"],
+    "url":[
+      "https://miamorweb.site/",
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/packages.html",
+      "https://miamorweb.site/faq.html",
+      "https://miamorweb.site/register.html",
+      "https://miamorweb.site/register2.html"
+    ]
+  }
+  </script>
+
+  <!-- HowTo (express signup) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"HowTo",
-    "name":"Express MiAmor Signup",
+    "name":"Express Signup on the MiAmor Website",
     "description":"Fast-track onboarding with official support.",
+    "totalTime":"PT2M",
     "step":[
-      {"@type":"HowToStep","name":"Open the express page","text":"Visit https://miamorweb.site/register2.html"},
-      {"@type":"HowToStep","name":"Choose a package","text":"Compare options at https://miamorweb.site/packages.html"},
+      {"@type":"HowToStep","name":"Open the express page","url":"https://miamorweb.site/register2.html","text":"Visit the MiAmor Website express registration page."},
+      {"@type":"HowToStep","name":"Choose a package","url":"https://miamorweb.site/packages.html","text":"Compare Ultra and Plus options."},
       {"@type":"HowToStep","name":"Submit essentials","text":"Provide your name and email in the quick form."},
-      {"@type":"HowToStep","name":"Verify & activate","text":"Follow the confirmation sent by official support."}
-    ]
+      {"@type":"HowToStep","name":"Verify & activate","text":"Follow the confirmation sent via official MiAmor channels."}
+    ],
+    "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630}
   }
   </script>
+
+  <!-- Font-display hint -->
+  <style>
+    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
+    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  </style>
+  
   <script src="/content-guard.js"></script>
   <!-- Styles -->
   <style>

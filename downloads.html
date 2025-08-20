@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Core -->
+   <!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
@@ -10,31 +10,34 @@
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/downloads.html" />
 
-  <!-- Title & Description -->
-  <title>Download the MiAmor App — Android & iOS (Official)</title>
-  <meta name="title" content="Download the MiAmor App — Android & iOS (Official)" />
-  <meta name="description" content="Official MiAmor downloads page. Get the Android or iOS app when available, and see tips for safe installation and updates." />
+  <!-- Title & Description (target "miamor website") -->
+  <title>MiAmor Website — Download the Official MiAmor App (Android & iOS)</title>
+  <meta name="title" content="MiAmor Website — Download the Official MiAmor App (Android & iOS)" />
+  <meta name="description" content="Visit the MiAmor Website downloads page to get the official MiAmor app for Android and iOS. Learn how to install safely, register, and explore MiAmor packages & FAQs." />
 
   <!-- Brand / PWA -->
   <meta name="theme-color" content="#0b64d8" />
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
   <link rel="manifest" href="/manifest.webmanifest" />
-  <script src="/content-guard.js"></script>
+  <script src="/content-guard.js" defer></script>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/downloads.html" />
-  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="Download the MiAmor App — Android & iOS (Official)" />
-  <meta property="og:description" content="Get MiAmor for Android or iOS from official links when available." />
+  <meta property="og:title" content="MiAmor Website — Download the Official MiAmor App" />
+  <meta property="og:description" content="Download the official MiAmor app for Android and iOS directly from the MiAmor Website. Includes install guides and support." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor website downloads cover" />
+  <meta property="og:locale:alternate" content="en_US" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Download the MiAmor App — Android & iOS (Official)" />
-  <meta name="twitter:description" content="Official MiAmor downloads page with safety tips." />
+  <meta name="twitter:title" content="MiAmor Website — Download the Official MiAmor App" />
+  <meta name="twitter:description" content="Get the MiAmor app from the official MiAmor Website downloads page — Android & iOS with safe install tips." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
   <!-- Fonts -->
@@ -42,6 +45,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 
+  <!-- Styles (kept minimal here) -->
+  <style>
+    :root{--bg:#0a0a40;--text:#e6f2ff;--accent:#298FEE}
+    body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"MiAmor Website — Download the Official MiAmor App",
+    "url":"https://miamorweb.site/downloads.html",
+    "description":"Download the official MiAmor app for Android and iOS from the MiAmor Website."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"SoftwareApplication",
+        "name":"MiAmor App (Android)",
+        "applicationCategory":"SocialNetworkingApplication",
+        "operatingSystem":"Android",
+        "publisher":{"@type":"Organization","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "downloadUrl":"https://miamorweb.site/downloads.html#android"
+      },
+      {
+        "@type":"SoftwareApplication",
+        "name":"MiAmor App (iOS)",
+        "applicationCategory":"SocialNetworkingApplication",
+        "operatingSystem":"iOS",
+        "publisher":{"@type":"Organization","name":"MiAmor"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "downloadUrl":"https://miamorweb.site/downloads.html#ios"
+      }
+    ]
+  }
+  </script>
   <!-- Styles -->
   <style>
     :root{--bg:#0a0a40;--text:#e6f2ff;--accent:#298FEE}
@@ -82,41 +127,6 @@
     footer{max-width:1120px;margin:2rem auto 0;padding:1rem;color:#cbd5e1;text-align:center;opacity:.9}
   </style>
 
-  <!-- Structured Data (clean: no fake ratings) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Download the MiAmor App",
-    "url":"https://miamorweb.site/downloads.html",
-    "description":"Official MiAmor downloads page for Android and iOS."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"SoftwareApplication",
-        "name":"MiAmor (Android)",
-        "applicationCategory":"SocialNetworkingApplication",
-        "operatingSystem":"Android",
-        "publisher":{"@type":"Organization","name":"MiAmor"},
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-        "downloadUrl":"https://miamorweb.site/downloads.html#android"
-      },
-      {
-        "@type":"SoftwareApplication",
-        "name":"MiAmor (iOS)",
-        "applicationCategory":"SocialNetworkingApplication",
-        "operatingSystem":"iOS",
-        "publisher":{"@type":"Organization","name":"MiAmor"},
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-        "downloadUrl":"https://miamorweb.site/downloads.html#ios"
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
 

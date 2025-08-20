@@ -4,7 +4,7 @@
   <!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <meta name="format-detection" content="telephone,no,email,no,address=no" />
 
   <!-- App / PWA -->
   <meta name="theme-color" content="#0b64d8" />
@@ -15,48 +15,61 @@
   <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="stylesheet" href="/styles.css">
-  <!-- Canonical & Indexing -->
+  <script src="/content-guard.js" defer></script>
+
+  <!-- Canonical, Indexing, Hreflang -->
   <link rel="canonical" href="https://miamorweb.site/faq.html" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="alternate" hreflang="en-ng" href="https://miamorweb.site/faq.html" />
+  <link rel="alternate" hreflang="en" href="https://miamorweb.site/faq.html" />
+  <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/faq.html" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <!-- Titles & Descriptions -->
-  <title>MiAmor FAQ — Registration, Pricing in ₦, Withdrawals & Safety (Nigeria)</title>
-  <meta name="title" content="MiAmor FAQ — Registration, Pricing in ₦, Withdrawals & Safety (Nigeria)" />
-  <meta name="description" content="Answers for Nigeria: how to register on MiAmor, current packages in naira, modules, withdrawals to NG banks, safety, support, and the mobile app." />
+  <!-- Title & Description (targeting “miamor website”) -->
+  <title>MiAmor Website — FAQ (Nigeria): Registration, Pricing, Withdrawals & Safety</title>
+  <meta name="title" content="MiAmor Website — FAQ (Nigeria): Registration, Pricing, Withdrawals & Safety" />
+  <meta name="description" content="Official MiAmor Website FAQ for Nigeria. Learn how to register, see package pricing in ₦, understand withdrawals to NG banks, and review safety & support." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/faq.html" />
-  <meta property="og:site_name" content="MiAmor" />
+  <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor FAQ — Registration, Pricing, Withdrawals & Safety" />
-  <meta property="og:description" content="Your most‑asked MiAmor questions in Nigeria answered." />
+  <meta property="og:title" content="MiAmor Website — FAQ: Registration, Pricing, Withdrawals & Safety" />
+  <meta property="og:description" content="Your most‑asked MiAmor Website questions in Nigeria answered: registration, package pricing in ₦, withdrawals, safety, and support." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor FAQ — Registration, Pricing, Withdrawals & Safety" />
-  <meta name="twitter:description" content="MiAmor answers for Nigeria: registration, costs, withdrawals, and support." />
-  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
-  <script src="/content-guard.js"></script>
+  <meta property="og:image:alt" content="MiAmor Website FAQ cover" />
+  <meta property="og:locale:alternate" content="en_US" />
 
-  <!-- Fonts & Icon -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MiAmor Website — FAQ: Registration, Pricing, Withdrawals & Safety" />
+  <meta name="twitter:description" content="Official MiAmor Website FAQ for Nigeria — registration, ₦ pricing, withdrawals, safety, support." />
+  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
+
+  <!-- Fonts (preconnect for speed) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
 
   <!-- Structured Data -->
+  <!-- WebPage (explicitly names “MiAmor Website”) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"MiAmor FAQ",
+    "name":"MiAmor Website — FAQ (Nigeria)",
     "url":"https://miamorweb.site/faq.html",
-    "description":"Answers to popular MiAmor questions in Nigeria: registration, costs, withdrawals, safety, support and the mobile app.",
-    "inLanguage":"en-NG"
+    "description":"Official MiAmor Website FAQ for Nigeria: registration, pricing in ₦, withdrawals, safety, and support.",
+    "inLanguage":"en-NG",
+    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"}
   }
   </script>
+
+  <!-- Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -67,25 +80,65 @@
     ]
   }
   </script>
+
+  <!-- Site Navigation (helps sitelinks understanding) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SiteNavigationElement",
+    "name":["Home","Blog","Download","Register","FAQ"],
+    "url":[
+      "https://miamorweb.site/",
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/register.html",
+      "https://miamorweb.site/faq.html"
+    ]
+  }
+  </script>
+
+  <!-- Organization (tie to official ecosystem) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MiAmor",
+    "url":"https://miamorweb.site/",
+    "logo":"https://miamorweb.site/img/miamor-logo.png",
+    "sameAs":[
+      "https://miamorapp.com.ng/",
+      "https://linktr.ee/makemoneyonline312"
+    ]
+  }
+  </script>
+
+  <!-- FAQPage (unchanged content, “miamor website” phrasing kept natural) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How do I register on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Visit miamorweb.site/register.html, enter your details, and follow the activation steps. When the mobile app is available, links will be published on our site."}},
-      {"@type":"Question","name":"How much is MiAmor registration in Nigeria (₦)?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on the package (e.g., Plus or Ultra). See miamorweb.site/packages.html for the latest prices in naira before you pay."}},
-      {"@type":"Question","name":"Is MiAmor legit in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Use only the official links on miamorweb.site and avoid third‑party pages. If unsure, contact support via our official profiles in the footer."}},
+      {"@type":"Question","name":"How do I register on the MiAmor Website?","acceptedAnswer":{"@type":"Answer","text":"Visit https://miamorweb.site/register.html, enter your details, and follow the activation steps. When the mobile app is available, official links will be published on our site."}},
+      {"@type":"Question","name":"How much is MiAmor registration in Nigeria (₦)?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on the package (e.g., Plus or Ultra). See https://miamorweb.site/packages.html for the latest prices in naira before you pay."}},
+      {"@type":"Question","name":"Is the MiAmor Website legit in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Use only the official links on https://miamorweb.site/ and avoid third‑party pages. If unsure, contact support via our official profiles in the footer."}},
       {"@type":"Question","name":"How do I withdraw to a Nigerian bank?","acceptedAnswer":{"@type":"Answer","text":"When eligible, request withdrawal from your dashboard. Supported payout methods are shown in‑app and may include local bank transfer where available."}},
-      {"@type":"Question","name":"Does MiAmor have an Android or iOS app?","acceptedAnswer":{"@type":"Answer","text":"Official download links will be posted on miamorweb.site when available. Avoid unofficial app stores or links."}},
-      {"@type":"Question","name":"Do I need a MiAmor agent to sign up?","acceptedAnswer":{"@type":"Answer","text":"No. Self‑register on miamorweb.site/register.html. If you prefer assistance, use the Contact links (WhatsApp/Telegram) in the footer."}},
+      {"@type":"Question","name":"Does MiAmor have an Android or iOS app?","acceptedAnswer":{"@type":"Answer","text":"Official download links will be posted on https://miamorweb.site/downloads.html when available. Avoid unofficial app stores or links."}},
+      {"@type":"Question","name":"Do I need a MiAmor agent to sign up?","acceptedAnswer":{"@type":"Answer","text":"No. Self‑register on https://miamorweb.site/register.html. If you prefer assistance, use the Contact links (WhatsApp/Telegram) in the footer."}},
       {"@type":"Question","name":"What activities are available on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Activities may include matching, games, social sharing, challenges, and more. Check your dashboard for currently available modules and terms."}},
       {"@type":"Question","name":"What is the minimum age to use MiAmor?","acceptedAnswer":{"@type":"Answer","text":"You must be at least 18 years old."}},
       {"@type":"Question","name":"How can I contact MiAmor support in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Use the official WhatsApp/Telegram links in the footer or our help form (when available). We don’t provide support via unofficial groups."}},
       {"@type":"Question","name":"Is KYC required on MiAmor?","acceptedAnswer":{"@type":"Answer","text":"If KYC is required for certain features or withdrawals, the app will prompt you with the steps and accepted documents."}},
-      {"@type":"Question","name":"Can I change my package later?","acceptedAnswer":{"@type":"Answer","text":"Package changes depend on current terms. See miamorweb.site/packages.html for the latest options."}}
+      {"@type":"Question","name":"Can I change my package later?","acceptedAnswer":{"@type":"Answer","text":"Package changes depend on current terms. See https://miamorweb.site/packages.html for the latest options."}}
     ]
   }
   </script>
+
+  <!-- Performance niceties -->
+  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
+  <style>
+    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
+    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  </style>
 
   <style>
     :root{
