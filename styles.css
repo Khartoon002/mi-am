@@ -82,11 +82,14 @@ input:focus{outline:none;border-color:#7bb6ff;box-shadow:0 0 0 4px rgba(123,182,
    NAVIGATION — Desktop: sticky TOP; Mobile/Tablet: floating BOTTOM bar
    =================================================================== */
 
-/* Base nav wrapper (desktop default) */
-.nav-wrap{
-  position:sticky; top:0; z-index:1000;
-  background:#0a1024cc; backdrop-filter:saturate(140%) blur(6px);
-  border-bottom:1px solid #11182766;
+/* Base nav wrapper (desktop default at TOP) */
+.nav-wrap {
+    position: sticky;
+    top: 1;
+    z-index: 1000;
+    background: #0a1024cc;
+    backdrop-filter: saturate(140%) blur(6px);
+    border-bottom: 1px solid #11182766;
 }
 
 /* Nav content */
@@ -107,16 +110,22 @@ input:focus{outline:none;border-color:#7bb6ff;box-shadow:0 0 0 4px rgba(123,182,
 
 /* ===========================
    MOBILE/TABLET (<= 992px)
-   Floating glassmorphic bottom nav
+   Floating rounded bottom nav
    =========================== */
 @media (max-width:992px){
-  body{padding-bottom:calc(var(--nav-height-mobile) + env(safe-area-inset-bottom, 0px) + 20px);}
+  body{
+    padding-bottom:calc(var(--nav-height-mobile) + env(safe-area-inset-bottom, 0px) + 30px);
+  }
 
   .nav-wrap{
-    position:fixed; left:12px; right:12px; bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+    position:fixed;
+    top: 1;
+    left:12px; right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px));
     z-index:1000;
     height:var(--nav-height-mobile);
-    background:linear-gradient(180deg, rgba(15,23,42,.50), rgba(11,100,216,.36));
+
+    background:linear-gradient(180deg, rgba(15,23,42,.60), rgba(11,100,216,.40));
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     backdrop-filter: blur(14px) saturate(140%);
     border:1px solid rgba(255,255,255,.22);
@@ -145,7 +154,7 @@ input:focus{outline:none;border-color:#7bb6ff;box-shadow:0 0 0 4px rgba(123,182,
     white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
   }
   .nav-menu a[aria-current="page"], .nav-menu a.active{
-    background:rgba(11,100,216,.8);
+    background:rgba(11,100,216,.85);
     color:#fff;
   }
   .nav-menu .cta{
@@ -155,7 +164,7 @@ input:focus{outline:none;border-color:#7bb6ff;box-shadow:0 0 0 4px rgba(123,182,
   }
 
   #backToTop{
-    bottom:calc(var(--nav-height-mobile) + env(safe-area-inset-bottom, 0px) + 20px);
+    bottom:calc(var(--nav-height-mobile) + env(safe-area-inset-bottom, 0px) + 30px);
   }
 }
 
