@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
+  <!-- Brand / PWA -->
+  <meta name="theme-color" content="#0b64d8" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}</script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+
   <!-- Indexing & Canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/packages.html" />
@@ -14,254 +22,182 @@
   <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/packages.html" />
   <meta name="geo.region" content="NG" />
   <meta name="geo.placename" content="Nigeria" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-  <!-- Title & Description (target “miamor website”) -->
-  <title>MiAmor Website — Packages (Nigeria): Ultra & Plus Pricing in ₦</title>
-  <meta name="title" content="MiAmor Website — Packages (Nigeria): Ultra & Plus Pricing in ₦" />
-  <meta name="description" content="Official MiAmor Website packages page for Nigeria. Compare Ultra vs Plus, see current prices in naira (₦), features, and join or register securely." />
-  <meta name="keywords" content="miamor website, miamor packages, miamor ultra, miamor plus, miamor pricing naira, miamor nigeria" />
+  <!-- CTR Title/Desc -->
+  <title>MiAmor Website — Packages (Nigeria): Ultra & Plus, Prices in ₦, Benefits & FAQ</title>
+  <meta name="description" content="Compare MiAmor Ultra and Plus packages for Nigeria. See prices in ₦, benefits, earning options, withdrawal schedule, and quick signup links." />
 
-  <!-- Brand / PWA -->
-  <meta name="theme-color" content="#0b64d8" />
-  <link rel="apple-touch-icon" href="/img/icons/apple-icon-180x180.png" />
-  <link rel="icon" href="/img/icons/favicon-32x32.png" sizes="32x32" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/content-guard.js" defer></script>
-
-  <!-- Open Graph / Twitter -->
+  <!-- OG/Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/packages.html" />
   <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor Website — Packages: Ultra & Plus (₦ Pricing)" />
-  <meta property="og:description" content="Compare MiAmor Ultra and Plus on the official MiAmor Website. Prices in ₦, key features, and how to join." />
+  <meta property="og:title" content="MiAmor Website — Ultra & Plus Packages" />
+  <meta property="og:description" content="Ultra & Plus packages with benefits, prices in ₦, and quick signup. Nigeria‑ready." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="MiAmor Website packages cover" />
   <meta property="og:locale:alternate" content="en_US" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor Website — Packages: Ultra & Plus (₦ Pricing)" />
-  <meta name="twitter:description" content="Official MiAmor Website page for packages — pricing in naira, features, and secure join links." />
-  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
-  <!-- Fonts (perf hints) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/content-guard.js" defer></script>
 
   <!-- Structured Data -->
-  <!-- WebPage (explicit “MiAmor Website”) -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MiAmor",
+    "url":"https://miamorweb.site/",
+    "logo":"https://miamorweb.site/img/miamor-logo.png",
+    "sameAs":["https://linktr.ee/makemoneyonline312"]
+  }</script>
+
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"WebPage",
     "name":"MiAmor Website — Packages (Nigeria)",
     "url":"https://miamorweb.site/packages.html",
-    "description":"Official MiAmor Website packages page for Nigeria: compare Ultra & Plus, pricing in ₦, features, and how to join.",
+    "description":"Compare MiAmor Ultra and Plus packages for Nigeria — prices in ₦, benefits, earning options, withdrawal schedule, and signup links.",
     "inLanguage":"en-NG",
     "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"}
-  }
-  </script>
+  }</script>
 
-  <!-- Breadcrumbs -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
       {"@type":"ListItem","position":2,"name":"Packages","item":"https://miamorweb.site/packages.html"}
     ]
-  }
-  </script>
+  }</script>
 
-  <!-- ItemList of Products (Ultra, Plus) -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[
+    "@type":"SiteNavigationElement",
+    "name":["Home","Blog","Downloads","Register","Express Registration","FAQ","Packages"],
+    "url":[
+      "https://miamorweb.site/",
+      "https://miamorweb.site/blog.html",
+      "https://miamorweb.site/downloads.html",
+      "https://miamorweb.site/register.html",
+      "https://miamorweb.site/register2.html",
+      "https://miamorweb.site/faq.html",
+      "https://miamorweb.site/packages.html"
+    ]
+  }</script>
+
+  <!-- Product/Offers (with NGN prices) -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@graph":[
       {
         "@type":"Product",
         "name":"MiAmor Ultra Package",
         "image":"https://miamorweb.site/img/ultra.jpg",
-        "description":"Premium features with expanded access across MiAmor modules. Includes welcome bonus and AI-assisted earnings (no daily tasks required).",
         "brand":{"@type":"Brand","name":"MiAmor"},
         "offers":{
           "@type":"Offer",
-          "price":"14000",
           "priceCurrency":"NGN",
-          "url":"https://wa.link/mn7jcc",
+          "price":"15000",
+          "url":"https://miamorweb.site/packages.html#ultra",
           "availability":"https://schema.org/InStock"
         },
         "additionalProperty":[
-          {"@type":"PropertyValue","name":"Normal Registration Fee","value":"$15 (₦15,000)"},
-          {"@type":"PropertyValue","name":"Discount Registration Fee","value":"$14 (₦14,000)"},
-          {"@type":"PropertyValue","name":"Welcome Bonus","value":"$12 (₦12,500)"},
-          {"@type":"PropertyValue","name":"Daily Game Bonus","value":"$5 (₦5,000)"},
-          {"@type":"PropertyValue","name":"Matching Partners","value":"$2.5 (₦2,500)"},
-          {"@type":"PropertyValue","name":"Referral Bonus","value":"$12.5 (₦12,500)"},
-          {"@type":"PropertyValue","name":"Indirect Referrals","value":"$0.4 (₦400)"},
-          {"@type":"PropertyValue","name":"Second Indirect","value":"$0.15 (₦150)"}
+          {"@type":"PropertyValue","name":"Discount","value":"14000 NGN (limited time)"}
         ]
       },
       {
         "@type":"Product",
         "name":"MiAmor Plus (Standard) Package",
         "image":"https://miamorweb.site/img/plus.jpg",
-        "description":"Affordable starter plan with essential features, welcome bonus, and path to upgrade.",
         "brand":{"@type":"Brand","name":"MiAmor"},
         "offers":{
           "@type":"Offer",
-          "price":"10000",
           "priceCurrency":"NGN",
-          "url":"https://wa.link/1h7y88",
+          "price":"11000",
+          "url":"https://miamorweb.site/packages.html#plus",
           "availability":"https://schema.org/InStock"
         },
         "additionalProperty":[
-          {"@type":"PropertyValue","name":"Normal Registration Fee","value":"$11 (₦11,000)"},
-          {"@type":"PropertyValue","name":"Discount Registration Fee","value":"$10 (₦10,000)"},
-          {"@type":"PropertyValue","name":"Welcome Bonus","value":"$8 (₦8,000)"},
-          {"@type":"PropertyValue","name":"Daily Game Bonus","value":"$3 (₦3,000)"},
-          {"@type":"PropertyValue","name":"Matching Partners","value":"$2 (₦2,000)"},
-          {"@type":"PropertyValue","name":"Referral Bonus","value":"$9.1 (₦9,100)"},
-          {"@type":"PropertyValue","name":"Indirect Referrals","value":"$0.2 (₦200)"},
-          {"@type":"PropertyValue","name":"Second Indirect","value":"$0.10 (₦100)"}
+          {"@type":"PropertyValue","name":"Discount","value":"10000 NGN (limited time)"}
         ]
       }
     ]
-  }
-  </script>
+  }</script>
 
-  <!-- Site Navigation (for sitelinks understanding) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SiteNavigationElement",
-    "name":["Home","Blog","FAQ","Register","Downloads","Packages"],
-    "url":[
-      "https://miamorweb.site/",
-      "https://miamorweb.site/blog.html",
-      "https://miamorweb.site/faq.html",
-      "https://miamorweb.site/register.html",
-      "https://miamorweb.site/downloads.html",
-      "https://miamorweb.site/packages.html"
-    ]
-  }
-  </script>
-
-  <!-- Organization (tie ecosystem + trust) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"MiAmor",
-    "url":"https://miamorweb.site/",
-    "logo":"https://miamorweb.site/img/miamor-logo.png",
-    "sameAs":[
-      "https://miamorapp.com.ng/",
-      "https://linktr.ee/makemoneyonline312"
-    ]
-  }
-  </script>
-
-  <!-- Performance niceties -->
-  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
-
-  <!-- Page styles (keeps original nav styling intact; no hamburger rules) -->
-  <style>
-    :root{--brand:#0b64d8;--brand-dark:#084ca6;--text:#0f172a;--bg:#f8fafc}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
-
-    /* Header */
-    .header-slim{background:linear-gradient(180deg,rgba(11,100,216,.15),rgba(11,100,216,.05))}
-    .header-slim .wrap{max-width:1120px;margin:0 auto;padding:2rem 1rem;text-align:center}
-    .header-slim h1{font-family:'Montserrat',sans-serif;margin:.25rem 0 .5rem}
-    .header-slim p{margin:0 auto 1rem;max-width:760px}
-
-    /* Main */
-    .section{max-width:1120px;margin:0 auto;padding:2rem 1rem}
-    .section h2{font-family:'Montserrat',sans-serif;margin:.25rem 0 .5rem;color:#0a1024}
-    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-    .card{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem;display:flex;flex-direction:column}
-    .card h3{margin:.25rem 0 .5rem}
-    .image-wrap{border-radius:12px;overflow:hidden;margin-bottom:.75rem}
-    .image-wrap img{width:100%;height:auto;display:block}
-    .price{font-weight:700;margin:.25rem 0 0}
-    .features{margin:.5rem 0 0;padding-left:1.1rem}
-    .features li{margin:.25rem 0}
-    .btn{background:var(--brand);color:#fff;padding:.7rem 1rem;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block;margin-top:auto;text-align:center}
-    .btn:hover{background:var(--brand-dark)}
-
-    /* Info & FAQ */
-    .info{background:#fff;border-radius:16px;box-shadow:0 5px 16px rgba(2,6,23,.08);padding:1.25rem}
-    .info h2{margin:.25rem 0 1rem;color:#0a1024}
-
-    /* Tables (scrollable on small screens) */
-    .table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden}
-    .table th,.table td{padding:.6rem .8rem;border-bottom:1px solid #e5e7eb}
-    .table th{background:#f1f5f9;text-align:left;font-weight:700}
-    .table tr:last-child td{border-bottom:none}
-    .table-wrap{overflow:auto;border:1px solid #e5e7eb;border-radius:12px}
-
-    /* Footer */
-    .footer{background:#0a1024;color:#cbd5e1}
-    .footer .wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1rem}
-    .copyright{opacity:.8;font-size:.9rem;margin-top:1rem}
-
-    /* Accessibility helper */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
-
-  <!-- Structured Data (page summary) -->
-  <script type="application/ld+json">
-  {
+  <!-- FAQPage (packages-specific) -->
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How do I join MiAmor?","acceptedAnswer":{"@type":"Answer","text":"Pick a package (Ultra or Plus) and tap JOIN. You’ll be guided via WhatsApp or in-app (when available) to complete activation."}},
-      {"@type":"Question","name":"Can I upgrade later?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can request an upgrade from Plus to Ultra when upgrades are available by paying the difference."}},
-      {"@type":"Question","name":"When can I withdraw?","acceptedAnswer":{"@type":"Answer","text":"Referral withdrawals are every Monday, Wednesday, and Friday (5–6pm). Task withdrawals are on the 3rd of every month. Minimums: $15 (₦15,000) for referrals; $100 (₦100,000) for tasks."}}
+      {"@type":"Question","name":"Which MiAmor package should I choose?","acceptedAnswer":{"@type":"Answer","text":"Choose Plus if you’re new and want core features. Pick Ultra if you want more visibility, expanded modules, and priority support."}},
+      {"@type":"Question","name":"Are prices shown in naira (₦)?","acceptedAnswer":{"@type":"Answer","text":"Yes. Prices are available in ₦ on this page. Always confirm the final amount on the official checkout."}},
+      {"@type":"Question","name":"Can I change packages later?","acceptedAnswer":{"@type":"Answer","text":"Package changes depend on current terms. See this page and the FAQ for the latest options."}},
+      {"@type":"Question","name":"Do earnings require daily tasks?","acceptedAnswer":{"@type":"Answer","text":"Ultra highlights AI‑assisted modules that may not require daily tasks. Always review the current package description and rules."}}
     ]
-  }
-  </script>
+  }</script>
+
+  <!-- Local styles for tables & media in this page -->
+  <style>
+    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+    .packages .card{background:#ffffff12;border:1px solid #1b427e;border-radius:16px;color:#e6f2ff}
+    .packages .image-wrap img{width:100%;height:auto;border-radius:12px;display:block}
+    .packages h3{margin:.5rem 0 .35rem;font-family:'Montserrat',sans-serif}
+    .price{font-weight:800;margin:.35rem 0 .75rem}
+    .table-wrap{overflow:auto;border-radius:12px;border:1px solid #1b427e;margin:.6rem 0}
+    .table{width:100%;border-collapse:collapse;background:#0f1840}
+    .table th,.table td{padding:.6rem .7rem;border-bottom:1px solid #1b427e;text-align:left;white-space:nowrap}
+    .table thead th{position:sticky;top:0;background:#1a3f7a;color:#cce6ff}
+    .features{margin:.6rem 0 0;padding-left:1.1rem}
+    .features li{margin:.35rem 0}
+    .info.section .table{background:#0f1840}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
 <body>
-  <!-- NAV (no hamburger; menu always visible) -->
+  <!-- NAV -->
   <div class="nav-wrap" id="top">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="/" aria-label="MiAmor Home">
         <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async">
         <span>MiAmor</span>
       </a>
-      <ul id="primary-menu" class="nav-menu">
+      <ul class="nav-menu">
         <li><a href="/" rel="follow">Home</a></li>
         <li><a href="/blog.html" rel="follow">Blog</a></li>
+        <li><a href="/downloads.html" rel="follow">Download</a></li>
         <li><a href="/faq.html" rel="follow">FAQ</a></li>
-        <li><a class="cta" href="/register.html" rel="follow">Register</a></li>
       </ul>
     </nav>
   </div>
 
   <!-- Header -->
   <header class="header-slim">
-    <div class="wrap">
-      <h1>MiAmor Packages</h1>
-      <p>Choose a plan and start your journey on the <strong>miamor website</strong>. Compare features, see prices in ₦, and join securely using the official links.</p>
+    <div class="wrap" style="text-align:center">
+      <h1>MiAmor Packages — Ultra & Plus</h1>
+      <p>Choose the plan that fits your goals on the <strong>MiAmor website</strong>. Prices shown in ₦. Always pay via official links on this site.</p>
+      <div class="value-teasers">
+        <span class="teaser">Clear Benefits</span>
+        <span class="teaser">Nigeria‑Ready</span>
+        <span class="teaser">Mobile‑First</span>
+        <span class="teaser">Quick Signup</span>
+      </div>
     </div>
   </header>
 
-  <!-- How MiAmor Works -->
-  <section class="section" aria-labelledby="how-miamor-works">
-    <h2 id="how-miamor-works">How MiAmor Works</h2>
-    <p><strong>MIAMOR</strong> is a dynamic platform operating across multiple African and foreign countries, designed to help users find love, earn income through networking, and gain valuable skills.</p>
-    <p><strong>MIAMOR</strong> is an innovative online earning platform that allows users to make money through multiple income streams in two different packages — <em>Ultra</em> and <em>Plus (Standard)</em>.</p>
-    <p>Below is a structured summary of how both packages work on the official <strong>miamor website</strong>.</p>
+  <!-- Trust Notes -->
+  <section class="section" aria-labelledby="trust-title">
+    <h2 id="trust-title" style="margin:0 0 .75rem">Official & Trust Notes</h2>
+    <div class="trust">
+      <div class="trust-item"><span class="dot ok"></span><div><strong>Verified Links:</strong> Start on <code>miamorweb.site</code>. Avoid third‑party payment pages.</div></div>
+      <div class="trust-item"><span class="dot warn"></span><div><strong>Confirm Details:</strong> Check plan name and total in ₦ at checkout.</div></div>
+    </div>
   </section>
 
   <!-- Packages -->
@@ -270,7 +206,7 @@
       <h2 id="pkg-title" class="sr-only">Package options</h2>
 
       <!-- Ultra -->
-      <article class="card" itemscope itemtype="https://schema.org/Product">
+      <article id="ultra" class="card" itemscope itemtype="https://schema.org/Product">
         <meta itemprop="name" content="MiAmor Ultra Package" />
         <div class="image-wrap">
           <img src="/img/ultra.jpg" alt="MiAmor Ultra package card" width="960" height="640" loading="lazy" decoding="async" itemprop="image">
@@ -306,11 +242,12 @@
 
         <div style="display:flex;gap:.6rem;flex-wrap:wrap">
           <a class="btn" href="https://wa.link/mn7jcc" rel="nofollow noopener" target="_blank" aria-label="Join MiAmor Ultra via official link">Join Ultra</a>
+          <a class="btn btn-outline" href="https://wa.link/mn7jcc">Register</a>
         </div>
       </article>
 
       <!-- Plus / Standard -->
-      <article class="card" itemscope itemtype="https://schema.org/Product">
+      <article id="plus" class="card" itemscope itemtype="https://schema.org/Product">
         <meta itemprop="name" content="MiAmor Plus (Standard) Package" />
         <div class="image-wrap">
           <img src="/img/plus.jpg" alt="MiAmor Plus (Standard) package card" width="960" height="640" loading="lazy" decoding="async" itemprop="image">
@@ -346,6 +283,7 @@
 
         <div style="display:flex;gap:.6rem;flex-wrap:wrap">
           <a class="btn" href="https://wa.link/1h7y88" rel="nofollow noopener" target="_blank" aria-label="Join MiAmor Plus via official link">Join Plus</a>
+          <a class="btn btn-outline" href="https://wa.link/mn7jcc">Express Join</a>
         </div>
       </article>
     </section>
@@ -372,7 +310,7 @@
         <li>🛒 Sell IT Sector</li>
         <li><em>…and so much more!</em></li>
       </ul>
-      <p><a class="btn" href="https://wa.link/1h7y88">Get Started</a></p>
+      <p><a class="btn" href="https://wa.link/1h7y88" rel="nofollow noopener" target="_blank">Get Started</a></p>
     </section>
 
     <!-- Withdrawal Schedule -->
@@ -404,21 +342,26 @@
     <section class="info section" aria-labelledby="next-steps">
       <h2 id="next-steps">Next Steps on the MiAmor Website</h2>
       <p>Sign up today on MiAmor and start your journey to love, fun, and financial freedom. Build real connections, unlock rewards, and turn your social interactions into income.</p>
-      <p><a class="btn" href="https://wa.link/1h7y88">Get Started</a></p>
+      <p>
+        <a class="btn" href="https://wa.link/1h7y88" rel="nofollow noopener" target="_blank">Get Started</a>
+        <a class="btn btn-outline" href="https://wa.link/mn7jcc">Register</a>
+        <a class="btn btn-outline" href="/downloads.html">Download App</a>
+      </p>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="wrap">
-      <p class="contact-title" style="margin:0 0 .5rem; font-weight:700">Contact</p>
-      <div class="social-icons" style="display:flex; gap:.75rem; align-items:center; flex-wrap:wrap">
-        <a href="https://linktr.ee/makemoneyonline312" class="social-btn whatsapp" aria-label="WhatsApp">WhatsApp</a>
-        <a href="https://linktr.ee/makemoneyonline312" class="social-btn telegram" aria-label="Telegram">Telegram</a>
-        <a href="https://linktr.ee/makemoneyonline312" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+      <div class="share-bar" aria-label="Share this page">
+        <a class="share-btn dark" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener">📘 Share</a>
+        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">𝕏 Tweet</a>
+        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">🟢 WhatsApp</a>
       </div>
       <p class="copyright">© MiAmor 2025 • All rights reserved</p>
     </div>
   </footer>
+
+  <a href="#" id="backToTop" aria-label="Back to top">↑</a>
 </body>
 </html>

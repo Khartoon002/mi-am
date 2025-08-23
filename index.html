@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" id="kubio">
 <head>
- <!-- Charset & viewport -->
+  <!-- Charset & viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
@@ -11,11 +11,14 @@
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/" />
   <base target="_top">
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}</script>
 
-  <!-- Title & description (clean, official, non-spammy) -->
-  <title>Miamor Website Guide: Registration, Login &amp; Features</title>
-  <meta name="title" content="Miamor Website Guide: Registration, Login &amp; Features" />
-  <meta name="description" content="Discover the miamor website: your hub for building connections, earning rewards, and joining a trusted community marketplace online." />
+
+  <!-- CTR‑optimized Title & Description -->
+  <title>MiAmor Website (Official) — Register Now & Start Earning Securely</title>
+  <meta name="title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
+  <meta name="description" content="Join the official MiAmor website: quick registration, trusted packages, secure withdrawals where available, and the latest app download. Start today with clear guides and FAQs." />
 
   <!-- Optional, concise keywords -->
   <meta name="keywords" content="miamor website, miamor app, miamor registration, miamor login, miamor download, miamor packages, miamor faq, miamor platform" />
@@ -39,14 +42,16 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
+  <link rel="preload" href="/styles.css" as="style" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" as="fetch" crossorigin>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/" />
   <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="Miamor Website Guide: Registration, Login &amp; Features" />
-  <meta property="og:description" content="Discover the miamor website: your hub for building connections, earning rewards, and joining a trusted community marketplace online." />
+  <meta property="og:title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
+  <meta property="og:description" content="Official MiAmor site for registration, packages, and downloads. Secure, fast, and mobile‑first." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -54,8 +59,8 @@
   <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Miamor Website Guide: Registration, Login &amp; Features" />
-  <meta name="twitter:description" content="Discover the miamor website: your hub for building connections, earning rewards, and joining a trusted community marketplace online." />
+  <meta name="twitter:title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
+  <meta name="twitter:description" content="Quick registration, trusted packages, secure withdrawals where available, and the latest app download." />
   <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
 
   <!-- Fonts -->
@@ -63,18 +68,18 @@
 
   <!-- Main CSS & guard -->
   <link rel="stylesheet" href="/styles.css" />
-  <script src="/content-guard.js" defer></script>
+  <script src="/contentuard.js" defer></script>
 
   <!-- WebPage schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"Miamor Website Guide: Registration, Login & Features",
-    "headline":"Miamor Website Guide: Registration, Login & Features",
+    "name":"MiAmor Website (Official) — Register Now & Start Earning Securely",
+    "headline":"MiAmor Website (Official) — Register Now & Start Earning Securely",
     "url":"https://miamorweb.site/",
     "inLanguage":"en-NG",
-    "description":"Discover the miamor website: your hub for building connections, earning rewards, and joining a trusted community marketplace online.",
+    "description":"Official MiAmor website for registration, packages, downloads, and FAQs.",
     "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
     "primaryImageOfPage":{
       "@type":"ImageObject",
@@ -95,17 +100,18 @@
   }
   </script>
 
-  <!-- SiteNavigationElement (helps sitelinks) -->
+  <!-- SiteNavigationElement -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"SiteNavigationElement",
-    "name":["Blog","Download","FAQ","Register"],
+    "name":["Blog","Download","FAQ","Register","Packages"],
     "url":[
       "https://miamorweb.site/blog.html",
       "https://miamorweb.site/downloads.html",
       "https://miamorweb.site/faq.html",
-      "https://miamorweb.site/register.html"
+      "https://miamorweb.site/register.html",
+      "https://miamorweb.site/packages.html"
     ]
   }
   </script>
@@ -125,16 +131,11 @@
       {"@type":"HowToStep","name":"Fill in your details","text":"Enter your basic information and set a secure password."},
       {"@type":"HowToStep","name":"Submit and verify","text":"Submit the form and follow any verification prompts you receive."}
     ],
-    "image":{
-      "@type":"ImageObject",
-      "url":"https://miamorweb.site/img/miamor-website.jpg",
-      "width":1280,
-      "height":720
-    }
+    "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-website.jpg","width":1280,"height":720}
   }
   </script>
 
-  <!-- Organization (add official app site to sameAs) -->
+  <!-- Organization (trust) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,9 +144,14 @@
     "url": "https://miamorweb.site/",
     "logo": "https://miamorweb.site/img/miamor-logo.png",
     "sameAs": [
-      "https://miamorapp.com.ng/",
       "https://linktr.ee/makemoneyonline312"
-    ]
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "areaServed": "NG",
+      "availableLanguage": ["en"]
+    }]
   }
   </script>
 
@@ -190,6 +196,21 @@
     "contentUrl":"https://miamorweb.site/video/miamor.mp4"
   }
   </script>
+
+  <!-- FAQPage (rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How much is registration on the MiAmor Website?","acceptedAnswer":{"@type":"Answer","text":"Pricing varies by package. Visit https://miamorweb.site/packages.html for current naira rates and inclusions."}},
+      {"@type":"Question","name":"Is the MiAmor app available on Android and iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. See https://miamorweb.site/downloads.html for the latest Android and iOS options."}},
+      {"@type":"Question","name":"How do withdrawals work on the MiAmor platform?","acceptedAnswer":{"@type":"Answer","text":"Where available, supported modules provide bank transfers. Read eligibility and steps at https://miamorweb.site/faq.html."}},
+      {"@type":"Question","name":"Is the MiAmor website safe to use?","acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best‑practice guides on https://miamorweb.site/blog.html."}}
+    ]
+  }
+  </script>
+
   <!-- Modest font-display hint to reduce FOIT -->
   <style>
     @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
@@ -198,55 +219,66 @@
 
   <style>
     :root{
-      --brand:#0b64d8; --brand-dark:#084ca6; --text:#0f172a; --muted:#667085; --card:#0b64d8; --cardText:#fff;
-      --bg:#738596;
+      --brand:#0b64d8; --brand-dark:#084ca6; --text:#0f172a; --muted:#667085;
+      --card:#0b64d8; --cardText:#fff; --bg:#738596;
+      --ok:#16a34a; --warn:#eab308; --danger:#dc2626;
     }
     html{scroll-behavior:smooth}
     body{
       margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text); background:var(--bg);
     }
-    .hero{position:relative; min-height:72vh; display:grid; place-items:center; text-align:center; overflow:hidden; color:#fff;}
-    .hero .hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2}
-    .hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.45)); z-index:-1}
-    .hero .content{max-width:860px; padding:3rem 1rem}
-    .hero h1{font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,4.5vw,3rem); margin:0 0 .6rem}
-    .hero p{font-size:clamp(.98rem,2.3vw,1.1rem); margin:.25rem auto 1.25rem; line-height:1.7}
-    .hero .kpis{opacity:.95; font-size:.95rem}
-    .btn{background:var(--brand); color:#fff; padding:.7rem 1.1rem; border-radius:999px; text-decoration:none; font-weight:700; display:inline-block}
+    
+
+    /* HERO */
+    .hero{position:relative;min-height:76vh;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff}
+    .hero .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.45));z-index:-1}
+    .hero .content{max-width:920px;padding:3.2rem 1rem}
+    .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,3.2rem);margin:0 0 .65rem}
+    .hero p{font-size:clamp(1rem,2.3vw,1.12rem);margin:.25rem auto 1rem;line-height:1.7}
+    .kpis{opacity:.95;font-size:.95rem}
+
+    .value-teasers{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1rem 0 1.1rem}
+    .teaser{border:1.5px solid #ffffffb3;border-radius:999px;padding:.4rem .75rem;font-weight:700}
+    .btn{background:var(--brand);color:#fff;padding:.75rem 1.15rem;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block}
     .btn:hover{background:var(--brand-dark)}
-    .btn-outline{border:2px solid var(--brand); color:#fff; background:transparent}
-    .btn-outline:hover{border-color:#e5efff; color:#e5efff}
-    .section{max-width:1120px; margin:0 auto; padding:3rem 1rem}
-    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
-    .card{border-radius:16px; padding:1.25rem}
-    .card.dark{background:var(--card); color:var(--cardText); box-shadow:0 10px 24px rgba(11,100,216,.25)}
-    .card.light{background:#fff; color:var(--text); box-shadow:0 5px 16px rgba(2,6,23,.08)}
+    .btn-outline{border:2px solid #fff;color:#fff;background:transparent}
+    .btn-outline:hover{opacity:.9}
+
+    .section{max-width:1120px;margin:0 auto;padding:3rem 1rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .card{border-radius:16px;padding:1.25rem}
+    .card.dark{background:var(--card);color:var(--cardText);box-shadow:0 10px 24px rgba(11,100,216,.25)}
+    .card.light{background:#fff;color:var(--text);box-shadow:0 5px 16px rgba(2,6,23,.08)}
     .card h2,.card h3{margin:.25rem 0 .75rem}
-    .bullet-list{margin:.5rem 0 0; padding-left:1.1rem}
+    .bullet-list{margin:.5rem 0 0;padding-left:1.1rem}
     .bullet-list li{margin:.45rem 0}
-    .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:1.25rem}
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
-    .image-card img{width:100%; height:auto; border-radius:14px; display:block}
-    .footer{background:#0a1024; color:#cbd5e1}
-    .footer .wrap{max-width:1120px; margin:0 auto; padding:2.25rem 1rem}
-    .footer a{color:#cbd5e1}
-    .copyright{opacity:.8; font-size:.9rem; margin-top:1rem}
-    .to-top{position:fixed; bottom:88px; right:24px; width:44px; height:44px; display:grid; place-items:center; background:var(--brand); color:#fff; border-radius:50%; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,.25); animation:floatUpDown 2.2s infinite; z-index:1000;}
-    @keyframes floatUpDown{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    .icon{width:18px;height:18px;display:inline-block;vertical-align:-3px}
+
+    .image-card img{width:100%;height:auto;border-radius:14px;display:block}
+
+    /* Trust block */
+    .trust{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .trust .trust-item{display:flex;gap:.6rem;align-items:flex-start;background:#fff;border-radius:14px;padding:1rem;box-shadow:0 5px 16px rgba(2,6,23,.08)}
+    .trust .dot{width:.75rem;height:.75rem;border-radius:50%}
+    .trust .ok{background:var(--ok)} .trust .warn{background:var(--warn)} .trust .danger{background:var(--danger)}
+    @media (max-width:900px){.trust{grid-template-columns:1fr}}
+
     /* Share bar */
     .share-bar{display:flex;gap:.6rem;justify-content:center;align-items:center;flex-wrap:wrap;margin:1rem 0}
     .share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:999px;border:1.5px solid #ffffffb3;background:transparent;color:#fff;text-decoration:none;font-weight:600}
     .share-btn.dark{border-color:#d0defa;color:#0b64d8;background:#eef4ff}
-  </style>
 
-    <!-- ===== Added: modest font-display control to improve perceived speed ===== -->
-  <style>
-    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
-    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
-  </style>
+    .footer{background:#0a1024;color:#cbd5e1}
+    .footer .wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1rem}
+    .footer a{color:#cbd5e1}
+    .copyright{opacity:.8;font-size:.9rem;margin-top:1rem}
 
+    .to-top{position:fixed;bottom:88px;right:24px;width:44px;height:44px;display:grid;place-items:center;background:var(--brand);color:#fff;border-radius:50%;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);animation:floatUpDown 2.2s infinite;z-index:1000}
+    @keyframes floatUpDown{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  </style>
 </head>
 <body>
   <!-- NAV -->
@@ -270,34 +302,74 @@
     <img class="hero-bg" src="/img/og-cover.jpg" alt="miamor website cover" width="1600" height="900" decoding="async" />
     <div class="overlay"></div>
     <div class="content">
-      <h1>MiAmor Website — Register, Download, and Explore Features</h1>
-      <p>Explore the official <strong>miamor website</strong> in Nigeria. Complete your <a href="/register.html" style="color:#e5efff; text-decoration:underline">registration</a>, get the <a href="/downloads.html" style="color:#e5efff; text-decoration:underline">MiAmor app</a>, and learn how to use marketplace tools responsibly.</p>
-      <p class="kpis"><strong>Fast onboarding • Mobile‑first • Secure access</strong></p>
+      <h1>MiAmor Website (Official) — Register, Download & Explore Securely</h1>
+      <p>Join the official <strong>MiAmor website</strong>. <a href="/register.html" style="color:#e5efff;text-decoration:underline">Register</a> in minutes, get the <a href="/downloads.html" style="color:#e5efff;text-decoration:underline">latest app</a>, and explore trusted packages with clear guides.</p>
 
-      <!-- Visible share bar (social sharing options) -->
+      <!-- Above‑the‑fold value teasers (CTR drivers) -->
+      <div class="value-teasers" aria-label="Why join">
+        <span class="teaser">Quick Registration</span>
+        <span class="teaser">Mobile‑First UX</span>
+        <span class="teaser">Transparent Packages</span>
+        <span class="teaser">Secure Access</span>
+        <span class="teaser">Helpful FAQs</span>
+      </div>
+
+      <!-- Visible share bar -->
       <div class="share-bar" aria-label="Share this page">
-        <a class="share-btn" href="https://web.facebook.com/groups/455507947224832/?ref=share&mibextid=NSMWBT&_rdc=1&_rdr#" target="_blank" rel="noopener">📘 Share</a>
-        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">𝕏 Tweet</a>
-        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">🟢 WhatsApp</a>
+        <a class="share-btn" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener noreferrer">📘 Share</a>
+        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">𝕏 Tweet</a>
+        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">🟢 WhatsApp</a>
       </div>
 
       <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:.9rem">
         <a class="btn" href="/register.html">Join MiAmor</a>
-        <a class="btn btn-outline" href="/downloads.html" style="border-color:#fff">Download App</a>
+        <a class="btn btn-outline" href="/downloads.html">Download App</a>
       </div>
+      <p class="kpis"><strong>Fast onboarding • Mobile‑first • Secure access</strong></p>
     </div>
   </header>
 
   <main id="main" class="section" role="main">
+    <!-- Trust/Official Block (builds E-E-A-T & lowers bounce) -->
+    <section class="section" aria-labelledby="trust-title">
+      <h2 id="trust-title">Official & Trust Information</h2>
+      <div class="trust" role="list">
+        <div class="trust-item" role="listitem">
+          <span class="dot ok" aria-hidden="true"></span>
+          <div>
+            <strong>Official Site:</strong> Always use <code>miamorweb.site</code>. Beware of copy sites requesting payments outside our app.
+          </div>
+        </div>
+        <div class="trust-item" role="listitem">
+          <span class="dot ok" aria-hidden="true"></span>
+          <div>
+            <strong>Secure Access:</strong> HTTPS enabled with valid SSL. Confirm the padlock icon before logging in.
+          </div>
+        </div>
+        <div class="trust-item" role="listitem">
+          <span class="dot ok" aria-hidden="true"></span>
+          <div>
+            <strong>Clear Guides:</strong> Start with the <a href="/blog.html">Blog</a>, <a href="/faq.html">FAQ</a>, and <a href="/packages.html">Packages</a> pages.
+          </div>
+        </div>
+        <div class="trust-item" role="listitem">
+          <span class="dot warn" aria-hidden="true"></span>
+          <div>
+            <strong>Safety Note:</strong> Only use links from this website or our verified pages. Report suspicious activity via <a href="/register.html#contact">Contact</a>.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Intro row -->
     <section class="grid-2" aria-labelledby="about-title">
       <article class="card dark">
         <h2 id="about-title">What is the MiAmor Website?</h2>
-        <p>The <strong>miamor website</strong> is your gateway to building genuine connections, engaging in shared experiences, and joining a trusted community marketplace—all in one place. Whether you’re here for relationships, skills, or rewards, MiAmor brings it together in one mobile experience.</p>
+        <p>The <strong>miamor website</strong> is your gateway to a trusted community marketplace and app experience. Register fast, download the app, and use clear guides to get started safely.</p>
         <ul class="bullet-list">
-          <li><a href="/register.html" style="color:#fff; text-decoration:underline">Register in minutes</a></li>
-          <li>Mobile‑first <a href="/downloads.html" style="color:#fff; text-decoration:underline">app download</a></li>
-          <li>Guides, sharing, marketplace, and more</li>
+          <li><a href="/register.html" style="color:#fff;text-decoration:underline">Register in minutes</a></li>
+          <li><a href="/downloads.html" style="color:#fff;text-decoration:underline">Mobile‑first app download</a></li>
+          <li>Guides, FAQ, and package comparisons</li>
         </ul>
       </article>
       <div class="card light image-card">
@@ -305,224 +377,75 @@
       </div>
     </section>
 
-    <!-- Platform Growth & User Benefits -->
-    <section class="section" aria-labelledby="growth-benefits">
-      <h2 id="growth-benefits">Platform Growth and User Benefits</h2>
-      <p><strong>MiAmor</strong> is committed to continuous growth—both as a platform and as a community. As the user base expands, so do the opportunities and resources available for everyone. Our vision includes connecting over a million explorers by 2025 and expanding to new digital frontiers, ensuring that every user benefits from a richer, more dynamic experience.</p>
-      <p>With a growing community, users enjoy greater trust, more diverse offerings, and enhanced marketplace safety. Staying active on the <strong>miamor website</strong> means you’ll gain early access to new features, higher visibility, and exclusive opportunities designed to help you thrive.</p>
-      <p>MiAmor empowers users by offering intuitive tools and learning resources that support personal and professional development. From guides and best‑practice tips to responsive support, the platform is designed to help you grow your skills and confidence. As the platform evolves, expect even more resources, community programs, and skill‑building opportunities.</p>
+    <!-- Package/Value emphasis (intent match) -->
+    <section class="section" aria-labelledby="pkg-intent">
+      <h2 id="pkg-intent">Which MiAmor Package Is Best for You?</h2>
+      <p>Start quickly with transparent options. Compare what’s included and pick the plan that fits your goals.</p>
+      <ul class="bullet-list">
+        <li><a href="/packages.html">See package features & inclusions</a></li>
+        <li><a href="/faq.html#withdrawals">Withdrawal guidance (where available)</a></li>
+        <li><a href="/blog.html">Step‑by‑step guides from the blog</a></li>
+      </ul>
     </section>
 
     <!-- How to Use -->
     <section class="section" aria-labelledby="how-to-use-mi-amor">
-      <h2 id="how-to-use-mi-amor">How to Use the Miamor Website</h2>
-      <p>The <strong>miamor website</strong> streamlines onboarding and guides you to features that help you connect and interact with others right away. Start from the <a href="/register.html">registration page</a>, read the <a href="/faq.html">FAQ</a>, and use the <a href="/downloads.html">downloads</a> page to get the MiAmor app. If you need details on packages, check the <a href="/packages.html">packages</a> guide.</p>
+      <h2 id="how-to-use-mi-amor">How to Use the MiAmor Website</h2>
+      <p>Start from <a href="/register.html">registration</a>, review the <a href="/faq.html">FAQ</a>, and use the <a href="/downloads.html">downloads</a> page to get the app. For detailed comparisons, read the <a href="/packages.html">packages</a> guide.</p>
 
-      <h2 id="login-and-registration">Miamor Website Login and Registration</h2>
-      <p>Already have an account? Log in to join community groups, start conversations, and connect with fellow users instantly via the <a href="/register.html">Register / Login</a> page. New users can learn more about the <a href="/faq.html">Miamor website</a> features and policies before signing up. For updates and tutorials, visit the <a href="/blog.html">blog</a>.</p>
-
-      <p>Learn how to connect with others, join groups, and participate in community activities on the <strong>miamor website</strong>’s FAQ and help pages.</p>
+      <h3 id="login-and-registration">Login and Registration</h3>
+      <p>Already have an account? Use <a href="/register.html">Register / Login</a>. New users can explore features and policies in the <a href="/faq.html">FAQ</a> and latest updates on the <a href="/blog.html">blog</a>.</p>
     </section>
 
-    <!-- About guide -->
-    <section class="section" aria-labelledby="about-mw">
-      <h2 id="about-mw">About the MiAmor Website (Complete Guide)</h2>
-      <p>The <strong>MiAmor Website</strong> is the official home for registration, app downloads, packages, and support. It centralizes information so new visitors can understand the MiAmor platform quickly and safely. If you are starting today, begin on the homepage, review the packages, and use the register link to create your account.</p>
-      <p>On the <strong>miamor website</strong>, you can access guides on joining community programs and building new relationships within the platform. We designed the navigation to be clear, while the pages are optimized for mobile devices and slower connections. The goal is a smooth experience that helps you register without confusion and download the app with confidence.</p>
-      <p>The MiAmor Website also explains our marketplace and learning sections. You will see examples, best‑practice tips, and links to further reading. These materials help you use the platform responsibly, maintain account security, and benefit from community standards. When updates arrive, the blog highlights the most important changes and points you to the right page.</p>
-      <p>If you prefer direct help, use the contact options provided on the site. You can send an email or open a WhatsApp chat from your phone. The support team can guide you to the correct page and share the latest information. Because everything is hosted on the official <strong>miamor website</strong>, the details remain consistent and easy to verify.</p>
-      <p>For returning users, bookmark the homepage and the downloads page. Check the FAQ before you contact support, since common questions are already answered there. As the platform grows, the <strong>MiAmor Website</strong> will continue to publish relevant guides and examples, making it the single source of truth for registration, app updates, and learning resources.</p>
-    </section>
-
-    <!-- Highlights -->
-    <section class="shares-section">
-      <div class="tagline-pill">
-        <span class="tagline current">MiAmor: The Future Is Here!</span>
-        <span class="tagline">Join The Movement</span>
-      </div>
-
-      <div class="grid-4cols">
-        <div class="card image-card">
-          <a href="/register.html">
-            <img src="/img/logo_t.png" alt="Share content on MiAmor" width="960" height="640" loading="lazy" decoding="async">
-          </a>
-        </div>
-      </div>
-
-      <div class="grid-4cols">
-        <article class="card dark-card">
-          <h2 class="card-title"><span class="dotted-underline">Love Beyond the Screen — MiAmor Love Trip</span></h2>
-          <p>Selected community activities may unlock special experiences for eligible users. See our terms for details.</p>
-          <ul class="bullet-list">
-            <li>Create memorable moments with your partner.</li>
-            <li>Discover curated experiences via MiAmor.</li>
-            <li>Read eligibility &amp; rules on the Terms page.</li>
-          </ul>
-          <p><a class="btn" href="/packages.html">Discover MiAmor Packages</a></p>
-        </article>
-        <div class="card image-card">
-          <a href="/register.html">
-            <img src="/img/miamor_k.jpg" alt="MiAmor experiences" width="960" height="640" loading="lazy" decoding="async">
-          </a>
-        </div>
-
-        <article class="card dark-card">
-          <h2 class="card-title"><span class="dotted-underline">Sell It — MiAmor’s Trusted Marketplace</span></h2>
-          <p>List approved items, connect with buyers through secure in‑app messaging, and build trust with every interaction. Sellers can earn money by successfully completing sales in the marketplace, with clear guidelines on eligible items and payout methods available on the website.</p>
-          <ul class="bullet-list">
-            <li>Simple listings and profile verification</li>
-            <li>Direct, secure communication</li>
-            <li>Guidelines for safe trading</li>
-          </ul>
-          <p><a class="btn" href="/packages.html">Discover MiAmor Packages</a></p>
-        </article>
-        <div class="card image-card">
-          <a href="/register.html">
-            <img src="/img/miamor_store.jpg" alt="Sell on MiAmor" width="960" height="640" loading="lazy" decoding="async">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Game Feature Section -->
-    <section class="game-section">
-      <div class="game-text">
-        <h2 class="section-title">Play &amp; Enjoy Game Modules</h2>
-        <p class="section-tagline">Turn your favorite games into fun, trackable activities within the <strong>miamor platform</strong>.</p>
-        <div class="game-collage">
-          <div class="game-img game1">
-            <img src="/img/game/subway_surfers.jpg" alt="Subway Surfers on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
-          </div>
-          <div class="game-img game2 tall">
-            <img src="/img/game/candy_crush.jpg" alt="Candy Crush on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
-          </div>
-          <div class="game-img game3">
-            <img src="/img/game/temple_run.jpg" alt="Temple Run on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
-          </div>
-          <div class="game-img game4">
-            <img src="/img/game/chess.jpg" alt="Chess on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
-          </div>
-          <div class="game-img game5">
-            <img src="/img/game/pubg.jpg" alt="PUBG on MiAmor" width="300" height="200" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Right side: Games Modules card -->
-      <article class="card light-card games-modules-card">
-        <h3 class="card-title">MiAmor Platform — <span class="dotted-underline">Games Modules</span></h3>
-        <ul class="feature-list">
-          <li>Fund your games wallet</li>
-          <li>Play supported games</li>
-          <li>Withdraw to your bank (where available)</li>
-        </ul>
-        <p class="note"><em>Learn how modules work — <a href="/packages.html" class="btn btn-primary btn-sm">Read the guide</a></em></p>
-      </article>
-    </section>
-
-    <!-- How to Earn -->
-    <section class="section" aria-labelledby="earn-with-miamor">
-      <h2 id="earn-with-miamor">How to Earn with MiAmor</h2>
-      <p><strong>MiAmor</strong> offers several ways for users to earn rewards and income directly through the app. Whether you want to sell items, complete challenges, or invite friends, there are multiple earning opportunities available:</p>
-      <ul class="bullet-list">
-        <li><strong>Marketplace Sales:</strong> List approved items for sale in the trusted marketplace. Connect with buyers through secure in‑app messaging, and earn money when your items sell. Find details about eligible items, fees, and payout methods on the marketplace guide page.</li>
-        <li><strong>In‑App Challenges and Activities:</strong> Participate in exclusive challenges and activities within the app to unlock special rewards. Check the app regularly for new earning events and opportunities to boost your income.</li>
-        <li><strong>Referral Program:</strong> Invite friends to join MiAmor using your unique referral link. Earn bonuses or rewards when your referrals register and become active on the platform.</li>
-        <li><strong>Daily Activity Rewards:</strong> Stay active on MiAmor to earn daily incentives. The more you engage with the community and use the app, the more you can earn.</li>
-        <li><strong>Community Contributions:</strong> Share helpful content or participate in featured programs to receive recognition and potential rewards from the platform.</li>
-      </ul>
-      <p>Real users have earned income through the MiAmor marketplace and by participating in app activities. Sellers have successfully listed items and received payouts, while active members have benefited from referral bonuses and daily engagement rewards.</p>
-      <p><strong>Build real connections, unlock rewards, and turn your social interactions into income.</strong> <a href="/downloads.html" class="btn btn-primary btn-sm">Download now</a> and start earning from every moment.</p>
-    </section>
-
-    <!-- Features -->
-    <section class="features-section">
-      <div class="features-cards">
-        <article class="card dark-card">
-          <h3 class="card-title"><span class="dotted-underline">MiAmor Platform: Turn Social Shares Into Value</span></h3>
-          <ul class="bullet-list">
-            <li>Participate in community programs</li>
-            <li>Transparent rules and dashboards</li>
-            <li>Exit options and account controls</li>
-            <li><a href="/packages.html" style="color:#fff;text-decoration:underline">Privacy‑first approach</a></li>
-          </ul>
-          <a href="/register.html" class="btn btn-primary">Get Started</a>
-        </article>
-
-        <article class="card dark-card">
-          <h3 class="card-title"><span class="dotted-underline">MiAmor App — Love Trip Experiences</span></h3>
-          <p>Community experiences with clear guidelines and eligibility. Read the full terms.</p>
-          <div class="pill-list">
-            <span class="pill">Curated getaways</span>
-            <span class="pill">Transparent criteria</span>
-            <span class="pill">Community highlights</span>
-            <span class="pill">Safety first</span>
-          </div>
-          <a href="/faq.html" class="btn btn-primary">View Terms</a>
-        </article>
-
-        <article class="card dark-card">
-          <h3 class="card-title"><span class="dotted-underline">Sell It — Marketplace</span></h3>
-          <p>Use the marketplace responsibly. See seller rules and best practices.</p>
+    <!-- Highlights / Marketplace -->
+    <section class="section" aria-labelledby="marketplace">
+      <h2 id="marketplace">Marketplace & Experiences</h2>
+      <div class="cards">
+        <article class="card dark">
+          <h3>Sell It — MiAmor’s Trusted Marketplace</h3>
+          <p>List approved items, connect with buyers via secure in‑app chat, and follow safe‑trade guidelines.</p>
           <ul class="bullet-list">
             <li>Verified profiles</li>
-            <li>Listing guidelines</li>
-            <li>Safe trading tips</li>
+            <li>Listing rules & tips</li>
+            <li>Clear payout guidance</li>
           </ul>
-          <a href="/packages.html" class="btn btn-primary">Seller Guide</a>
+          <p><a class="btn" href="/packages.html">Seller Guide</a></p>
         </article>
-      </div>
-
-      <div class="secondary-ctas">
-        <a href="/register.html" class="btn btn-outline">Register</a>
-        <a href="/downloads.html" class="btn btn-outline">Download App</a>
+        <article class="card light">
+          <h3>Community Programs & Activities</h3>
+          <p>Earn through approved activities and referrals. Check the app and blog for new opportunities.</p>
+          <p><a class="btn" href="/blog.html">See Latest Guides</a></p>
+        </article>
       </div>
     </section>
 
     <!-- Download App -->
-    <section class="download-section">
-      <div class="download-container">
-        <h2 class="section-title download-title">Download Mobile App</h2>
-        <div class="store-badges">
-          <a href="/downloads.html" class="store-badge" rel="noopener">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/640px-Google_Play_Store_Badge_EN.svg.png" alt="Get it on Google Play" width="240" height="73" loading="lazy" decoding="async">
-          </a>
-          <a href="/downloads.html" class="store-badge" rel="noopener">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" width="240" height="80" loading="lazy" decoding="async">
-          </a>
-        </div>
-      </div>
+    <section class="section" aria-labelledby="download-app">
+      <h2 id="download-app">Download the Mobile App</h2>
+      <p>Get started on your phone. For Android and iOS options, use the official downloads page.</p>
+      <p>
+        <a href="/downloads.html" class="btn">Go to Downloads</a>
+      </p>
     </section>
 
     <!-- FAQ preview -->
     <section class="section" aria-labelledby="faq-title">
       <h2 id="faq-title">MiAmor FAQ</h2>
       <ul class="bullet-list">
-        <li><strong>Is MiAmor legit?</strong> MiAmor is an online platform with features for social discovery, content, and commerce. Always review terms and stay within your local laws.</li>
+        <li><strong>Is MiAmor legit?</strong> MiAmor is an online platform with clear rules and guides. Always review terms and follow local laws.</li>
         <li><strong>How do I start?</strong> Go to the <a href="/register.html">registration page</a> and follow the steps.</li>
         <li><strong>How to download?</strong> Visit the <a href="/downloads.html">downloads page</a> for official links.</li>
       </ul>
-      <p><a class="btn" href="/blog.html">Read Guides &amp; Updates</a></p>
-
-      <!-- Additional on-page FAQ (Nigeria intent) -->
-      <div class="section" aria-label="Miamor Website Questions (Nigeria)">
-        <h3>Common Questions about the MiAmor Website in Nigeria</h3>
-        <ul class="bullet-list">
-          <li><strong>How much is registration?</strong> Pricing may vary by package. See <a href="/packages.html">MiAmor packages</a> for naira rates and inclusions.</li>
-          <li><strong>Is the MiAmor app available on Android and iOS?</strong> Yes, check the <a href="/downloads.html">downloads page</a> for current options.</li>
-          <li><strong>How do withdrawals work?</strong> Where available, supported modules provide bank transfers. Read the <a href="/faq.html">FAQ page</a> for details.</li>
-          <li><strong>Is the platform safe to use?</strong> Follow our community rules and privacy guidance. Start with the <a href="/blog.html">guides on the blog</a>.</li>
-        </ul>
-      </div>
+      <p><a class="btn btn-outline" href="/blog.html">Read Guides & Updates</a></p>
     </section>
 
-    <!-- Community & Resources (adds outbound links) -->
+    <!-- Community & Resources -->
     <section class="section" aria-labelledby="community-links">
-      <h2 id="community-links">Community &amp; Resources</h2>
-      <p>Stay connected with updates, community highlights, and resources that help you interact and grow your network on the <strong>MiAmor Website</strong>.</p>
+      <h2 id="community-links">Community & Resources</h2>
+      <p>Stay connected with updates and learning resources to help you make the most of the <strong>MiAmor website</strong>.</p>
       <ul class="bullet-list">
-        <li><a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">Creator Linktree hub</a> — follow announcements and related content.</li>
-        <li><a href="https://www.nairaland.com/" target="_blank" rel="noopener">Nairaland Tech &amp; Internet</a> — a vibrant Nigerian community for connecting, discussing tech, and expanding your social circle online.</li>
+        <li><a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">Creator Linktree hub</a> — announcements and related content.</li>
+        <li><a href="https://www.nairaland.com/" target="_blank" rel="noopener noreferrer">Nairaland Tech & Internet</a> — Nigerian community discussions.</li>
       </ul>
     </section>
   </main>
@@ -534,14 +457,14 @@
         <a href="/blog.html">About</a> •
         <a href="/packages.html">Packages</a> •
         <a href="/faq.html">Terms</a> •
-        <a href="/register.html">Contact</a> •
+        <a href="/register.html" id="contact">Contact</a> •
       </nav>
 
       <!-- Secondary share bar (dark style) -->
       <div class="share-bar" aria-label="Share this page">
-        <a class="share-btn dark" href="https://web.facebook.com/groups/455507947224832/?ref=share&mibextid=NSMWBT&_rdc=1&_rdr#" target="_blank" rel="noopener">📘 Share</a>
-        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">𝕏 Tweet</a>
-        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">🟢 WhatsApp</a>
+        <a class="share-btn dark" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener noreferrer">📘 Share</a>
+        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">𝕏 Tweet</a>
+        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">🟢 WhatsApp</a>
       </div>
 
       <p class="copyright">© MiAmor 2025 • All rights reserved</p>
@@ -575,38 +498,9 @@
     });
   </script>
 
-  <!-- FAQ schema for the extra on-page questions -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"How much is registration on the MiAmor Website?",
-        "acceptedAnswer":{"@type":"Answer","text":"Pricing varies by package. Visit https://miamorweb.site/packages.html for current naira rates and inclusions."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is the MiAmor app available on Android and iOS?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. See https://miamorweb.site/downloads.html for the latest Android and iOS options."}
-      },
-      {
-        "@type":"Question",
-        "name":"How do withdrawals work on the MiAmor platform?",
-        "acceptedAnswer":{"@type":"Answer","text":"Where available, supported modules provide bank transfers. Read eligibility and steps at https://miamorweb.site/faq.html."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is the MiAmor website safe to use?",
-        "acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best‑practice guides on https://miamorweb.site/blog.html."}
-      }
-    ]
-  }
-  </script>
+  <!-- (Optional) Inline FAQ schema duplicate removed to avoid redundant blocks -->
 
-  <!-- Search Console notes (dev only) -->
-  <!--
+  <!-- Search Console notes (dev only)
     1) Verify property as DOMAIN via DNS TXT (preferred) or URL-prefix.
     2) Enforce preferred canonical (HTTPS + non-www) with a single 301 hop.
     3) robots.txt should allow key paths; block only admin/no-index pages.
@@ -616,6 +510,4 @@
     7) Request indexing after significant changes; monitor Coverage & CWV.
   -->
 </body>
-
 </html>
-

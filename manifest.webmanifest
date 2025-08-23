@@ -1,0 +1,14 @@
+{
+  "name": "MiAmor Website",
+  "short_name": "MiAmor",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1024",
+  "theme_color": "#0b64d8",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/img/icons/apple-icon-180x180.png", "sizes": "180x180", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/img/icons/favicon-32x32.png", "sizes": "32x32", "type": "image/png" }
+  ]
+}
