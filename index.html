@@ -6,13 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
 
-  <!-- Indexing & canonical -->
+    <!-- Indexing & canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/" />
   <base target="_top">
   <link rel="manifest" href="/manifest.webmanifest" />
-  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}</script>
+  <script>
+    // Redirect /index.html → /
+    (function () {
+      var p = location.pathname.toLowerCase();
+      if (p.endsWith('/index.html')) {
+        location.replace('/');
+      }
+    })();
+  </script>
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))
+    }
+  </script>
 
 
   <!-- CTR‑optimized Title & Description -->
@@ -68,7 +81,7 @@
 
   <!-- Main CSS & guard -->
   <link rel="stylesheet" href="/styles.css" />
-  <script src="/content-guard.js" defer></script>
+  <script src="/contentuard.js" defer></script>
 
   <!-- WebPage schema -->
   <script type="application/ld+json">
@@ -472,7 +485,7 @@
   </footer>
 
   <!-- Back to top -->
-  <a href="#" class="to-top" aria-label="Back to top">↑</a>
+  <a href="#top" class="to-top" aria-label="Back to top">↑</a>
 
   <!-- Swap hero image to video AFTER first paint & on good networks -->
   <script>
@@ -511,7 +524,3 @@
   -->
 </body>
 </html>
-
-
-
-
