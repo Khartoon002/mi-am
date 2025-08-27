@@ -1,24 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" id="kubio">
+<html lang="en">
 <head>
   <!-- Charset & viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
 
-    <!-- Indexing & canonical -->
+  <!-- Indexing & canonical -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://miamorweb.site/" />
   <base target="_top">
   <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Title & Description (unique, CTR-friendly) -->
+  <title>MiAmor | Earn & Connect with Love — Download, Packages & Registration</title>
+  <meta name="title" content="MiAmor | Earn & Connect with Love — Download, Packages & Registration" />
+  <meta name="description" content="MiAmor | Earn & connect with love. Download the app, compare packages, and complete miamor registration. Fast, secure, and mobile‑first with blue glass design." />
+
+  <!-- Theme / Icons -->
+  <meta name="theme-color" content="#0B64D8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
+
+  <!-- Internationalization -->
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en-ng" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="en" />
+  <link rel="alternate" href="https://miamorweb.site/" hreflang="x-default" />
+  <meta name="geo.region" content="NG" />
+  <meta name="geo.placename" content="Nigeria" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <script src="/contentuard.js" defer></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://miamorweb.site/" />
+  <meta property="og:site_name" content="MiAmor Website" />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:title" content="MiAmor | Earn & Connect with Love — Download, Packages & Registration" />
+  <meta property="og:description" content="MiAmor | Earn & connect with love. Official downloads, transparent packages, and registration with clear guides." />
+  <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MiAmor hero cover on blue glass background" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MiAmor | Earn & Connect with Love — Download, Packages & Registration" />
+  <meta name="twitter:description" content="Download MiAmor, compare packages, and complete registration. Mobile‑first and secure." />
+  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
+
+  <!-- Preload (light) -->
+  <link rel="preload" as="image" href="/img/hero-poster.jpg" imagesrcset="/img/hero-poster.jpg 1600w" imagesizes="100vw" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Redirect /index.html → /
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0B64D8',
+            brandDark: '#084CA6',
+            text: '#0f172a'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'system-ui', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+            display: ['Montserrat', 'Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 10px 30px rgba(11,100,216,0.45)'
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            pop: { '0%': { transform:'translateY(12px) scale(.98)', opacity:.0 }, '100%': { transform:'translateY(0) scale(1)', opacity:1 } },
+            slideDown: { '0%': { transform:'translateY(-8px)', opacity:0 }, '100%': { transform:'translateY(0)', opacity:1 } },
+            underlineGrow: { '0%': { width: '0%' }, '100%': { width: '100%' } },
+            pulseGlow: { '0%,100%': { boxShadow: '0 0 0 rgba(11,100,216,0)' }, '50%': { boxShadow: '0 0 32px rgba(11,100,216,.45)' } },
+            navReveal: { '0%': { transform:'translateY(-100%)', opacity:0 }, '100%': { transform:'translateY(0)', opacity:1 } },
+            in: { '0%': { opacity:0, transform:'translateY(6px) scale(.98)' }, '100%': { opacity:1, transform:'translateY(0) scale(1)' } }
+          },
+          animation: {
+            fadeIn: 'fadeIn .18s ease-out',
+            pop: 'pop .22s cubic-bezier(.2,.7,.2,1)',
+            slideDown: 'slideDown .18s ease-out',
+            pulseGlow: 'pulseGlow 2.4s ease-in-out infinite',
+            navReveal: 'navReveal .25s ease-out',
+            in: 'in .25s ease-out'
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <!-- Glass tokens & utilities -->
+  <style type="text/tailwindcss">
+    @layer components {
+      .glass { @apply rounded-2xl shadow-lg ring-1 ring-white/10 backdrop-blur-md bg-white/10; }
+      .btn-primary { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-medium text-white; background: linear-gradient(135deg,#0B64D8,#084CA6); }
+      .btn-ghost { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-medium border border-white/20 text-white bg-white/10; }
+      .focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand focus-visible:ring-offset-white/5; }
+      .nav-link { @apply text-slate-200 hover:text-white px-3 py-2 rounded-lg focus-ring relative; }
+      .nav-cta { @apply bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold focus-ring; }
+      .chip { @apply inline-flex items-center px-3 py-1 rounded-full border border-white/20 text-white/90 text-sm; }
+      .section-wrap { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+      .h2 { @apply text-2xl sm:text-3xl font-semibold text-white tracking-tight; }
+      .h3 { @apply text-xl font-semibold text-white; }
+      .para { @apply text-slate-200/90 leading-relaxed; }
+      .card { @apply glass p-6; }
+      .kbd { @apply inline-block rounded-md border border-slate-400/40 px-1.5 py-0.5 text-xs text-slate-800 bg-white; }
+      .badge { @apply px-2 py-1 text-[10px] uppercase tracking-wide rounded-full font-bold border border-white/15; }
+      .seo-tail { @apply text-white/70 font-normal; }
+      /* Desktop nav underline */
+      .nav-underline::after { content:''; @apply absolute left-3 -bottom-0.5 h-0.5 bg-brand rounded-full w-0; animation: underlineGrow .25s ease-out forwards; }
+    }
+    :root { scroll-behavior: smooth; }
+    /* Sticky shadow and reveal */
+    .sticky-shadow { box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    .nav-hidden { transform: translateY(-100%); opacity:.98; }
+    /* Back-to-top */
+    .to-top { position:fixed; bottom:88px; right:24px; width:48px; height:48px; display:grid; place-items:center; background:#0B64D8; color:#fff; border-radius:999px; text-decoration:none; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:60; transition: opacity .25s ease, transform .25s ease; }
+    .to-top:hover { background:#084CA6; }
+    .to-top.is-hidden { opacity:0; transform: translateY(8px); pointer-events:none; }
+    /* Mobile menu panel */
+    #mobilePanel { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transform-origin: top; transition: opacity .2s ease, transform .2s ease; }
+    #mobilePanel[data-open="true"] { opacity:1; transform: scaleY(1); }
+    #mobilePanel[data-open="false"] { opacity:0; transform: scaleY(.98); }
+    /* Scroll progress */
+    #scrollProgress { position:fixed; top:0; left:0; height:4px; width:0; z-index:60; background:linear-gradient(90deg,#0B64D8,#8ab6ff,#ffffff); }
+    /* Feature icon wrapper */
+    .feat-icon { width:56px; height:56px; border-radius:14px; display:grid; place-items:center; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); }
+    .img-soft { @apply rounded-xl border border-white/15 shadow; }
+    .modal-open { overflow: hidden; }
+    #modalBody { -webkit-overflow-scrolling: touch; }
+  </style>
+
+
+  <!-- Redirect /index.html → / -->
+  <script>
     (function () {
       var p = location.pathname.toLowerCase();
-      if (p.endsWith('/index.html')) {
-        location.replace('/');
-      }
+      if (p.endsWith('/index.html')) location.replace('/');
     })();
   </script>
   <script>
@@ -27,500 +150,1057 @@
     }
   </script>
 
-
-  <!-- CTR‑optimized Title & Description -->
-  <title>MiAmor Website (Official) — Register Now & Start Earning Securely</title>
-  <meta name="title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
-  <meta name="description" content="Join the official MiAmor website: quick registration, trusted packages, secure withdrawals where available, and the latest app download. Start today with clear guides and FAQs." />
-
-  <!-- Optional, concise keywords -->
-  <meta name="keywords" content="miamor website, miamor app, miamor registration, miamor login, miamor download, miamor packages, miamor faq, miamor platform" />
-
-  <!-- Favicons / theme -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
-  <meta name="theme-color" content="#0b64d8" />
-
-  <!-- Discovery & international -->
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="en-ng" />
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="en" />
-  <link rel="alternate" href="https://miamorweb.site/" hreflang="x-default" />
-  <meta name="geo.region" content="NG" />
-  <meta name="geo.placename" content="Nigeria" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-
-  <!-- Preconnect / performance hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="preload" href="/img/og-cover.jpg" as="image" imagesrcset="/img/og-cover.jpg 1200w" imagesizes="100vw" />
-  <link rel="preload" href="/styles.css" as="style" />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" as="fetch" crossorigin>
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://miamorweb.site/" />
-  <meta property="og:site_name" content="MiAmor Website" />
-  <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
-  <meta property="og:description" content="Official MiAmor site for registration, packages, and downloads. Secure, fast, and mobile‑first." />
-  <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="MiAmor website hero cover" />
-  <meta property="og:locale:alternate" content="en_US" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor Website (Official) — Register Now & Start Earning Securely" />
-  <meta name="twitter:description" content="Quick registration, trusted packages, secure withdrawals where available, and the latest app download." />
-  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Main CSS & guard -->
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/contentuard.js" defer></script>
-
-  <!-- WebPage schema -->
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* Set main background to the original app-preview background */
+        background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        color: #222;
+      }
+      .hero {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        padding: 60px 0 40px 0;
+        text-align: center;
+      }
+      .app-preview {
+        /* Use the same background as the hero section */
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        padding: 40px 0;
+        text-align: center;
+      }
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"MiAmor Website (Official) — Register Now & Start Earning Securely",
-    "headline":"MiAmor Website (Official) — Register Now & Start Earning Securely",
+    "@type":"WebSite",
+    "name":"MiAmor Website",
     "url":"https://miamorweb.site/",
-    "inLanguage":"en-NG",
-    "description":"Official MiAmor website for registration, packages, downloads, and FAQs.",
-    "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"},
-    "primaryImageOfPage":{
-      "@type":"ImageObject",
-      "url":"https://miamorweb.site/img/og-cover.jpg",
-      "width":1200,
-      "height":630,
-      "caption":"MiAmor website hero cover",
-      "representativeOfPage": true
-    },
-    "about":[
-      {"@type":"Thing","name":"miamor website"},
-      {"@type":"Thing","name":"miamor app"},
-      {"@type":"Thing","name":"miamor platform"},
-      {"@type":"Thing","name":"miamor registration"},
-      {"@type":"Thing","name":"miamor login"}
-    ],
-    "keywords":"miamor website, miamor app, miamor registration, miamor login, miamor platform, miamor Nigeria"
-  }
-  </script>
-
-  <!-- SiteNavigationElement -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SiteNavigationElement",
-    "name":["Blog","Download","FAQ","Register","Packages"],
-    "url":[
-      "https://miamorweb.site/blog.html",
-      "https://miamorweb.site/downloads.html",
-      "https://miamorweb.site/faq.html",
-      "https://miamorweb.site/register.html",
-      "https://miamorweb.site/packages.html"
-    ]
-  }
-  </script>
-
-  <!-- HowTo (registration) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"HowTo",
-    "name":"How to register on the MiAmor Website",
-    "description":"Step-by-step guide for new users in Nigeria to create an account on the MiAmor website.",
-    "totalTime":"PT3M",
-    "supply":["Email address","Mobile device","Internet connection"],
-    "tool":["Web browser"],
-    "step":[
-      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor Website and open the Register page."},
-      {"@type":"HowToStep","name":"Fill in your details","text":"Enter your basic information and set a secure password."},
-      {"@type":"HowToStep","name":"Submit and verify","text":"Submit the form and follow any verification prompts you receive."}
-    ],
-    "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-website.jpg","width":1280,"height":720}
-  }
-  </script>
-
-  <!-- Organization (trust) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MiAmor",
-    "url": "https://miamorweb.site/",
-    "logo": "https://miamorweb.site/img/miamor-logo.png",
-    "sameAs": [
-      "https://linktr.ee/makemoneyonline312"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "areaServed": "NG",
-      "availableLanguage": ["en"]
-    }]
-  }
-  </script>
-
-  <!-- WebSite + SearchAction -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "MiAmor Website",
-    "url": "https://miamorweb.site/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://miamorweb.site/blog.html?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://miamorweb.site/blog.html?q={search_term_string}",
+      "query-input":"required name=search_term_string"
     }
   }
   </script>
 
-  <!-- Breadcrumbs -->
+  <!-- JSON-LD: BreadcrumbList -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
-      {"@type":"ListItem","position":2,"name":"Blog","item":"https://miamorweb.site/blog.html"},
-      {"@type":"ListItem","position":3,"name":"Downloads","item":"https://miamorweb.site/downloads.html"},
-      {"@type":"ListItem","position":4,"name":"FAQ","item":"https://miamorweb.site/faq.html"}
+      {"@type":"ListItem","position":2,"name":"MiAmor official","item":"https://miamorweb.site/#features"}
     ]
   }
   </script>
 
-  <!-- VideoObject -->
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"MiAmor",
+    "applicationCategory":["LifestyleApplication","SocialNetworkingApplication"],
+    "operatingSystem":"Android, iOS, Web",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","ratingCount":"1240"},
+    "url":"https://miamorweb.site/",
+    "downloadUrl":"https://miamorweb.site/#downloads",
+    "softwareVersion":"1.0.0",
+    "image":"https://miamorweb.site/img/miamor-logo.png",
+    "description":"MiAmor helps people connect, discover community programs, and access app features on Android, iOS, and the Web."
+  }
+  </script>
+
+  <!-- JSON-LD: VideoObject (hero) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"VideoObject",
-    "name":"How to Register on MiAmor",
-    "description":"Quick guide to register and start using MiAmor.",
-    "thumbnailUrl":"https://miamorweb.site/img/miamor-logo.png",
-    "uploadDate":"2025-08-05",
-    "contentUrl":"https://miamorweb.site/video/miamor.mp4"
+    "name":"MiAmor — Quick Overview",
+    "description":"A short introduction to MiAmor with key features and how to start.",
+    "thumbnailUrl":"https://miamorweb.site/img/hero-poster.jpg",
+    "uploadDate":"2025-08-10",
+    "contentUrl":"https://miamorweb.site/video/miamor-hero.mp4",
+    "embedUrl":"https://miamorweb.site/#hero",
+    "publisher":{"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-logo.png"}}
   }
   </script>
 
-  <!-- FAQPage (rich results) -->
+  <!-- JSON-LD: FAQPage (must match on-page FAQ) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How much is registration on the MiAmor Website?","acceptedAnswer":{"@type":"Answer","text":"Pricing varies by package. Visit https://miamorweb.site/packages.html for current naira rates and inclusions."}},
-      {"@type":"Question","name":"Is the MiAmor app available on Android and iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. See https://miamorweb.site/downloads.html for the latest Android and iOS options."}},
-      {"@type":"Question","name":"How do withdrawals work on the MiAmor platform?","acceptedAnswer":{"@type":"Answer","text":"Where available, supported modules provide bank transfers. Read eligibility and steps at https://miamorweb.site/faq.html."}},
-      {"@type":"Question","name":"Is the MiAmor website safe to use?","acceptedAnswer":{"@type":"Answer","text":"Follow our community rules and privacy guidance. Start with best‑practice guides on https://miamorweb.site/blog.html."}}
+      {
+        "@type":"Question",
+        "name":"Mi amor official — what is the official MiAmor site?",
+        "acceptedAnswer":{"@type":"Answer","text":"The official MiAmor site is miamorweb.site. Always use HTTPS and links from this domain for registration, downloads, and help."}
+      },
+      {
+        "@type":"Question",
+        "name":"What app pays you for doing tasks?",
+        "acceptedAnswer":{"@type":"Answer","text":"Some apps include task-based rewards. MiAmor may offer eligible activities and programs from time to time; availability and rules can change and may vary by location."}
+      },
+      {
+        "@type":"Question",
+        "name":"Which app is best for finding true love?",
+        "acceptedAnswer":{"@type":"Answer","text":"There is no single 'best' app for everyone. MiAmor focuses on safe connections and community features; success depends on user behavior and preferences."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is Meetic a free dating app?",
+        "acceptedAnswer":{"@type":"Answer","text":"Meetic provides both free and paid options. For current details, check Meetic’s official website. Pricing and features may change."}
+      },
+      {
+        "@type":"Question",
+        "name":"Which is the most genuine dating app?",
+        "acceptedAnswer":{"@type":"Answer","text":"Genuine experiences depend on verified profiles, clear policies, and user safety. MiAmor emphasizes guidance and trust practices to support positive use."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do I complete miamor registration?",
+        "acceptedAnswer":{"@type":"Answer","text":"Open miamorweb.site/register.html, enter accurate details, review policies, and follow prompts to finish. Keep your login secure."}
+      }
     ]
   }
   </script>
 
-  <!-- Modest font-display hint to reduce FOIT -->
+  <!-- Added: Font Awesome & AOS for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Added: Floating Phone Hero styles (namespaced .mia-*) -->
   <style>
-    @font-face{font-family:"Poppins";font-display:swap;src:local("Poppins");}
-    @font-face{font-family:"Montserrat";font-display:swap;src:local("Montserrat");}
+  .mia-hero{min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;background:transparent}
+  .mia-hero .mia-wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}
+  .mia-aurora{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .mia-blur{position:absolute;border-radius:50%;filter:blur(150px);opacity:.25}
+  .mia-b1{width:520px;height:520px;background:#2962ff;top:-10%;left:-15%;animation:mia-m1 15s alternate infinite ease-in-out}
+  .mia-b2{width:620px;height:620px;background:#00d4ff;bottom:-20%;right:-20%;animation:mia-m2 20s alternate infinite ease-in-out}
+  .mia-b3{width:460px;height:460px;background:#e73c7e;bottom:20%;left:20%;animation:mia-m3 18s alternate infinite ease-in-out;opacity:.2}
+  @keyframes mia-m1{0%{transform:translate(0,0) rotate(0) scale(1)}100%{transform:translate(100px,150px) rotate(45deg) scale(1.1)}}
+  @keyframes mia-m2{0%{transform:translate(0,0) rotate(0) scale(1.2)}100%{transform:translate(-150px,-100px) rotate(-30deg) scale(1)}}
+  @keyframes mia-m3{0%{transform:translate(0,0) rotate(0) scale(.9)}100%{transform:translate(120px,-180px) rotate(60deg) scale(1.1)}}
+  .mia-particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .mia-p{position:absolute;bottom:-100px;opacity:0;animation:mia-up 10s infinite linear}
+  .mia-p.fa-dollar-sign{color:#00d4ff;text-shadow:0 0 15px rgba(0,212,255,.5)}
+  .mia-p.fa-heart{color:#e73c7e;text-shadow:0 0 15px rgba(231,60,126,.5)}
+  @keyframes mia-up{0%{transform:translateY(0);opacity:0}10%,90%{opacity:.7}100%{transform:translateY(-120vh);opacity:0}}
+  .mia-content{flex:1.2;z-index:2}
+  .mia-title{font-weight:800;line-height:1.15}
+  .mia-sub{opacity:.9;max-width:560px}
+  @keyframes mia-float{0%{transform:translateY(-12px)}100%{transform:translateY(12px)}}
+  .mia-visual{flex:1;display:flex;justify-content:center;align-items:center;z-index:2;perspective:1500px;animation:mia-float 4s infinite alternate ease-in-out}
+  .mia-phone{width:280px;height:570px;background:#111;border:10px solid #000;border-radius:40px;position:relative;transform:rotateY(-15deg) rotateX(5deg);transition:transform .5s ease,box-shadow .5s ease;box-shadow:0 0 60px rgba(41,98,255,.35),0 15px 50px rgba(0,0,0,.6)}
+  .mia-phone:hover{transform:rotateY(0) rotateX(0);box-shadow:0 0 80px rgba(41,98,255,.5),0 15px 50px rgba(0,0,0,.6)}
+  .mia-screen{position:absolute;inset:0;background:linear-gradient(180deg,#101630,#0c1022);border-radius:30px;padding:20px 15px 80px;overflow:hidden;display:flex;flex-direction:column;font-size:13px}
+  .mia-apphdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .mia-logo{font-weight:700}
+  .mia-av{width:35px;height:35px;background:rgba(255,255,255,.1);border-radius:50%;display:grid;place-items:center}
+  .mia-balance{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px;background:linear-gradient(135deg,rgba(41,98,255,.2),rgba(0,212,255,.1));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:14px}
+  .mia-pills{display:flex;gap:8px;margin-bottom:10px}
+  .mia-pill{background:rgba(41,98,255,.2);border:1px solid rgba(41,98,255,.4);padding:5px 12px;border-radius:20px;font-size:.7rem}
+  .mia-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .mia-card{background:#0d1124;border-radius:15px;padding:12px;display:flex;gap:10px;align-items:center}
+  .mia-ico{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:grid;place-items:center}
+  .mia-quick{display:flex;justify-content:space-around;padding:10px 0;margin-bottom:10px}
+  .mia-qa{text-align:center}
+  .mia-bottom{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(5,8,22,.8);backdrop-filter:blur(8px);padding:8px 0;display:flex;justify-content:space-around;border:1px solid rgba(255,255,255,.1);border-radius:20px}
+  .mia-naira{position:absolute;top:25%;left:50%;width:100%;height:100%;transform:translateX(-50%)}
+  .mia-n{position:absolute;color:#fff;opacity:0;font-weight:700;text-shadow:0 0 5px rgba(0,212,255,.8);animation:mia-fly 3s ease-out infinite}
+  @keyframes mia-fly{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-300px) scale(0) rotate(360deg);opacity:0}}
+  .mia-n:nth-child(1){font-size:24px;animation-delay:0s;left:40%}
+  .mia-n:nth-child(2){font-size:18px;animation-delay:.3s;left:60%}
+  .mia-n:nth-child(3){font-size:28px;animation-delay:.6s;left:30%}
+  @media (max-width: 768px){
+    .mia-hero{min-height:auto;padding-top:40px}
+    .mia-hero .mia-wrap{flex-direction:column;text-align:center}
+  }
   </style>
 
-  <style>
-    :root{
-      --brand:#0b64d8; --brand-dark:#084ca6; --text:#0f172a; --muted:#667085;
-      --card:#0b64d8; --cardText:#fff; --bg:#738596;
-      --ok:#16a34a; --warn:#eab308; --danger:#dc2626;
-    }
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text); background:var(--bg);
-    }
-    
+  
 
-    /* HERO */
-    .hero{position:relative;min-height:76vh;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff}
-    .hero .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.45));z-index:-1}
-    .hero .content{max-width:920px;padding:3.2rem 1rem}
-    .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,4.6vw,3.2rem);margin:0 0 .65rem}
-    .hero p{font-size:clamp(1rem,2.3vw,1.12rem);margin:.25rem auto 1rem;line-height:1.7}
-    .kpis{opacity:.95;font-size:.95rem}
-
-    .value-teasers{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1rem 0 1.1rem}
-    .teaser{border:1.5px solid #ffffffb3;border-radius:999px;padding:.4rem .75rem;font-weight:700}
-    .btn{background:var(--brand);color:#fff;padding:.75rem 1.15rem;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block}
-    .btn:hover{background:var(--brand-dark)}
-    .btn-outline{border:2px solid #fff;color:#fff;background:transparent}
-    .btn-outline:hover{opacity:.9}
-
-    .section{max-width:1120px;margin:0 auto;padding:3rem 1rem}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-    .card{border-radius:16px;padding:1.25rem}
-    .card.dark{background:var(--card);color:var(--cardText);box-shadow:0 10px 24px rgba(11,100,216,.25)}
-    .card.light{background:#fff;color:var(--text);box-shadow:0 5px 16px rgba(2,6,23,.08)}
-    .card h2,.card h3{margin:.25rem 0 .75rem}
-    .bullet-list{margin:.5rem 0 0;padding-left:1.1rem}
-    .bullet-list li{margin:.45rem 0}
-    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem}
-    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
-
-    .image-card img{width:100%;height:auto;border-radius:14px;display:block}
-
-    /* Trust block */
-    .trust{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .trust .trust-item{display:flex;gap:.6rem;align-items:flex-start;background:#fff;border-radius:14px;padding:1rem;box-shadow:0 5px 16px rgba(2,6,23,.08)}
-    .trust .dot{width:.75rem;height:.75rem;border-radius:50%}
-    .trust .ok{background:var(--ok)} .trust .warn{background:var(--warn)} .trust .danger{background:var(--danger)}
-    @media (max-width:900px){.trust{grid-template-columns:1fr}}
-
-    /* Share bar */
-    .share-bar{display:flex;gap:.6rem;justify-content:center;align-items:center;flex-wrap:wrap;margin:1rem 0}
-    .share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:999px;border:1.5px solid #ffffffb3;background:transparent;color:#fff;text-decoration:none;font-weight:600}
-    .share-btn.dark{border-color:#d0defa;color:#0b64d8;background:#eef4ff}
-
-    .footer{background:#0a1024;color:#cbd5e1}
-    .footer .wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1rem}
-    .footer a{color:#cbd5e1}
-    .copyright{opacity:.8;font-size:.9rem;margin-top:1rem}
-
-    .to-top{position:fixed;bottom:88px;right:24px;width:44px;height:44px;display:grid;place-items:center;background:var(--brand);color:#fff;border-radius:50%;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);animation:floatUpDown 2.2s infinite;z-index:1000}
-    @keyframes floatUpDown{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-  </style>
+  <meta name="keywords" content="MiAmor, mi amor official, miamor registration, earn money online, dating app Nigeria, social media earning, skill development, entrepreneurship, packages, download">
 </head>
-<body>
-  <!-- NAV -->
+
+<body class="bg-[radial-gradient(120%_120%_at_0%_0%,#0b64d8_0%,#0a0f2a_40%,#060b1a_100%)] text-white font-sans">
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Skip Links -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-white text-slate-900 px-3 py-2 rounded">Skip to content</a>
+
+  <!-- NAV (responsive: unique mobile vs desktop) -->
   <div class="nav-wrap" id="top">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/" aria-label="MiAmor Home">
-        <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async">
-        <span>MiAmor</span>
-      </a>
-      <ul class="nav-menu">
-        <li><a href="/blog.html" rel="follow">Blog</a></li>
-        <li><a href="/downloads.html" rel="follow">Download</a></li>
-        <li><a href="/faq.html" rel="follow">FAQ</a></li>
-        <li><a class="cta" href="/register.html" rel="follow">Register</a></li>
-      </ul>
+    <nav id="siteNav" class="nav sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-slate-900/50 bg-slate-900/70 border-b border-white/10 transition-transform duration-300">
+      <div class="section-wrap flex items-center justify-between py-3">
+        <a class="brand flex items-center gap-2 focus-ring group" href="/" aria-label="MiAmor Home">
+          <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async" class="rounded-lg transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+          <span class="font-display font-semibold text-white text-lg">MiAmor</span>
+        </a>
+
+        <!-- Desktop menu -->
+        <ul class="nav-menu relative hidden md:flex items-center gap-1">
+          <!-- sliding active indicator -->
+          <span id="navIndicator" class="hidden md:block absolute -bottom-1 h-0.5 bg-brand rounded-full transition-all duration-300 ease-out"></span>
+          <li><a class="nav-link" data-section="#features" href="#features" rel="follow">Features</a></li>
+          <li><a class="nav-link" data-section="#download" href="#download" rel="follow">Download</a></li>
+          <li><a class="nav-link" data-section="#faq" href="#faq" rel="follow">FAQ</a></li>
+          <li><a class="nav-cta animate-pulseGlow" href="/register.html" rel="follow">Register</a></li>
+        </ul>
+
+        <!-- Mobile hamburger -->
+        <button id="navToggle" class="md:hidden nav-cta" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+          Menu
+        </button>
+      </div>
+
+      <!-- Mobile unique panel -->
+      <div id="mobilePanel" class="md:hidden hidden bg-slate-900/80 border-t border-white/10" role="dialog" aria-modal="true" data-open="false">
+        <div class="section-wrap py-4">
+          <ul class="space-y-2">
+            <li class="animate-in" style="animation-delay:.02s"><a class="block px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus-ring" href="#features">Features <span class="seo-tail">• earn & connect with love</span></a></li>
+            <li class="animate-in" style="animation-delay:.06s"><a class="block px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus-ring" href="#download">Download <span class="seo-tail">• earn & connect with love</span></a></li>
+            <li class="animate-in" style="animation-delay:.1s"><a class="block px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus-ring" href="#faq">FAQ <span class="seo-tail">• earn & connect with love</span></a></li>
+          </ul>
+          <div class="mt-3 flex gap-2">
+            <a class="btn-primary focus-ring flex-1" href="/register.html">Register</a>
+            <a class="btn-ghost focus-ring flex-1" href="#packages">Packages</a>
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
 
-  <!-- HERO -->
-  <header class="hero">
-    <img class="hero-bg" src="/img/og-cover.jpg" alt="miamor website cover" width="1600" height="900" decoding="async" />
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>MiAmor Website (Official) — Register, Download & Explore Securely</h1>
-      <p>Join the official <strong>MiAmor website</strong>. <a href="/register.html" style="color:#e5efff;text-decoration:underline">Register</a> in minutes, get the <a href="/downloads.html" style="color:#e5efff;text-decoration:underline">latest app</a>, and explore trusted packages with clear guides.</p>
+  <!-- Visible Breadcrumbs -->
+  <nav aria-label="Breadcrumb" class="section-wrap py-2 text-sm text-slate-300" data-aos="fade-up">
+    <ol class="flex items-center gap-2">
+      <li><a href="/" class="underline hover:text-white">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="#packages" class="underline hover:text-white">MiAmor official</a></li>
+    </ol>
+  </nav>
 
-      <!-- Above‑the‑fold value teasers (CTR drivers) -->
-      <div class="value-teasers" aria-label="Why join">
-        <span class="teaser">Quick Registration</span>
-        <span class="teaser">Mobile‑First UX</span>
-        <span class="teaser">Transparent Packages</span>
-        <span class="teaser">Secure Access</span>
-        <span class="teaser">Helpful FAQs</span>
-      </div>
+  <!-- HERO VIDEO (no slide-in as requested) -->
+  <header id="hero" class="relative isolate min-h-[72vh] grid place-items-center text-center overflow-hidden animate-fadeIn">
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="/img/hero-poter.jpg" aria-label="MiAmor overview video">
+      <source src="/video/miamor-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.45))]"></div>
 
-      <!-- Visible share bar -->
-      <div class="share-bar" aria-label="Share this page">
-        <a class="share-btn" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener noreferrer">📘 Share</a>
-        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">𝕏 Tweet</a>
-        <a class="share-btn" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">🟢 WhatsApp</a>
-      </div>
+    <div class="relative section-wrap py-20">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="font-display text-3xl sm:text-5xl font-bold leading-tight">MiAmor — Earn & Connect with Love <span class="seo-tail">| miamor</span></h1>
+        <p class="para mt-4">MiAmor website combines relationship-building, <a href="/register.html" class="underline">miamor registration</a>, with entrepreneurship and skill development, with a strong focus on community and empowerment. MiAmor website operates across multiple African and foreign countries, designed to help users find love, earn income through networking, and gain valuable skills.</p>
 
-      <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:.9rem">
-        <a class="btn" href="/register.html">Join MiAmor</a>
-        <a class="btn btn-outline" href="/downloads.html">Download App</a>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a class="btn-primary focus-ring" href="/register.html">Register on MiAmor</a>
+          <a class="btn-ghost focus-ring" href="#download">Download App</a>
+          <a class="btn-ghost focus-ring" href="#packages">Explore Packages</a>
+        </div>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="chip">MiAmor Website</span>
+          <span class="chip">MiAmor Platform</span>
+          <span class="chip">MiAmor App</span>
+        </div>
       </div>
-      <p class="kpis"><strong>Fast onboarding • Mobile‑first • Secure access</strong></p>
     </div>
   </header>
 
-  <main id="main" class="section" role="main">
-    <!-- Trust/Official Block (builds E-E-A-T & lowers bounce) -->
-    <section class="section" aria-labelledby="trust-title">
-      <h2 id="trust-title">Official & Trust Information</h2>
-      <div class="trust" role="list">
-        <div class="trust-item" role="listitem">
-          <span class="dot ok" aria-hidden="true"></span>
-          <div>
-            <strong>Official Site:</strong> Always use <code>miamorweb.site</code>. Beware of copy sites requesting payments outside our app.
+  <!-- Added: Floating Phone App Preview (keep animations unchanged) -->
+  <section id="app-preview" class="mia-hero">
+    <div class="mia-aurora">
+      <div class="mia-blur mia-b1"></div>
+      <div class="mia-blur mia-b2"></div>
+      <div class="mia-blur mia-b3"></div>
+    </div>
+    <div class="mia-particles" aria-hidden="true">
+      <i class="fas fa-dollar-sign mia-p" style="left:10%;animation-delay:0s;animation-duration:15s"></i>
+      <i class="fas fa-heart mia-p" style="left:20%;animation-delay:2s;animation-duration:12s"></i>
+      <i class="fas fa-dollar-sign mia-p" style="left:35%;animation-delay:4s;animation-duration:18s"></i>
+      <i class="fas fa-heart mia-p" style="left:50%;animation-delay:1s;animation-duration:14s"></i>
+      <i class="fas fa-dollar-sign mia-p" style="left:65%;animation-delay:3s;animation-duration:11s"></i>
+      <i class="fas fa-heart mia-p" style="left:75%;animation-delay:5s;animation-duration:16s"></i>
+      <i class="fas fa-dollar-sign mia-p" style="left:90%;animation-delay:2.5s;animation-duration:13s"></i>
+    </div>
+    <div class="section-wrap mia-wrap">
+      <div class="mia-content">
+        <h2 class="font-display mia-title text-3xl sm:text-5xl">Discover true Love. <span class="text-brand">Grow your skills.</span> Secure Your Future.</h2>
+        <p class="mia-sub mt-3">The MiAmor Website is an all-in-one digital platform that empowers users to earn income, develop practical skills, and even gain ownership in the company simply by engaging with it. By combining play-to-earn games, educational resources, and creative courses, MiAmor Website helps users build valuable skills while generating real earnings. What makes MiAmor unique is its innovative model that rewards participants with fractional company shares—transforming everyday activities on the MiAmor Platform into genuine opportunities for growth, income, and ownership.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="/register.html" class="btn-primary focus-ring">Register Now</a>
+          <a href="#packages" class="btn-ghost focus-ring">See Packages</a>
+        </div>
+      </div>
+      <div class="mia-visual">
+        <div class="mia-phone">
+          <div class="mia-screen">
+            <div class="mia-apphdr">
+              <div class="mia-logo"><img src="/img/miamor-logo.png" alt="MiAmor App Logo" style="height:36px"></div>
+              <div class="mia-av"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="mia-balance">
+              <div>
+                <p style="opacity:.8;font-size:.8rem">Total Revenue</p>
+                <h2 style="font-size:2rem">₦3,000,000</h2>
+                <span style="font-size:.8rem;color:#00d4ff">+₦20,500 today</span>
+              </div>
+              <div style="text-align:center">
+                <div class="icon"><i class="fas fa-fire"></i></div>
+                <span style="font-size:.75rem;opacity:.8">100+ Days</span>
+              </div>
+            </div>
+            <div class="mia-pills"><span class="mia-pill">Revenue Store</span><span class="mia-pill">Activity Balance</span></div>
+            <div class="mia-grid">
+              <div class="mia-card"><div class="mia-ico"><i class="fas fa-chart-pie"></i></div><div><p style="opacity:.8;font-size:.8rem;margin:0">Daily Activities</p><h4 style="margin:0">₦120,650.00</h4></div></div>
+              <div class="mia-card"><div class="mia-ico"><i class="fas fa-dice-five"></i></div><div><p style="opacity:.8;font-size:.8rem;margin:0">Continue Playing</p><h4 style="margin:0">Ludo King</h4></div></div>
+            </div>
+            <div class="mia-quick">
+              <div class="mia-qa"><div class="mia-ico" style="border-radius:999px"><i class="fas fa-money-bill-wave"></i></div><p style="font-size:.75rem;opacity:.8;margin:4px 0 0">Withdraw</p></div>
+              <div class="mia-qa"><div class="mia-ico" style="border-radius:999px"><i class="fas fa-newspaper"></i></div><p style="font-size:.75rem;opacity:.8;margin:4px 0 0">Articles</p></div>
+              <div class="mia-qa"><div class="mia-ico" style="border-radius:999px"><i class="fas fa-chart-line"></i></div><p style="font-size:.75rem;opacity:.8;margin:4px 0 0">Stats</p></div>
+            </div>
+            <div class="mia-bottom">
+              <div class="mia-qa"><div class="icon"><i class="fas fa-home"></i></div><p style="font-size:.7rem;margin:2px 0 0">Home</p></div>
+              <div class="mia-qa"><div class="icon"><i class="fas fa-history"></i></div><p style="font-size:.7rem;margin:2px 0 0">History</p></div>
+              <div class="mia-qa"><div class="icon"><i class="fas fa-user"></i></div><p style="font-size:.7rem;margin:2px 0 0">Profile</p></div>
+              <div class="mia-qa"><div class="icon"><i class="fas fa-trophy"></i></div><p style="font-size:.7rem;margin:2px 0 0">Zone</p></div>
+            </div>
+          </div>
+          <div class="mia-naira">
+            <div class="mia-n">₦</div><div class="mia-n">₦</div><div class="mia-n">₦</div>
           </div>
         </div>
-        <div class="trust-item" role="listitem">
-          <span class="dot ok" aria-hidden="true"></span>
-          <div>
-            <strong>Secure Access:</strong> HTTPS enabled with valid SSL. Confirm the padlock icon before logging in.
-          </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <main id="main" role="main" class="relative">
+    <!-- FEATURES (added images + slide-up) -->
+    <section id="features" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <h2 class="h2">MiAmor Features <span class="seo-tail">• earn & connect with love</span></h2>
+        <p class="para mt-2">Discover simple tools to connect, explore community programs, and manage your profile with safety in mind.</p>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">Convert your feelings into cash with Miamor<span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">Miamor isn’t just another regular platform— it’s where real emotions meet real rewards. <span class="font-semibold">Here, every connection, every conversation, and every spark of love has the power to earn you real cash.</span></p>
+            <img src="/img/miamor_f.jpg" alt="HTTPS & trusted resources" class="img-soft mt-3" width="540" height="320" loading="lazy">
+          </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">What if every match brought you closer to love and money?<span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">On *MiAmor*, you can *earn up to $2.5* every time you match or get matched thereby turning simple swipes into real income. <span class="font-semibold">THIS ISNT JUST ABOUT FINDING YOUR TRUE PARTNER, IT IS CONNECTION THAT ACTUALLY PAYS</span></p>
+            <img src="/img/gms.jpg" alt="Simple onboarding screens" class="img-soft mt-3" width="540" height="320" loading="lazy">
+            <p class="mt-3"><a href="/register.html" class="underline">Start registration</a></p>
+          </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">Discover Diverse Games and Win Big on MiAmor!<span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">Whether you’re in it for fun or competition, every win translates into real earnings. <span class="font-semibold">The best part? You can withdraw your winnings directly to your bank account.</span>*Play smart. Win real. Get paid.*
+                Your next game on MiAmor could be your next big payout. </p>
+            <img src="/img/miamor_games.jpg" alt="Programs & activities" class="img-soft mt-3" width="540" height="320" loading="lazy">
+            <p class="mt-3"><a href="/register.html" class="underline">Start Playing Games on miamor</a></p>
+          </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">MiAmor Love Hamper – Where Love Comes with Surprises! <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">Every week, lucky users stand a chance to *win exclusive items* from our *Love Hampers*, right from their dashboard. These surprise hampers are packed with exciting gifts like *Headphones, AirPods, Power Banks, Ring Lights, PES Pads*, and so much more.</p>
+            <img src="/img/miamor_hamper.jpg" alt="Profile safety" class="img-soft mt-3" width="540" height="320" loading="lazy">
+          </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/545/545682.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">Turn Social Shares into Daily Earnings on MiAmor!<span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">Love creating content on TikTok and Facebook? With MiAmor, every share is a money-making opportunity! <span class="font-semibold">*Earn up to $2.5 daily* just for sharing your videos to TikTok or Facebook directly from MiAmor.</span></p>
+            <img src="/img/logo_t.png" alt="Fast performance" class="img-soft mt-3" width="540" height="320" loading="lazy">
+          </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="36" height="36" loading="lazy"></div>
+              <h3 class="h3 m-0">MIAMOR IS NOW OFFICIALLY REGISTERED <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-3">We’re excited to officially announce that Miamor is now fully registered with the Corporate Affairs Commission (CAC)! This means Miamor is a *legally recognized and legitimate platform* you can trust.</p>
+            <img src="/img/miamor_certified.jpg" alt="Support and help" class="img-soft mt-3" width="540" height="320" loading="lazy">
+          </article>
         </div>
-        <div class="trust-item" role="listitem">
-          <span class="dot ok" aria-hidden="true"></span>
-          <div>
-            <strong>Clear Guides:</strong> Start with the <a href="/blog.html">Blog</a>, <a href="/faq.html">FAQ</a>, and <a href="/packages.html">Packages</a> pages.
+
+        <!-- Pros / Considerations for E-E-A-T -->
+        <div class="mt-8 grid md:grid-cols-2 gap-6" data-aos="fade-up">
+          <div class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Pros <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <ul class="mt-3 list-disc ml-5 text-slate-200/90 space-y-1">
+              <li>Clear, mobile-first experience</li>
+              <li>Transparent package info</li>
+              <li>Guides and safety notes</li>
+            </ul>
           </div>
-        </div>
-        <div class="trust-item" role="listitem">
-          <span class="dot warn" aria-hidden="true"></span>
-          <div>
-            <strong>Safety Note:</strong> Only use links from this website or our verified pages. Report suspicious activity via <a href="/register.html#contact">Contact</a>.
+          <div class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Considerations <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <ul class="mt-3 list-disc ml-5 text-slate-200/90 space-y-1">
+              <li>Program availability may vary by region</li>
+              <li>Policies and features can change</li>
+              <li>No guaranteed outcomes or earnings</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Intro row -->
-    <section class="grid-2" aria-labelledby="about-title">
-      <article class="card dark">
-        <h2 id="about-title">What is the MiAmor Website?</h2>
-        <p>The <strong>miamor website</strong> is your gateway to a trusted community marketplace and app experience. Register fast, download the app, and use clear guides to get started safely.</p>
-        <ul class="bullet-list">
-          <li><a href="/register.html" style="color:#fff;text-decoration:underline">Register in minutes</a></li>
-          <li><a href="/downloads.html" style="color:#fff;text-decoration:underline">Mobile‑first app download</a></li>
-          <li>Guides, FAQ, and package comparisons</li>
-        </ul>
-      </article>
-      <div class="card light image-card">
-        <img src="/img/miamor_c.jpg" alt="How the miamor platform works on web and app" width="960" height="640" loading="lazy" decoding="async">
+    <!-- PACKAGES (with section slide + modal images) -->
+    <section id="packages" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <h2 class="h2">Packages — Choose What Fits <span class="seo-tail">• earn & connect with love</span></h2>
+        <p class="para mt-2">After carefully evaluating several key factors and selecting the most beneficial options, we’ve developed an earning structure designed with you in mind.</p>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <!-- Plus -->
+          <article class="rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15 p-6 animate-pop">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="badge bg-brand/20 text-brand">Popular</span>
+            </div>
+            <h3 class="font-display text-2xl font-extrabold">MiAmor Plus <span class="seo-tail">• earn & connect with love</span></h3>
+            <p class="para text-sm mt-1">We’re excited to introduce the MiAmor Plus Package — a plan created to *empower, reward, and support our users* in the best possible way while finding love.</p>
+            <img src="/img/plus.jpg" alt="MiAmor Plus preview" class="img-soft mt-4" width="640" height="360" loading="lazy">
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Normal Reg Fee — $10(₦10,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Discount Reg Fee — $9(₦9,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Welcome Bonus: $8(₦8,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Daily Game Bonus: $3(₦3,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Matching Partners:  $2(₦2,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Referral bonus: $9.1(₦9,100)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Indirect Referrals: $0.2(₦200)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> 2nd Indirect: $0.10(₦100)</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <div>
+                <p class="text-xs text-white/60">from</p>
+                <p class="text-2xl font-extrabold">₦10,000</p>
+              </div>
+              <a href="https://linkfly.to/earningmiamor" target="_blank" rel="noopener" class="pkgBtn inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand hover:bg-brandDark font-semibold shadow-glow transition focus-ring">Choose Plus</a>
+            </div>
+          </article>
+
+          <!-- Ultra -->
+          <article class="rounded-2xl bg-gradient-to-br from-brand/20 to-indigo-500/20 border border-brand/30 p-6 animate-pop">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="badge bg-white/15 text-white">Max Value</span>
+            </div>
+            <h3 class="font-display text-2xl font-extrabold">MiAmor Ultra <span class="seo-tail">• earn & connect with love</span></h3>
+            <p class="para text-sm mt-1">We’re excited to introduce the *MiAmor Ultra Package* — a plan created to *empower, reward, and support our users* in the best possible way while finding love.</p>
+            <img src="/img/ultra.jpg" alt="MiAmor Ultra preview" class="img-soft mt-4" width="640" height="360" loading="lazy">
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Normal Reg Fee — $14(₦14,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Discount Reg Fee — $12(₦12,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Welcome Bonus: $12(₦12,500)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Daily Game Bonus: $5(₦5,000)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Matching Partners:  $2.5(₦2,500)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Referral bonus: $12.5(₦12,500)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> Indirect Referrals: $0.4(₦400)</li>
+              <li class="flex items-start gap-2"><span class="text-lg">🎁</span> 2nd Indirect: $0.15(₦150)</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <div>
+                <p class="text-xs text-white/60">from</p>
+                <p class="text-2xl font-extrabold">₦14,000</p>
+              </div>
+              <a href="https://linkfly.to/earningmiamor" target="_blank" rel="noopener" class="pkgBtn inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-brand hover:text-brandDark font-semibold shadow-glow transition focus-ring">Choose Ultra</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="para mt-4 text-sm opacity-80">Availability, pricing, and program details may change and can vary by region. No guaranteed outcomes.</p>
+      </div>
+
+      <!-- ===== MODAL (shared) ===== -->
+<div id="modalOverlay" class="hidden fixed inset-0 z-[60] bg-black/60 animate-fadeIn"></div>
+
+<div id="modal" class="hidden fixed inset-0 z-[61] flex items-center justify-center p-2 sm:p-0">
+  <div
+    class="glass rounded-2xl bg-white/10 border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,.45)] animate-pop overflow-y-auto max-h-[90vh] w-full max-w-md flex flex-col">
+    <!-- header -->
+    <div class="px-4 py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+      <h5 id="modalTitle" class="font-display text-lg font-extrabold">Details</h5>
+      <button id="modalClose" class="p-2 rounded-lg hover:bg-white/10" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6l-12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- body (scrolls) -->
+  <div id="modalBody" class="px-4 py-3 text-sm text-white/85 space-y-3" style="">
+      <!-- dynamic content -->
+    </div>
+
+    <!-- footer -->
+    <div class="px-4 py-3 border-t border-white/10 flex justify-end gap-2 shrink-0">
+      <button id="modalAction" class="px-4 py-2 rounded-xl bg-brand hover:bg-brand-dark font-semibold shadow-glow">OK</button>
+    </div>
+  </div>
+</div>
+<!-- ===== END MODAL ===== -->
+    </section>
+
+    <!-- DOWNLOAD / PLATFORMS -->
+    <section id="download" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <h2 class="h2">Download Miamor App & Platforms <span class="seo-tail">• earn & connect with love</span></h2>
+        <p class="para mt-2">Get the app for your device. Use official files and always verify sources.</p>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="https://linkfly.to/earningmiamor" class="card flex items-center gap-4 focus-ring animate-pop" aria-label="Download for Android">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="40" height="40" loading="lazy" class="shrink-0">
+            <div>
+              <div class="h3">Android (APK/AAB) <span class="seo-tail">• earn & connect with love</span></div>
+              <p class="para mt-1 text-sm">Official build links. Use your device’s default installer.</p>
+            </div>
+          </a>
+
+          <a href="https://linkfly.to/earningmiamor" class="card flex items-center gap-4 focus-ring animate-pop" aria-label="Download for iOS (placeholder)">
+            <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="40" height="40" loading="lazy" class="shrink-0">
+            <div>
+              <div class="h3">iOS (Coming Soon) <span class="seo-tail">• earn & connect with love</span></div>
+              <p class="para mt-1 text-sm">Placeholder listing. Check back for updates.</p>
+            </div>
+          </a>
+
+          <a href="https://linkfly.to/earningmiamor" class="card flex items-center gap-4 focus-ring animate-pop" aria-label="Use on the Web">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="40" height="40" loading="lazy" class="shrink-0">
+            <div>
+              <div class="h3">Web <span class="seo-tail">• earn & connect with love</span></div>
+              <p class="para mt-1 text-sm">Use MiAmor in your browser at miamorweb.site.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn-primary focus-ring" href="/downloads.html" target="_blank" rel="noopener">Open Downloads</a>
+          <a class="btn-ghost focus-ring" href="/register.html" target="_blank" rel="noopener">Finish Registration</a>
+        </div>
       </div>
     </section>
 
-    <!-- Package/Value emphasis (intent match) -->
-    <section class="section" aria-labelledby="pkg-intent">
-      <h2 id="pkg-intent">Which MiAmor Package Is Best for You?</h2>
-      <p>Start quickly with transparent options. Compare what’s included and pick the plan that fits your goals.</p>
-      <ul class="bullet-list">
-        <li><a href="/packages.html">See package features & inclusions</a></li>
-        <li><a href="/faq.html#withdrawals">Withdrawal guidance (where available)</a></li>
-        <li><a href="/blog.html">Step‑by‑step guides from the blog</a></li>
-      </ul>
-    </section>
+    <!-- TIPS (Featured Snippet ready) -->
+    <section id="tips" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <h2 class="h2">Quick Tips & Clear Answers <span class="seo-tail">• earn & connect with love</span></h2>
+        <p class="para mt-2">Short, scannable tips designed for featured snippets. Follow these steps for a smooth start.</p>
 
-    <!-- How to Use -->
-    <section class="section" aria-labelledby="how-to-use-mi-amor">
-      <h2 id="how-to-use-mi-amor">How to Use the MiAmor Website</h2>
-      <p>Start from <a href="/register.html">registration</a>, review the <a href="/faq.html">FAQ</a>, and use the <a href="/downloads.html">downloads</a> page to get the app. For detailed comparisons, read the <a href="/packages.html">packages</a> guide.</p>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Mi amor official — use only miamorweb.site <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">The official domain is <strong>miamorweb.site</strong>. Check the padlock icon and avoid third-party payment links.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Open <span class="kbd">https://miamorweb.site</span></li>
+              <li>Confirm HTTPS and domain spelling</li>
+              <li>Use in-page Register/Download buttons</li>
+              <li>Ignore unsolicited DMs or forms</li>
+              <li>Report suspicious links</li>
+            </ol>
+          </article>
 
-      <h3 id="login-and-registration">Login and Registration</h3>
-      <p>Already have an account? Use <a href="/register.html">Register / Login</a>. New users can explore features and policies in the <a href="/faq.html">FAQ</a> and latest updates on the <a href="/blog.html">blog</a>.</p>
-    </section>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">What app pays you for doing tasks? <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">Some platforms provide task-based programs. MiAmor may list eligible activities; availability and criteria can change.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Check the <a class="underline" href="https://linkfly.to/earningmiamor">Blog</a> for updates</li>
+              <li>Review rules and timelines</li>
+              <li>Verify task source in-app</li>
+              <li>Keep proof of completion</li>
+              <li>Follow support steps if needed</li>
+            </ol>
+          </article>
 
-    <!-- Highlights / Marketplace -->
-    <section class="section" aria-labelledby="marketplace">
-      <h2 id="marketplace">Marketplace & Experiences</h2>
-      <div class="cards">
-        <article class="card dark">
-          <h3>Sell It — MiAmor’s Trusted Marketplace</h3>
-          <p>List approved items, connect with buyers via secure in‑app chat, and follow safe‑trade guidelines.</p>
-          <ul class="bullet-list">
-            <li>Verified profiles</li>
-            <li>Listing rules & tips</li>
-            <li>Clear payout guidance</li>
-          </ul>
-          <p><a class="btn" href="/packages.html">Seller Guide</a></p>
-        </article>
-        <article class="card light">
-          <h3>Community Programs & Activities</h3>
-          <p>Earn through approved activities and referrals. Check the app and blog for new opportunities.</p>
-          <p><a class="btn" href="/blog.html">See Latest Guides</a></p>
-        </article>
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Which app is best for finding true love? <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">“Best” depends on safety and fit. MiAmor supports respectful connections and clear guidance.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Complete your profile honestly</li>
+              <li>Use in-app safety tips</li>
+              <li>Engage respectfully</li>
+              <li>Report abuse quickly</li>
+              <li>Meet in public venues first</li>
+            </ol>
+          </article>
+
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Miamor registration — how to finish fast <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">Registration takes a few steps and requires accurate details.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Open <a class="underline" href="/register.html">/register.html</a></li>
+              <li>Enter correct information</li>
+              <li>Set a strong password</li>
+              <li>Follow any verification prompts</li>
+              <li>Bookmark your login page</li>
+            </ol>
+          </article>
+
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Is Meetic a free dating app? <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">Meetic offers free and paid tiers. Confirm current pricing on their site.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Visit Meetic (external) <a href="https://linkfly.to/earningmiamor" target="_blank" rel="nofollow noopener" class="underline">meetic.com</a></li>
+              <li>Compare tiers</li>
+              <li>Review renewal terms</li>
+              <li>Decide based on features</li>
+              <li>Keep receipts of purchases</li>
+            </ol>
+          </article>
+
+          <article class="card animate-pop">
+            <div class="flex items-center gap-3">
+              <div class="feat-icon"><img src="https://cdn-icons-png.flaticon.com/512/535/535285.png" alt="MiAmor app, MiAmor website, Miamor in Nigeria, download Miamor official" width="32" height="32" loading="lazy"></div>
+              <h3 class="h3 m-0">Which is the most genuine dating app? <span class="seo-tail">• earn & connect with love</span></h3>
+            </div>
+            <p class="para mt-2">Look for verified profiles, safety education, and transparent policies. MiAmor emphasizes guidance to encourage genuine use.</p>
+            <ol class="list-decimal ml-5 mt-3 space-y-1 text-slate-100/90">
+              <li>Read safety policies</li>
+              <li>Verify contacts in-app</li>
+              <li>Avoid off-platform payment</li>
+              <li>Use report tools</li>
+              <li>Trust your instincts</li>
+            </ol>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- Download App -->
-    <section class="section" aria-labelledby="download-app">
-      <h2 id="download-app">Download the Mobile App</h2>
-      <p>Get started on your phone. For Android and iOS options, use the official downloads page.</p>
-      <p>
-        <a href="/downloads.html" class="btn">Go to Downloads</a>
-      </p>
+    <!-- FAQ -->
+    <section id="faq" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <h2 class="h2">Frequently Asked Questions <span class="seo-tail">• earn & connect with love</span></h2>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">Mi amor official — what is the official MiAmor site? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">It’s <strong>miamorweb.site</strong>. Use HTTPS and buttons on this domain for registration and downloads.</p>
+          </details>
+
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">What app pays you for doing tasks? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">Some apps include tasks with rewards. MiAmor may list activities periodically; terms and access can change.</p>
+          </details>
+
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">Which app is best for finding true love? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">No single app works for everyone. Success depends on preferences and safe behavior. MiAmor promotes respectful use.</p>
+          </details>
+
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">Is Meetic a free dating app? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">Meetic provides free and paid plans. See their official website for current details.</p>
+          </details>
+
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">Which is the most genuine dating app? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">Genuine experiences rely on verification, safety tips, and clear policies. MiAmor encourages these practices.</p>
+          </details>
+
+          <details class="card animate-pop">
+            <summary class="h3 cursor-pointer">How do I complete miamor registration? <span class="seo-tail">• earn & connect with love</span></summary>
+            <p class="para mt-2">Go to <a class="underline" href="/register.html">/register.html</a>, fill in accurate details, and follow prompts to finish.</p>
+          </details>
+        </div>
+
+        <div class="mt-8">
+          <a class="btn-primary focus-ring" href="/register.html">Register on MiAmor</a>
+          <a class="btn-ghost focus-ring ml-2" href="#top">Back to top</a>
+        </div>
+      </div>
     </section>
 
-    <!-- FAQ preview -->
-    <section class="section" aria-labelledby="faq-title">
-      <h2 id="faq-title">MiAmor FAQ</h2>
-      <ul class="bullet-list">
-        <li><strong>Is MiAmor legit?</strong> MiAmor is an online platform with clear rules and guides. Always review terms and follow local laws.</li>
-        <li><strong>How do I start?</strong> Go to the <a href="/register.html">registration page</a> and follow the steps.</li>
-        <li><strong>How to download?</strong> Visit the <a href="/downloads.html">downloads page</a> for official links.</li>
-      </ul>
-      <p><a class="btn btn-outline" href="/blog.html">Read Guides & Updates</a></p>
-    </section>
-
-    <!-- Community & Resources -->
-    <section class="section" aria-labelledby="community-links">
-      <h2 id="community-links">Community & Resources</h2>
-      <p>Stay connected with updates and learning resources to help you make the most of the <strong>MiAmor website</strong>.</p>
-      <ul class="bullet-list">
-        <li><a href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">Creator Linktree hub</a> — announcements and related content.</li>
-        <li><a href="https://www.nairaland.com/" target="_blank" rel="noopener noreferrer">Nairaland Tech & Internet</a> — Nigerian community discussions.</li>
-      </ul>
+    <!-- FINAL CTA -->
+    <section id="final-cta" class="py-16" data-aos="fade-up">
+      <div class="section-wrap">
+        <div class="card flex flex-col md:flex-row items-center justify-between gap-6 animate-pop">
+          <div>
+            <h2 class="h2">Ready to start? <span class="seo-tail">• earn & connect with love</span></h2>
+            <p class="para mt-2">Join the community, review packages, and install the app on your preferred platform.</p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a class="btn-primary focus-ring" href="/register.html">Register Now</a>
+            <a class="btn-ghost focus-ring" href="https://linkfly.to/earningmiamor">Download App</a>
+            <a class="btn-ghost focus-ring" href="https://linkfly.to/earningmiamor">Express Join</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="wrap">
-      <nav aria-label="Footer">
-        <a href="/blog.html">About</a> •
-        <a href="/packages.html">Packages</a> •
-        <a href="/faq.html">Terms</a> •
-        <a href="/register.html" id="contact">Contact</a> •
+  <footer class="footer bg-slate-950/80 border-t border-white/10" data-aos="fade-up">
+    <div class="section-wrap py-10">
+      <nav aria-label="Footer" class="text-slate-300">
+        <a href="https://linkfly.to/earningmiamor" class="underline hover:text-white">Blog</a> •
+        <a href="https://linkfly.to/earningmiamor" class="underline hover:text-white">Packages</a> •
+        <a href="https://linkfly.to/earningmiamor" class="underline hover:text-white">FAQ</a> •
+        <a href="/register.html" id="contact" class="underline hover:text-white">Contact</a>
       </nav>
 
-      <!-- Secondary share bar (dark style) -->
-      <div class="share-bar" aria-label="Share this page">
-        <a class="share-btn dark" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener noreferrer">📘 Share</a>
-        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">𝕏 Tweet</a>
-        <a class="share-btn dark" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener noreferrer">🟢 WhatsApp</a>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <a class="chip" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener">Share</a>
+        <a class="chip" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">Tweet</a>
+        <a class="chip" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">WhatsApp</a>
       </div>
 
-      <p class="copyright">© MiAmor 2025 • All rights reserved</p>
+      <p class="text-slate-400 text-sm mt-6">© MiAmor 2025 • All rights reserved</p>
     </div>
   </footer>
 
   <!-- Back to top -->
-  <a href="#top" class="to-top" aria-label="Back to top">↑</a>
+  <a href="#top" class="to-top focus-ring is-hidden" aria-label="Back to top">↑</a>
 
-  <!-- Swap hero image to video AFTER first paint & on good networks -->
+  <!-- Minimal JS: responsive mobile menu + modal + nav animations + observers -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.hero');
-      const img = header.querySelector('.hero-bg');
+    // Prefers-reduced-motion guard
+    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      const goodConnection = !('connection' in navigator) ||
-        (navigator.connection && (navigator.connection.effectiveType || '').includes('4g'));
+    // Mobile menu toggle with animated sheet
+    const toggle = document.getElementById('navToggle');
+    const panel = document.getElementById('mobilePanel');
+    const body = document.body;
+    if (toggle && panel) {
+      toggle.addEventListener('click', () => {
+        const nowOpen = panel.classList.toggle('hidden') === false; // just opened
+        panel.setAttribute('data-open', nowOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-expanded', String(nowOpen));
+        toggle.setAttribute('aria-label', nowOpen ? 'Close menu' : 'Open menu');
+        body.classList.toggle('overflow-hidden', nowOpen);
+        if (nowOpen) panel.querySelector('a')?.focus();
+      });
+    }
 
-      if (goodConnection) {
-        const vid = document.createElement('video');
-        vid.className = 'hero-bg';
-        vid.autoplay = true; vid.muted = true; vid.loop = true; vid.playsInline = true;
-        vid.poster = '/img/og-cover.jpg';
-        const source = document.createElement('source');
-        source.src = '/video/miamor.mp4';
-        source.type = 'video/mp4';
-        vid.appendChild(source);
-        header.insertBefore(vid, header.firstChild);
-        if (img) img.remove();
+    // Hide/show nav on scroll direction + scroll progress width
+    const siteNav = document.getElementById('siteNav');
+    const scrollProgress = document.getElementById('scrollProgress');
+    let lastY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) > 6) {
+        if (y > lastY && y > 80) siteNav.classList.add('nav-hidden'); else siteNav.classList.remove('nav-hidden');
+        lastY = y;
       }
+      // progress
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.max(0, Math.min(1, (y / (docH || 1))));
+      scrollProgress.style.width = (pct * 100) + '%';
+      // back-to-top visibility
+      toTop.classList.toggle('is-hidden', y < 300);
+    }, {passive:true});
+
+    // Desktop nav active indicator (hover + active section)
+    const navList = document.querySelector('.nav-menu');
+    const indicator = document.getElementById('navIndicator');
+    const navLinks = [...document.querySelectorAll('.nav-menu .nav-link')];
+
+    function moveIndicator(el){
+      if (!el || !indicator) return;
+      const parentRect = navList.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
+      indicator.style.left = (rect.left - parentRect.left + 6) + 'px';
+      indicator.style.width = (rect.width - 12) + 'px';
+      indicator.classList.remove('hidden');
+    }
+
+    navLinks.forEach(a => {
+      a.addEventListener('mouseenter', () => moveIndicator(a));
+      a.addEventListener('focus', () => moveIndicator(a));
+    });
+    navList?.addEventListener('mouseleave', () => { indicator?.classList.add('hidden'); });
+
+    // IntersectionObserver to highlight current section
+    const sections = ['#features','#download','#faq','#tips','#final-cta','#packages'].map(id => document.querySelector(id)).filter(Boolean);
+    const linkById = Object.fromEntries(navLinks.map(a => [a.getAttribute('href'), a]));
+
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const href = '#' + visible.target.id;
+      navLinks.forEach(a => a.classList.remove('nav-underline'));
+      const active = linkById[href];
+      if (active) {
+        active.classList.add('nav-underline');
+        moveIndicator(active);
+      }
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, .1, .25, .5, .75, 1] });
+    sections.forEach(s => io.observe(s));
+
+    // Back-to-top behavior
+    const toTop = document.querySelector('.to-top');
+    toTop?.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior: prefersReduce ? 'auto' : 'smooth'});
+    });
+
+    // Shared modal
+      const modal = document.getElementById('modal');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+      const modalClose = document.getElementById('modalClose');
+      const modalAction = document.getElementById('modalAction');
+
+      function openModal({title, html, cta, ctaLink}) {
+        modalTitle.textContent = title || 'Details';
+        modalBody.innerHTML = html || '';
+        modalAction.textContent = cta || 'OK';
+        // >>> Added linking for Activate button (WhatsApp) <<<
+        if (ctaLink) {
+          modalAction.onclick = () => window.open(ctaLink, '_blank');
+        } else {
+          modalAction.onclick = null;
+        }
+        modal.classList.remove('hidden');
+        modalOverlay.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        modalOverlay.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+      }
+      modalClose.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+      modalAction.addEventListener('click', closeModal);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const packageContent = {
+    ultra: {
+      title: 'MiAmor Ultra — Details',
+      html: `
+        <h3 class="text-lg font-display font-extrabold mb-2">🩵🩵 Ultra Package</h3>
+
+        <p class="price mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span itemprop="priceCurrency" content="NGN">₦</span>
+          <span itemprop="price" content="15000" class="font-bold text-xl">15,000</span>
+          <span class="text-sm text-white/70"> normal registration</span> 
+          &nbsp;•&nbsp; <span class="text-emerald-400 font-semibold">Discount: ₦14,000</span>
+        </p>
+
+        <div class="overflow-x-auto rounded-xl border border-white/10 mb-3" role="region" aria-label="Ultra Package Benefits (scrollable)">
+          <table class="min-w-full text-sm text-left border-collapse">
+            <thead class="bg-white/10 text-brand">
+              <tr>
+                <th class="px-3 py-2">Benefit</th>
+                <th class="px-3 py-2">USD</th>
+                <th class="px-3 py-2">NGN (approx)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-white/80">
+              <tr><td class="px-3 py-2">Welcome Bonus</td><td>$12</td><td>₦12,500</td></tr>
+              <tr><td class="px-3 py-2">Daily Game Bonus</td><td>$5</td><td>₦5,000</td></tr>
+              <tr><td class="px-3 py-2">Matching Partners</td><td>$2.5</td><td>₦2,500</td></tr>
+              <tr><td class="px-3 py-2">Referral Bonus</td><td>$12.5</td><td>₦12,500</td></tr>
+              <tr><td class="px-3 py-2">Indirect Referrals</td><td>$0.4</td><td>₦400</td></tr>
+              <tr><td class="px-3 py-2">2nd Indirect</td><td>$0.15</td><td>₦150</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="features mb-4 list-disc pl-5 space-y-1">
+          <li>AI-assisted earnings — <strong>no daily tasks required</strong>.</li>
+          <li>Access to premium features across games, matching tools, and marketplace.</li>
+          <li>Early access to new programs and higher visibility in community activities.</li>
+          <li>Priority support and enhanced profile credibility.</li>
+        </ul>
+
+        <div class="flex gap-2 flex-wrap">
+          <a class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold shadow-glow hover:scale-[1.02] transition"
+             href="https://linkfly.to/earningmiamor" target="_blank" rel="nofollow noopener">💬 Join Ultra on WhatsApp</a>
+          <a class="px-4 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 font-semibold"
+             href="https://linkfly.to/earningmiamor" target="_blank" rel="nofollow noopener">Register</a>
+        </div>
+      `,
+      cta: 'Activate Ultra',
+      ctaLink: 'https://wa.me/2347066769745?text=I%20want%20to%20activate%20MiAmor%20Ultra'
+    },
+    plus: {
+      title: 'MiAmor Plus — Details',
+      html: `
+        <h3 class="text-lg font-display font-extrabold mb-2">💙💙 Plus (Standard) Package</h3>
+
+        <p class="price mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span itemprop="priceCurrency" content="NGN">₦</span>
+          <span itemprop="price" content="11000" class="font-bold text-xl">11,000</span>
+          <span class="text-sm text-white/70"> normal registration</span> 
+          &nbsp;•&nbsp; <span class="text-emerald-400 font-semibold">Discount: ₦10,000</span>
+        </p>
+
+        <div class="overflow-x-auto rounded-xl border border-white/10 mb-3" role="region" aria-label="Plus Package Benefits (scrollable)">
+          <table class="min-w-full text-sm text-left border-collapse">
+            <thead class="bg-white/10 text-brand">
+              <tr>
+                <th class="px-3 py-2">Benefit</th>
+                <th class="px-3 py-2">USD</th>
+                <th class="px-3 py-2">NGN (approx)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-white/80">
+              <tr><td class="px-3 py-2">Welcome Bonus</td><td>$8</td><td>₦8,000</td></tr>
+              <tr><td class="px-3 py-2">Daily Game Bonus</td><td>$3</td><td>₦3,000</td></tr>
+              <tr><td class="px-3 py-2">Matching Partners</td><td>$2</td><td>₦2,000</td></tr>
+              <tr><td class="px-3 py-2">Referral Bonus</td><td>$9.1</td><td>₦9,100</td></tr>
+              <tr><td class="px-3 py-2">Indirect Referrals</td><td>$0.2</td><td>₦200</td></tr>
+              <tr><td class="px-3 py-2">2nd Indirect</td><td>$0.10</td><td>₦100</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex gap-2 flex-wrap">
+          <a class="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold shadow-glow hover:scale-[1.02] transition"
+             href="https://linkfly.to/earningmiamor" target="_blank" rel="nofollow noopener">💬 Join Plus on WhatsApp</a>
+          <a class="px-4 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 font-semibold"
+             href="https://linkfly.to/earningmiamor" target="_blank" rel="nofollow noopener">Register</a>
+        </div>
+      `,
+      cta: 'Activate Plus',
+      ctaLink: 'https://wa.me/2347066769745?text=I%20want%20to%20activate%20MiAmor%20Plus'
+    }
+  };
+
+
+    document.querySelectorAll('.pkgBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const kind = btn.dataset.package;
+        const cfg = packageContent[kind];
+        if (cfg) openModal(cfg);
+      });
     });
   </script>
 
-  <!-- (Optional) Inline FAQ schema duplicate removed to avoid redundant blocks -->
+  <!-- Added: AOS init for scroll animations (applies to almost all sections except hero and app-preview) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{try{AOS.init({duration:800,once:true,offset:50});}catch(e){}});</script>
 
-  <!-- Search Console notes (dev only)
-    1) Verify property as DOMAIN via DNS TXT (preferred) or URL-prefix.
-    2) Enforce preferred canonical (HTTPS + non-www) with a single 301 hop.
-    3) robots.txt should allow key paths; block only admin/no-index pages.
-    4) Submit XML sitemap(s) with only 200-status URLs.
-    5) Fix redirect chains/loops; normalize trailing slash/case.
-    6) Keep core pages indexable (no noindex, no auth walls).
-    7) Request indexing after significant changes; monitor Coverage & CWV.
-  -->
 </body>
+
+<!-- ===== MODAL (shared) ===== -->
+<div id="modalOverlay" class="hidden fixed inset-0 z-[60] bg-black/60 animate-fadeIn"></div>
+
+<div id="modal" class="hidden fixed z-[61] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-md">
+  <div
+    class="glass rounded-2xl bg-white/10 border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,.45)]
+           animate-pop overflow-hidden max-h-[85vh] flex flex-col">
+    <!-- header -->
+    <div class="px-4 py-3 flex items-center justify-between border-b border-white/10 shrink-0">
+      <h5 id="modalTitle" class="font-display text-lg font-extrabold">Details</h5>
+      <button id="modalClose" class="p-2 rounded-lg hover:bg-white/10" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6l-12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- body (scrolls) -->
+    <div id="modalBody" class="px-4 py-3 text-sm text-white/85 space-y-3 overflow-y-auto">
+      <!-- dynamic content -->
+    </div>
+
+    <!-- footer -->
+    <div class="px-4 py-3 border-t border-white/10 flex justify-end gap-2 shrink-0">
+      <button id="modalAction" class="px-4 py-2 rounded-xl bg-brand hover:bg-brand-dark font-semibold shadow-glow">OK</button>
+    </div>
+  </div>
+</div>
+<!-- ===== END MODAL ===== -->
+
+<!-- Offline overlay (optional, can be removed if not needed) -->
+<div id="offlineBanner"
+     class="hidden fixed left-1/2 -translate-x-1/2 top-4 z-[70] glass
+            bg-red-500/20 border border-red-300/30 text-red-100
+            px-4 py-2 rounded-xl text-sm shadow-lg">
+    <strong>No internet connection.</strong> Some styles/videos may not load.
+</div>
+
+<script>
+    function setOfflineUI(isOffline) {
+      const b = document.getElementById('offlineBanner');
+      if (!b) return;
+      if (isOffline) b.classList.remove('hidden'); else b.classList.add('hidden');
+    }
+    // initial
+    setOfflineUI(!navigator.onLine);
+    // live updates
+    window.addEventListener('online',  () => setOfflineUI(false));
+    window.addEventListener('offline', () => setOfflineUI(true));
+</script>
+
+<!-- Modal JS (core logic, no feature/pack content) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Shared modal
+      const modal = document.getElementById('modal');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+      const modalClose = document.getElementById('modalClose');
+      const modalAction = document.getElementById('modalAction');
+
+      function openModal({title, html, cta, ctaLink}) {
+        modalTitle.textContent = title || 'Details';
+        modalBody.innerHTML = html || '';
+        modalAction.textContent = cta || 'OK';
+        // Linking for Activate button (WhatsApp)
+        if (ctaLink) {
+          modalAction.onclick = () => window.open(ctaLink, '_blank');
+        } else {
+          modalAction.onclick = null;
+        }
+        modal.classList.remove('hidden');
+        modalOverlay.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        modalOverlay.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+      }
+      modalClose.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+      modalAction.addEventListener('click', closeModal);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+      // To use: call openModal({title, html, cta, ctaLink}) from anywhere
+      window.openModal = openModal;
+    });
+</script>
 </html>
