@@ -53,222 +53,148 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Tailwind (Play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: '#0B64D8',
-            brandDark: '#084CA6',
-            text: '#0f172a'
-          },
-          fontFamily: {
-            sans: ['Poppins', 'system-ui', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
-            display: ['Montserrat', 'Poppins', 'sans-serif']
-          },
-          boxShadow: {
-            glow: '0 10px 30px rgba(11,100,216,0.45)'
-          },
-          keyframes: {
-            fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
-            pop: { '0%': { transform:'translateY(12px) scale(.98)', opacity:.0 }, '100%': { transform:'translateY(0) scale(1)', opacity:1 } },
-            slideDown: { '0%': { transform:'translateY(-8px)', opacity:0 }, '100%': { transform:'translateY(0)', opacity:1 } },
-            underlineGrow: { '0%': { width: '0%' }, '100%': { width: '100%' } },
-            pulseGlow: { '0%,100%': { boxShadow: '0 0 0 rgba(11,100,216,0)' }, '50%': { boxShadow: '0 0 32px rgba(11,100,216,.45)' } },
-            navReveal: { '0%': { transform:'translateY(-100%)', opacity:0 }, '100%': { transform:'translateY(0)', opacity:1 } },
-            in: { '0%': { opacity:0, transform:'translateY(6px) scale(.98)' }, '100%': { opacity:1, transform:'translateY(0) scale(1)' } }
-          },
-          animation: {
-            fadeIn: 'fadeIn .18s ease-out',
-            pop: 'pop .22s cubic-bezier(.2,.7,.2,1)',
-            slideDown: 'slideDown .18s ease-out',
-            pulseGlow: 'pulseGlow 2.4s ease-in-out infinite',
-            navReveal: 'navReveal .25s ease-out',
-            in: 'in .25s ease-out'
-          }
-        }
-      },
-      darkMode: 'class'
+  <!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MiAmor Website",
+  "url": "https://miamorweb.site/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://miamorweb.site/blog.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://miamorweb.site/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "MiAmor official",
+      "item": "https://miamorweb.site/#features"
     }
-  </script>
+  ]
+}
+</script>
 
-  <!-- Glass tokens & utilities -->
-  <style type="text/tailwindcss">
-    @layer components {
-      .glass { @apply rounded-2xl shadow-lg ring-1 ring-white/10 backdrop-blur-md bg-white/10; }
-      .btn-primary { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-medium text-white; background: linear-gradient(135deg,#0B64D8,#084CA6); }
-      .btn-ghost { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-medium border border-white/20 text-white bg-white/10; }
-      .focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand focus-visible:ring-offset-white/5; }
-      .nav-link { @apply text-slate-200 hover:text-white px-3 py-2 rounded-lg focus-ring relative; }
-      .nav-cta { @apply bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold focus-ring; }
-      .chip { @apply inline-flex items-center px-3 py-1 rounded-full border border-white/20 text-white/90 text-sm; }
-      .section-wrap { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
-      .h2 { @apply text-2xl sm:text-3xl font-semibold text-white tracking-tight; }
-      .h3 { @apply text-xl font-semibold text-white; }
-      .para { @apply text-slate-200/90 leading-relaxed; }
-      .card { @apply glass p-6; }
-      .kbd { @apply inline-block rounded-md border border-slate-400/40 px-1.5 py-0.5 text-xs text-slate-800 bg-white; }
-      .badge { @apply px-2 py-1 text-[10px] uppercase tracking-wide rounded-full font-bold border border-white/15; }
-      .seo-tail { @apply text-white/70 font-normal; }
-      /* Desktop nav underline */
-      .nav-underline::after { content:''; @apply absolute left-3 -bottom-0.5 h-0.5 bg-brand rounded-full w-0; animation: underlineGrow .25s ease-out forwards; }
-    }
-    :root { scroll-behavior: smooth; }
-    /* Sticky shadow and reveal */
-    .sticky-shadow { box-shadow: 0 10px 30px rgba(0,0,0,.18); }
-    .nav-hidden { transform: translateY(-100%); opacity:.98; }
-    /* Back-to-top */
-    .to-top { position:fixed; bottom:88px; right:24px; width:48px; height:48px; display:grid; place-items:center; background:#0B64D8; color:#fff; border-radius:999px; text-decoration:none; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:60; transition: opacity .25s ease, transform .25s ease; }
-    .to-top:hover { background:#084CA6; }
-    .to-top.is-hidden { opacity:0; transform: translateY(8px); pointer-events:none; }
-    /* Mobile menu panel */
-    #mobilePanel { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transform-origin: top; transition: opacity .2s ease, transform .2s ease; }
-    #mobilePanel[data-open="true"] { opacity:1; transform: scaleY(1); }
-    #mobilePanel[data-open="false"] { opacity:0; transform: scaleY(.98); }
-    /* Scroll progress */
-    #scrollProgress { position:fixed; top:0; left:0; height:4px; width:0; z-index:60; background:linear-gradient(90deg,#0B64D8,#8ab6ff,#ffffff); }
-    /* Feature icon wrapper */
-    .feat-icon { width:56px; height:56px; border-radius:14px; display:grid; place-items:center; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); }
-    .img-soft { @apply rounded-xl border border-white/15 shadow; }
-    .modal-open { overflow: hidden; }
-    #modalBody { -webkit-overflow-scrolling: touch; }
-  </style>
+<!-- JSON-LD: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MiAmor",
+  "applicationCategory": ["LifestyleApplication","SocialNetworkingApplication"],
+  "operatingSystem": "Android, iOS, Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "NGN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "ratingCount": "1240"
+  },
+  "url": "https://miamorweb.site/",
+  "downloadUrl": "https://miamorweb.site/#downloads",
+  "softwareVersion": "1.0.0",
+  "image": "https://miamorweb.site/img/miamor-logo.png",
+  "description": "MiAmor helps people connect, discover community programs, and access app features on Android, iOS, and the Web."
+}
+</script>
 
-
-  <!-- Redirect /index.html → / -->
-  <script>
-    (function () {
-      var p = location.pathname.toLowerCase();
-      if (p.endsWith('/index.html')) location.replace('/');
-    })();
-  </script>
-  <script>
-    if('serviceWorker' in navigator){
-      window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))
-    }
-  </script>
-
-  <!-- JSON-LD: Organization -->
-  <script type="application/ld+json">
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        /* Set main background to the original app-preview background */
-        background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-        color: #222;
-      }
-      .hero {
-        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        padding: 60px 0 40px 0;
-        text-align: center;
-      }
-      .app-preview {
-        /* Use the same background as the hero section */
-        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        padding: 40px 0;
-        text-align: center;
-      }
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"MiAmor Website",
-    "url":"https://miamorweb.site/",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://miamorweb.site/blog.html?q={search_term_string}",
-      "query-input":"required name=search_term_string"
+<!-- JSON-LD: VideoObject -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "MiAmor — Quick Overview",
+  "description": "A short introduction to MiAmor with key features and how to start.",
+  "thumbnailUrl": "https://miamorweb.site/img/hero-poster.jpg",
+  "uploadDate": "2025-08-10",
+  "contentUrl": "https://miamorweb.site/video/miamor-hero.mp4",
+  "embedUrl": "https://miamorweb.site/#hero",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MiAmor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://miamorweb.site/img/miamor-logo.png"
     }
   }
-  </script>
+}
+</script>
 
-  <!-- JSON-LD: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
-      {"@type":"ListItem","position":2,"name":"MiAmor official","item":"https://miamorweb.site/#features"}
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: SoftwareApplication -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"MiAmor",
-    "applicationCategory":["LifestyleApplication","SocialNetworkingApplication"],
-    "operatingSystem":"Android, iOS, Web",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","ratingCount":"1240"},
-    "url":"https://miamorweb.site/",
-    "downloadUrl":"https://miamorweb.site/#downloads",
-    "softwareVersion":"1.0.0",
-    "image":"https://miamorweb.site/img/miamor-logo.png",
-    "description":"MiAmor helps people connect, discover community programs, and access app features on Android, iOS, and the Web."
-  }
-  </script>
-
-  <!-- JSON-LD: VideoObject (hero) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"VideoObject",
-    "name":"MiAmor — Quick Overview",
-    "description":"A short introduction to MiAmor with key features and how to start.",
-    "thumbnailUrl":"https://miamorweb.site/img/hero-poster.jpg",
-    "uploadDate":"2025-08-10",
-    "contentUrl":"https://miamorweb.site/video/miamor-hero.mp4",
-    "embedUrl":"https://miamorweb.site/#hero",
-    "publisher":{"@type":"Organization","name":"MiAmor","logo":{"@type":"ImageObject","url":"https://miamorweb.site/img/miamor-logo.png"}}
-  }
-  </script>
-
-  <!-- JSON-LD: FAQPage (must match on-page FAQ) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Mi amor official — what is the official MiAmor site?",
-        "acceptedAnswer":{"@type":"Answer","text":"The official MiAmor site is miamorweb.site. Always use HTTPS and links from this domain for registration, downloads, and help."}
-      },
-      {
-        "@type":"Question",
-        "name":"What app pays you for doing tasks?",
-        "acceptedAnswer":{"@type":"Answer","text":"Some apps include task-based rewards. MiAmor may offer eligible activities and programs from time to time; availability and rules can change and may vary by location."}
-      },
-      {
-        "@type":"Question",
-        "name":"Which app is best for finding true love?",
-        "acceptedAnswer":{"@type":"Answer","text":"There is no single 'best' app for everyone. MiAmor focuses on safe connections and community features; success depends on user behavior and preferences."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is Meetic a free dating app?",
-        "acceptedAnswer":{"@type":"Answer","text":"Meetic provides both free and paid options. For current details, check Meetic’s official website. Pricing and features may change."}
-      },
-      {
-        "@type":"Question",
-        "name":"Which is the most genuine dating app?",
-        "acceptedAnswer":{"@type":"Answer","text":"Genuine experiences depend on verified profiles, clear policies, and user safety. MiAmor emphasizes guidance and trust practices to support positive use."}
-      },
-      {
-        "@type":"Question",
-        "name":"How do I complete miamor registration?",
-        "acceptedAnswer":{"@type":"Answer","text":"Open miamorweb.site/register.html, enter accurate details, review policies, and follow prompts to finish. Keep your login secure."}
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mi amor official — what is the official MiAmor site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The official MiAmor site is miamorweb.site. Always use HTTPS and links from this domain for registration, downloads, and help."
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Question",
+      "name": "What app pays you for doing tasks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some apps include task-based rewards. MiAmor may offer eligible activities and programs from time to time; availability and rules can change and may vary by location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which app is best for finding true love?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single 'best' app for everyone. MiAmor focuses on safe connections and community features; success depends on user behavior and preferences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Meetic a free dating app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meetic provides both free and paid options. For current details, check Meetic’s official website. Pricing and features may change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is the most genuine dating app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Genuine experiences depend on verified profiles, clear policies, and user safety. MiAmor emphasizes guidance and trust practices to support positive use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I complete miamor registration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open miamorweb.site/register.html, enter accurate details, review policies, and follow prompts to finish. Keep your login secure."
+      }
+    }
+  ]
+}
+</script>
 
   <!-- Added: Font Awesome & AOS for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -1204,4 +1130,5 @@
     });
 </script>
 </html>
+
 
