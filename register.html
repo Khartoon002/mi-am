@@ -4,72 +4,203 @@
 <head> <!-- Core -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="format-detection" content="telephone=no,email=no,address=no" /> <!-- Canonical / Hreflang -->
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+  <!-- Canonical / Hreflang -->
   <link rel="canonical" href="https://miamorweb.site/register.html" />
   <link rel="alternate" hreflang="en-ng" href="https://miamorweb.site/register.html" />
   <link rel="alternate" hreflang="en" href="https://miamorweb.site/register.html" />
   <link rel="alternate" hreflang="x-default" href="https://miamorweb.site/register.html" />
   <meta name="geo.region" content="NG" />
   <meta name="geo.placename" content="Nigeria" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" /> <!-- SEO -->
-  <title>MiAmor — Register | Earn & Connect with Love</title>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- SEO (focused on registration/how to register for miamor website) -->
+  <title>MiAmor — How to Register on MiAmor Website | Quick Sign-Up</title>
   <meta name="description"
-    content="Create your MiAmor account in minutes. MiAmor — Earn & connect with love. Mobile-first, secure registration with clear steps, downloads, and packages." />
+    content="MiAmor register — step-by-step guide to create your MiAmor account. Learn what info you need, how to verify, download the app and start earning & connecting on MiAmor Website." />
+  <meta name="keywords" content="miamor register, how to register miamor website, miamor sign up, miamor registration guide, miamor register nigeria" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://miamorweb.site/register.html" />
   <meta property="og:site_name" content="MiAmor Website" />
   <meta property="og:locale" content="en_NG" />
-  <meta property="og:title" content="MiAmor — Register | Earn & Connect with Love" />
+  <meta property="og:title" content="MiAmor — How to Register on MiAmor Website | Quick Sign-Up" />
   <meta property="og:description"
-    content="Official MiAmor registration. Create your account, then download the app and explore packages." />
+    content="Step-by-step MiAmor registration guide — create account, verify email/phone, download the app and begin earning and connecting." />
   <meta property="og:image" content="https://miamorweb.site/img/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="MiAmor blue glass hero" />
-  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:image:alt" content="MiAmor registration hero" />
+  <meta property="article:modified_time" content="2025-08-30T00:00:00+00:00" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MiAmor — Register | Earn & Connect with Love" />
-  <meta name="twitter:description" content="Create your MiAmor account. Mobile-first, secure, and quick." />
-  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" /> <!-- PWA / Icons -->
+  <meta name="twitter:title" content="MiAmor — How to Register on MiAmor Website | Quick Sign-Up" />
+  <meta name="twitter:description" content="MiAmor register — quick, secure sign-up on MiAmor Website." />
+  <meta name="twitter:image" content="https://miamorweb.site/img/og-cover.jpg" />
+
+  <!-- PWA / Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Title rotator (random start + rotate every 20s) -->
+  <script>
+    (function () {
+      try {
+        var variants = [
+          "How to Register on MiAmor Website — Quick Sign-Up",
+          "MiAmor Register — Create Your Account & Start Earning",
+          "MiAmor Sign Up — Fast Guide to Register on MiAmor Website",
+          "MiAmor Register (Nigeria) — Step by Step"
+        ];
+        var idx = Math.floor(Math.random() * variants.length);
+        document.title = variants[idx];
+        setInterval(function () {
+          idx = (idx + 1) % variants.length;
+          document.title = variants[idx];
+        }, 20000);
+      } catch (e) { }
+    })();
+  </script>
+
   <meta name="theme-color" content="#0B64D8" />
   <script src="/content-guard.js" defer></script>
   <script>if ('serviceWorker' in navigator) { addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => { })) }</script>
-  <!-- Tailwind -->
+
+  <!-- Tailwind (kept exactly as in original styling) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script> tailwind.config = { theme: { extend: { colors: { brand: '#0B64D8', brandDark: '#084CA6' }, fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'], display: ['Montserrat', 'Poppins', 'ui-sans-serif', 'system-ui'] }, boxShadow: { glow: '0 10px 30px rgba(11,100,216,0.45)' }, keyframes: { fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } }, pop: { '0%': { transform: 'translateY(12px) scale(.98)', opacity: .0 }, '100%': { transform: 'translateY(0) scale(1)', opacity: 1 } }, slideDown: { '0%': { transform: 'translateY(-8px)', opacity: 0 }, '100%': { transform: 'translateY(0)', opacity: 1 } } }, animation: { fadeIn: 'fadeIn .18s ease-out', pop: 'pop .22s cubic-bezier(.2,.7,.2,1)', slideDown: 'slideDown .18s ease-out' } } }, darkMode: 'class' } </script>
-  <!-- Tokens / Utilities -->
+
+  <!-- Tokens / Utilities (kept unchanged) -->
   <style type="text/tailwindcss">
     @layer components { .glass { @apply rounded-2xl shadow-lg ring-1 ring-white/10 backdrop-blur-md bg-white/10; } .btn-primary { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-white; background: linear-gradient(135deg,#0B64D8,#084CA6); } .btn-ghost { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold border border-white/20 text-white bg-white/10; } .focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand focus-visible:ring-offset-slate-900; } .nav-link { @apply text-slate-200 hover:text-white px-3 py-2 rounded-lg focus-ring; } .nav-cta { @apply bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-semibold focus-ring; } .section-wrap { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; } .h1 { @apply font-display text-3xl sm:text-5xl font-bold; } .h2 { @apply text-2xl sm:text-3xl font-semibold text-white tracking-tight; } .h3 { @apply text-xl font-semibold text-white; } .label { @apply block text-sm font-medium text-slate-100; } .input { @apply mt-1 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-white placeholder-white/50 focus-ring; } .help { @apply text-xs text-slate-300; } .seo-tail { @apply text-white/70 font-normal; } .chip { @apply inline-flex items-center px-3 py-1 rounded-full border border-white/20 text-white/90 text-sm; } } :root { scroll-behavior: smooth; } .to-top { position:fixed; bottom:24px; right:24px; width:48px; height:48px; display:grid; place-items:center; background:#0B64D8; color:#fff; border-radius:999px; text-decoration:none; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:60; } .to-top:hover { background:#084CA6; } #mobilePanel { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); } 
-  </style> <!-- JSON-LD: Organization / WebSite / WebPage / Breadcrumbs / HowTo -->
-  <script
-    type="application/ld+json">{ "@context":"https://schema.org", "@type":"Organization", "name":"MiAmor", "url":"https://miamorweb.site/", "logo":"https://miamorweb.site/img/miamor-logo.png", "sameAs":["https://linktr.ee/makemoneyonline312"] }</script>
-  <script
-    type="application/ld+json">{ "@context":"https://schema.org", "@type":"WebSite", "name":"MiAmor Website", "url":"https://miamorweb.site/", "potentialAction":{"@type":"SearchAction","target":"https://miamorweb.site/blog.html?q={search_term_string}","query-input":"required name=search_term_string"} }</script>
-  <script
-    type="application/ld+json">{ "@context":"https://schema.org", "@type":"WebPage", "name":"MiAmor — Register | Earn & Connect with Love", "url":"https://miamorweb.site/register.html", "description":"Official registration page. Create your MiAmor account, then download the app and explore packages & FAQ.", "inLanguage":"en-NG", "isPartOf":{"@type":"WebSite","name":"MiAmor Website","url":"https://miamorweb.site/"} }</script>
-  <script
-    type="application/ld+json">{ "@context":"https://schema.org", "@type":"BreadcrumbList", "itemListElement":[ {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"}, {"@type":"ListItem","position":2,"name":"Register","item":"https://miamorweb.site/register.html"} ] }</script>
-  <script
-    type="application/ld+json">{ "@context":"https://schema.org", "@type":"HowTo", "name":"How to Register on MiAmor", "description":"Simple steps to create your MiAmor account.", "totalTime":"PT3M", "supply":[{"@type":"HowToSupply","name":"Email address"},{"@type":"HowToSupply","name":"Mobile device"}], "tool":[{"@type":"HowToTool","name":"Web browser or MiAmor app"}], "step":[ {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor registration page."}, {"@type":"HowToStep","name":"Enter your details","text":"Provide your name, email, and a strong password (12+ characters recommended)."}, {"@type":"HowToStep","name":"Submit the form","text":"Review your information and submit to create your account."} ], "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630} }</script>
+  </style>
+
+  <!-- JSON-LD: Organization / WebSite / WebPage / BreadcrumbList / HowTo / FAQPage (updated to target registration) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MiAmor",
+    "url": "https://miamorweb.site/",
+    "logo": "https://miamorweb.site/img/miamor-logo.png",
+    "sameAs": [
+      "https://facebook.com/miamor",
+      "https://instagram.com/miamor",
+      "https://twitter.com/miamor"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MiAmor Website",
+    "url": "https://miamorweb.site/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://miamorweb.site/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"MiAmor — Register | How to register for MiAmor Website",
+    "url":"https://miamorweb.site/register.html",
+    "description":"Official registration guide for MiAmor Website — steps to register, verify, complete profile and download the app.",
+    "inLanguage":"en-NG",
+    "isPartOf": { "@type":"WebSite", "name":"MiAmor Website", "url":"https://miamorweb.site/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://miamorweb.site/"},
+      {"@type":"ListItem","position":2,"name":"MiAmor official","item":"https://miamorweb.site/#features"},
+      {"@type":"ListItem","position":3,"name":"Register","item":"https://miamorweb.site/register.html"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"How to Register on MiAmor",
+    "description":"Follow these steps to create a MiAmor account on the web or app, verify your identity, and start using features.",
+    "totalTime":"PT5M",
+    "supply":[{"@type":"HowToSupply","name":"Email address"},{"@type":"HowToSupply","name":"Mobile phone"}],
+    "tool":[{"@type":"HowToTool","name":"Web browser"},{"@type":"HowToTool","name":"MiAmor mobile app (optional)"}],
+    "step":[
+      {"@type":"HowToStep","name":"Open the registration page","url":"https://miamorweb.site/register.html","text":"Visit the MiAmor register page (https://miamorweb.site/register.html) or open the MiAmor app and tap Sign Up."},
+      {"@type":"HowToStep","name":"Enter your details","text":"Provide full name, a valid email or phone number, and set a strong password (12+ characters recommended)."},
+      {"@type":"HowToStep","name":"Verify your account","text":"Confirm your email by clicking the verification link or enter the OTP sent to your phone."},
+      {"@type":"HowToStep","name":"Complete your profile","text":"Add a profile photo, write a short bio, and set preferences to start matching and using earning features."},
+      {"@type":"HowToStep","name":"Download the app (optional)","text":"Install the MiAmor mobile app from the Downloads section for a better mobile experience."}
+    ],
+    "image":{"@type":"ImageObject","url":"https://miamorweb.site/img/og-cover.jpg","width":1200,"height":630}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How do I register for MiAmor Website?","acceptedAnswer":{"@type":"Answer","text":"Go to https://miamorweb.site/register.html, fill in your name and contact (email or phone), choose a password, verify your account, and complete your profile."}},
+      {"@type":"Question","name":"What information is required to register?","acceptedAnswer":{"@type":"Answer","text":"A full name, valid email or phone number, and a secure password. Profile photo and bio are optional but recommended."}},
+      {"@type":"Question","name":"Is registration free?","acceptedAnswer":{"@type":"Answer","text":"Yes — creating an account is free. Some premium packages are optional and clearly marked."}},
+      {"@type":"Question","name":"How long does verification take?","acceptedAnswer":{"@type":"Answer","text":"Email verification is usually immediate after clicking the link. SMS OTPs arrive within minutes depending on your carrier."}},
+      {"@type":"Question","name":"I didn't receive the verification email — what should I do?","acceptedAnswer":{"@type":"Answer","text":"Check your spam folder, ensure your email was entered correctly, and request a new verification link via the profile verification page."}},
+      {"@type":"Question","name":"Can I register using only my phone number?","acceptedAnswer":{"@type":"Answer","text":"Yes — phone number registration is supported in supported regions. Use the phone option and enter the OTP sent to you."}}
+    ]
+  }
+  </script>
+
+  <!-- Redirect /index.html → / (kept original) -->
+  <script>
+    (function () {
+      var p = location.pathname.toLowerCase();
+      if (p.endsWith('/index.html')) location.replace('/');
+    })();
+  </script>
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))
+    }
+  </script>
+
+  <!-- Place your CSS in a <style> tag (see note below) -->
 </head>
 
 <body class="bg-[radial-gradient(120%_120%_at_0%_0%,#0b64d8_0%,#0a0f2a_40%,#060b1a_100%)] text-white font-sans">
-  <!-- Skip Link --> <a href="#main"
+  <!-- Skip Link -->
+  <a href="#main"
     class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-white text-slate-900 px-3 py-2 rounded">Skip
-    to content</a> <!-- NAV (responsive; unique mobile vs desktop to match home) -->
+    to content</a>
+
+  <!-- NAV (responsive; unique mobile vs desktop to match home) -->
   <div class="nav-wrap" id="top">
     <nav
       class="nav sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-slate-900/50 bg-slate-900/70 border-b border-white/10">
-      <div class="section-wrap flex items-center justify-between py-3"> <a
-          class="brand flex items-center gap-2 focus-ring" href="/" aria-label="MiAmor Home"> <img
-            src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async"
-            class="rounded-lg"> <span class="font-display font-semibold text-white text-lg">MiAmor</span> </a>
+      <div class="section-wrap flex items-center justify-between py-3">
+        <a class="brand flex items-center gap-2 focus-ring" href="/" aria-label="MiAmor Home">
+          <img src="/img/miamor-logo.png" alt="MiAmor logo" width="36" height="36" loading="eager" decoding="async"
+            class="rounded-lg">
+          <span class="font-display font-semibold text-white text-lg">MiAmor</span>
+        </a>
         <!-- Desktop menu -->
         <ul class="nav-menu hidden md:flex items-center gap-1">
           <li><a class="nav-link" href="/blog.html" rel="follow">Blog</a></li>
@@ -104,56 +235,63 @@
         </div>
       </div>
     </nav>
+  </div>
 
-  </div> <!-- Breadcrumbs -->
+  <!-- Breadcrumbs -->
   <nav aria-label="Breadcrumb" class="section-wrap py-2 text-sm text-slate-300">
     <ol class="flex items-center gap-2">
       <li><a href="/" class="underline hover:text-white">Home</a></li>
       <li aria-hidden="true">/</li>
-      <li><a href="https://linkfly.to/earningmiamor" class="underline hover:text-white">Register</a></li>
+      <li><a href="https://miamorweb.site/register.html" class="underline hover:text-white">Register</a></li>
     </ol>
-  </nav> <!-- HERO (slim) -->
+  </nav>
+
+  <!-- HERO (slim) -->
   <header class="relative isolate overflow-hidden">
     <div class="section-wrap py-10 sm:py-14">
       <div class="max-w-3xl">
-        <h1 class="h1 leading-tight">Register on MiAmor <span class="seo-tail">• earn & connect with love</span></h1>
-        <p class="mt-3 text-slate-200/90">Create your account securely. After registration, visit <a href="/#download"
-            class="underline">Downloads</a> and explore <a href="/#packages" class="underline">Packages</a>.</p>
-        <div class="mt-5 flex flex-wrap gap-3"> <a href="#register-form" class="btn-primary focus-ring">Start
-            Registration</a> <a href="https://linkfly.to/earningmiamor" class="btn-ghost focus-ring">Read Tips</a> </div>
-        <div class="mt-5 flex flex-wrap gap-2"> <span class="chip">Mobile-first</span> <span class="chip">Clear
-            steps</span> <span class="chip">Secure inputs</span> </div>
+        <h1 class="h1 leading-tight">Register on MiAmor <span class="seo-tail">• how to register for MiAmor Website</span></h1>
+        <p class="mt-3 text-slate-200/90">Create your MiAmor account securely in minutes. Below you'll find the exact
+          steps for web and mobile sign-up, verification tips, and common troubleshooting advice.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="#register-form" class="btn-primary focus-ring">Start Registration</a>
+          <a href="#howto" class="btn-ghost focus-ring">See Steps</a>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="chip">Mobile-first</span> <span class="chip">Secure</span> <span class="chip">Quick</span>
+        </div>
       </div>
     </div>
   </header>
-  <main id="main" class="relative"> <!-- Trust Notes -->
+
+  <main id="main" class="relative">
+    <!-- Trust Notes -->
     <section class="py-8">
       <div class="section-wrap">
         <div class="grid md:grid-cols-3 gap-4">
           <div class="glass p-4 animate-pop">
-            <h3 class="h3">Official Site <span class="seo-tail">• earn & connect with love</span></h3>
-            <p class="text-slate-200/90 mt-2">Use <code class="bg-black/30 px-1.5 py-0.5 rounded">miamorweb.site</code>
-              only. Avoid third-party payment links.</p>
+            <h3 class="h3">Official Site <span class="seo-tail">• register safely</span></h3>
+            <p class="text-slate-200/90 mt-2">Only register at <code class="bg-black/30 px-1.5 py-0.5 rounded">miamorweb.site</code>. Avoid phishing links.</p>
           </div>
           <div class="glass p-4 animate-pop">
-            <h3 class="h3">Secure Access <span class="seo-tail">• earn & connect with love</span></h3>
-            <p class="text-slate-200/90 mt-2">Confirm HTTPS (padlock) and keep your credentials private.</p>
+            <h3 class="h3">Secure Access <span class="seo-tail">• protect account</span></h3>
+            <p class="text-slate-200/90 mt-2">Use a strong password and keep OTPs private. MiAmor will never ask for your password via DM.</p>
           </div>
           <div class="glass p-4 animate-pop">
-            <h3 class="h3">Need Help? <span class="seo-tail">• earn & connect with love</span></h3>
-            <p class="text-slate-200/90 mt-2">Check the <a href="/#faq" class="underline">FAQ</a> or <a
-                href="/blog.html" class="underline">Blog</a> for quick guides.</p>
+            <h3 class="h3">Need Help? <span class="seo-tail">• support</span></h3>
+            <p class="text-slate-200/90 mt-2">See <a href="/#faq" class="underline">FAQ</a> or contact official support from the site if you run into issues.</p>
           </div>
         </div>
       </div>
     </section>
+
     <!-- Registration + Sidebar -->
     <section class="py-8">
       <div class="section-wrap grid lg:grid-cols-3 gap-6 items-start">
         <!-- Form -->
         <section id="register-form" class="lg:col-span-2 glass p-6 animate-pop" aria-labelledby="reg-title">
-          <h2 id="reg-title" class="h2">Quick Registration <span class="seo-tail">• earn & connect with love</span></h2>
-          <p class="text-slate-200/90 mt-1">Complete the form below. Fields marked * are required.</p>
+          <h2 id="reg-title" class="h2">Quick Registration <span class="seo-tail">• create your MiAmor account</span></h2>
+          <p class="text-slate-200/90 mt-1">Complete the form below. Fields marked * are required. If you prefer mobile, open the app and tap Sign Up.</p>
 
           <!-- NOTE: Replace action with your backend endpoint when ready -->
           <form id="miamorForm" action="https://linkfly.to/earningmiamor" method="post" class="mt-5 space-y-5"
@@ -166,10 +304,10 @@
             </div>
 
             <div>
-              <label for="email" class="label">Email *</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required
+              <label for="email" class="label">Email or Phone *</label>
+              <input id="email" name="contact" type="text" autocomplete="email tel" placeholder="you@example.com or +2348012345678" required
                 aria-required="true" class="input" />
-              <p id="errEmail" class="help mt-1 hidden text-red-300">Please enter a valid email address.</p>
+              <p id="errEmail" class="help mt-1 hidden text-red-300">Please enter a valid email address or phone number.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
@@ -212,49 +350,103 @@
 
         <!-- Sidebar -->
         <aside class="glass p-6 animate-pop" aria-labelledby="next-title">
-          <h2 id="next-title" class="h2">What’s next? <span class="seo-tail">• earn & connect with love</span></h2>
+          <h2 id="next-title" class="h2">What’s next? <span class="seo-tail">• after registration</span></h2>
           <ul class="list-disc ml-5 mt-3 space-y-2 text-slate-100">
-            <li>Get the app from <a class="underline" href="/#download">Downloads</a>.</li>
-            <li>Compare options on <a class="underline" href="/#packages">Packages</a>.</li>
-            <li>Read quick answers in the <a class="underline" href="/#faq">FAQ</a>.</li>
+            <li>Verify your email or phone to unlock features.</li>
+            <li>Download the app from <a class="underline" href="/#download">Downloads</a>.</li>
+            <li>Compare packages on <a class="underline" href="/#packages">Packages</a>.</li>
           </ul>
 
           <div class="mt-6">
-            <h3 class="h3">Helpful tips <span class="seo-tail">• earn & connect with love</span></h3>
-            <ol class="list-decimal ml-5 mt-2 space-y-1 text-slate-100/90">
+            <h3 class="h3">Helpful tips <span class="seo-tail">• quick</span></h3>
+            <ol class="list-decimal ml-5 mt-2 space-y-1 text-slate-100">
               <li>Use a strong, unique password.</li>
               <li>Bookmark <span class="bg-black/30 px-1.5 py-0.5 rounded">miamorweb.site</span>.</li>
-              <li>Keep your device updated.</li>
+              <li>Keep your device and app up to date.</li>
             </ol>
           </div>
         </aside>
       </div>
     </section>
 
-  </main> <!-- Footer -->
+  </main>
+
+  <!-- Footer (kept original layout/styling) -->
   <footer class="bg-slate-950/80 border-t border-white/10">
     <div class="section-wrap py-10">
-      <nav aria-label="Footer" class="text-slate-300"> <a href="/blog.html" class="underline hover:text-white">Blog</a>
-        • <a href="/#packages" class="underline hover:text-white">Packages</a> • <a href="/#faq"
-          class="underline hover:text-white">FAQ</a> • <a href="https://linkfly.to/earningmiamor" id="contact"
-          class="underline hover:text-white">Contact</a> </nav>
+      <nav aria-label="Footer" class="text-slate-300">
+        <a href="/blog.html" class="underline hover:text-white">Blog</a> • <a href="/#packages" class="underline hover:text-white">Packages</a> • <a href="/#faq" class="underline hover:text-white">FAQ</a> • <a href="https://linkfly.to/earningmiamor" id="contact" class="underline hover:text-white">Contact</a>
+      </nav>
       <div class="mt-4 flex flex-wrap gap-2">
-        <a class="chip" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank"
-          rel="noopener">Share</a>
+        <a class="chip" href="https://web.facebook.com/groups/455507947224832/?ref=share" target="_blank" rel="noopener">Share</a>
         <a class="chip" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">Tweet</a>
         <a class="chip" href="https://linktr.ee/makemoneyonline312" target="_blank" rel="noopener">WhatsApp</a>
       </div>
 
       <p class="text-slate-400 text-sm mt-6">© MiAmor 2025 • All rights reserved</p>
     </div>
+  </footer>
 
-  </footer> <!-- Back to top -->
-
+  <!-- Back to top -->
   <a href="#top" class="to-top focus-ring" aria-label="Back to top">↑</a>
 
-  <!-- JS: Mobile nav + form validation -->
-  <script> // Mobile menu toggle const toggle = document.getElementById('navToggle'); const panel = document.getElementById('mobilePanel'); if (toggle && panel) { toggle.addEventListener('click', () => { const isHidden = panel.classList.toggle('hidden'); const expanded = !isHidden; toggle.setAttribute('aria-expanded', String(expanded)); toggle.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu'); if (expanded) panel.querySelector('a')?.focus(); }); } // Password toggle const togglePwd = document.getElementById('togglePwd'); const pwd = document.getElementById('password'); togglePwd?.addEventListener('click', () => { const t = pwd.type === 'password' ? 'text' : 'password'; pwd.type = t; togglePwd.textContent = t === 'password' ? '👁' : '🙈'; }); // Simple client-side validation const form = document.getElementById('miamorForm'); const nameEl = document.getElementById('fullName'); const emailEl = document.getElementById('email'); const passEl = document.getElementById('password'); const confirmEl = document.getElementById('confirm'); const tosEl = document.getElementById('tos'); function show(id, show) { const el = document.getElementById(id); if (!el) return; el.classList.toggle('hidden', !show); } form?.addEventListener('submit', (e) => { let ok = true; if (!nameEl.value.trim()) { show('errName', true); ok = false; } else show('errName', false); const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value); if (!emailOk) { show('errEmail', true); ok = false; } else show('errEmail', false); if ((passEl.value || '').length < 8) { show('errPwd', true); ok = false; } else show('errPwd', false); if (confirmEl.value !== passEl.value) { show('errConfirm', true); ok = false; } else show('errConfirm', false); if (!tosEl.checked) ok = false; if (!ok) { e.preventDefault(); alert('Please fix the highlighted fields.'); } }); </script>
+  <!-- JS: Mobile nav + form validation (kept original handlers, updated email/phone check) -->
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const panel = document.getElementById('mobilePanel');
+    if (toggle && panel) {
+      toggle.addEventListener('click', () => {
+        const isHidden = panel.classList.toggle('hidden');
+        const expanded = !isHidden;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu');
+        if (expanded) panel.querySelector('a')?.focus();
+      });
+    }
+
+    // Password toggle
+    const togglePwd = document.getElementById('togglePwd');
+    const pwd = document.getElementById('password');
+    togglePwd?.addEventListener('click', () => {
+      const t = pwd.type === 'password' ? 'text' : 'password';
+      pwd.type = t;
+      togglePwd.textContent = t === 'password' ? '👁' : '🙈';
+    });
+
+    // Simple client-side validation
+    const form = document.getElementById('miamorForm');
+    const nameEl = document.getElementById('fullName');
+    const contactEl = document.getElementById('email');
+    const passEl = document.getElementById('password');
+    const confirmEl = document.getElementById('confirm');
+    const tosEl = document.getElementById('tos');
+
+    function show(id, show) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('hidden', !show);
+    }
+
+    form?.addEventListener('submit', (e) => {
+      let ok = true;
+      if (!nameEl.value.trim()) { show('errName', true); ok = false; } else show('errName', false);
+
+      const val = contactEl.value.trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      const phoneOk = /^\+?\d{7,15}$/.test(val);
+      if (!(emailOk || phoneOk)) { show('errEmail', true); ok = false; } else show('errEmail', false);
+
+      if ((passEl.value || '').length < 8) { show('errPwd', true); ok = false; } else show('errPwd', false);
+      if (confirmEl.value !== passEl.value) { show('errConfirm', true); ok = false; } else show('errConfirm', false);
+      if (!tosEl.checked) { ok = false; alert('Please accept Terms and Privacy policy.'); }
+
+      if (!ok) {
+        e.preventDefault();
+        alert('Please fix the highlighted fields.');
+      }
+    });
+  </script>
 </body>
 
 </html>
-
